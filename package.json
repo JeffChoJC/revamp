@@ -8,9 +8,11 @@
     "babel-loader": "^8.0.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-redux": "^7.0.3",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
@@ -27,6 +29,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development",
     "postinstall": "webpack"
   },
   "repository": {
