@@ -10,7 +10,7 @@ class SessionForm extends React.Component {
             password: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderErrors = this.renderErrors.bind(this);
+        this.clearField = this.clearField.bind(this);
     }
 
     update(field) {
@@ -35,6 +35,10 @@ class SessionForm extends React.Component {
         )
     }
 
+    clearField(field) {
+        return e => this.setState({ [field]: "" })
+    }
+
     render() {
         if (this.props.formType === 'login') {
             return (
@@ -47,11 +51,13 @@ class SessionForm extends React.Component {
                             <br/>
                             <input type='text'
                                 value={this.state.email}
+                                onClick={this.clearField('email')}
                                 onChange={this.update('email')}
                                 className='input-field'
                             />
                             <input type='password'
                                 value={this.state.password}
+                                onClick={this.clearField('password')}
                                 onChange={this.update('password')}
                                 className='input-field'
                             />

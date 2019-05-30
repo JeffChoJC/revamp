@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
             login(@user)
             render "api/users/show"
         else
-            render json: @user.errors.full.messages, status: 422
+            render json: @user.errors.full_messages, status: 422
         end
     end
 
@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
             if @user.update_attributes(user_params)
                 render "api/users/show"
             else
-                render json: @user.errors.full.messages, status: 422
+                render json: @user.errors.full_messages, status: 422
             end
         else
             render json: ["Please sign in"], status: 404
