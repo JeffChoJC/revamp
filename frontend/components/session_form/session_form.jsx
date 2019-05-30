@@ -4,13 +4,17 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fname: 'First',
-            lname: 'Last',
-            email: 'Email',
+            fname: '',
+            lname: '',
+            email: '',
             password: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearField = this.clearField.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.clearErrors;
     }
 
     update(field) {
@@ -20,15 +24,18 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.submit(user);
+        this.props.submit(user).then(
+            () => this.props.closeModal(),
+            null
+        );
     }
 
     renderErrors() {
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
-                    <li key={i}>
-                        { error }
+                    <li id="error" key={i}>
+                        {error}
                     </li>
                 ))}
             </ul>
@@ -42,63 +49,66 @@ class SessionForm extends React.Component {
     render() {
         if (this.props.formType === 'login') {
             return (
-                <div className='login-signup-container'>
-                    <form onSubmit={this.handleSubmit} className='login-signup-box'>
-                        Please sign in
+                <div className='login-form-container'>
+                    <form onSubmit={this.handleSubmit} className='login-form-box'>
+                        <p id="form-header">Please sign in</p>
                         <br/>
                         {this.renderErrors()}
-                        <div className='login-signup'>
-                            <br/>
+                        <div className='login-form'>
                             <input type='text'
                                 value={this.state.email}
-                                onClick={this.clearField('email')}
+                                placeholder="Email"
                                 onChange={this.update('email')}
                                 className='input-field'
                             />
                             <input type='password'
                                 value={this.state.password}
+                                placeholder="Password"
                                 onClick={this.clearField('password')}
                                 onChange={this.update('password')}
                                 className='input-field'
                             />
                             <br/>
-                            <input className='login-signup-submit' type='submit' value='Sign In' />
+                            <input className='submit-form-button' type='submit' value='Sign In' />
                         </div>
                     </form>
                 </div>
             )
         } else {
             return (
-                <div className='login-signup-container'>
-                    <form onSubmit={this.handleSubmit} className='login-signup-box'>
-                        Welcome to OpenRes!
-                        <br/>
+                <div className='signup-form-container'>
+                    <form onSubmit={this.handleSubmit} className='signup-form-box'>
+                        <p id="form-header">Welcome to OpenRes!</p>
                         {this.renderErrors()}
-                        <div className='login-signup'>
-                            <br/>
+                        <div className='signup-form'>
                             <input type='text'
                                 value={this.state.fname}
+                                placeholder="First Name *"
                                 onChange={this.update('fname')}
                                 className='input-field'
                             />
                             <input type='text'
                                 value={this.state.lname}
+                                placeholder="Last Name *"
                                 onChange={this.update('lname')}
                                 className='input-field'
                             />
                             <input type='text'
                                 value={this.state.email}
+                                placeholder="Enter email *"
                                 onChange={this.update('email')}
                                 className='input-field'
                             />
-                            <br/>
                             <input type='password'
                                 value={this.state.password}
+                                placeholder="Enter password *"
+                                onClick={this.clearField('password')}
                                 onChange={this.update('password')}
                                 className='input-field'
+                                data-val='true'
+                                data-val-required='Please enter your password.'
                             />
-                            <br/>
-                            <input className='login-signup-submit' type='submit' value='Create Account' />
+                            <input className='submit-form-button' type='submit' value='Create Account' />
                         </div>
                     </form>
                 </div>

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Greeting = ({ currentUser, logout }) => {
+const Greeting = ({ currentUser, logout, signupModal, loginModal }) => {
     function greeting() {
         return (
             <header className='header-section'>
@@ -14,8 +13,8 @@ const Greeting = ({ currentUser, logout }) => {
     function links() {
         return (
             <nav className="session-nav">
-                <Link to='/signup'>Sign Up</Link>
-                <Link to='/signin'>Sign In</Link>
+                <button id="signup-button" onClick={signupModal}>Sign up</button>
+                <button id="login-button" onClick={loginModal}>Sign in</button>
             </nav>
         )
     }

@@ -5,25 +5,20 @@ import {
     Redirect,
     Switch,
     Link,
-    HashRouter
 } from 'react-router-dom';
 
-import GreetingContainer from './greeting/greeting_container';
-import LoginFormContainer from './session_form/login_form_container';
-import SignupFormContainer from './session_form/signup_form_container';
+import NavBar from './navbar/navbar';
+import Modal from './modal/modal';
 
 const App = () => (
-    <div>
-        <header>
-            <Link to="/" className="header-link">
-                <h1>Open Res</h1>
-            </Link>
-            <GreetingContainer />
-        </header>
-
-        <Route path="/signin" component={LoginFormContainer} />
-        <Route path="/signup" component={SignupFormContainer} />
+    <>
+    <div className='app-content'>
+    <Modal />
+    <NavBar />
+        <div className='header'>
+        </div>
     </div>
+    </>
 );
 
 export default App;

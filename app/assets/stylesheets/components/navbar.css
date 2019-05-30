@@ -1,0 +1,64 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+    padding: 0px 36px;
+    height: 54px;
+    box-sizing: border-box;
+}
+
+.greeting-box {
+    display: inherit;
+}
+
+.session-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+}
+
+.header-link {
+    width: 200px;
+    padding-left: 0px;
+    margin: -4px 0px 10px 0px;
+}
+
+#header-img {
+    width: 80px;
+    height: 65px;
+    overflow: hidden;
+}
+
+#app-name {
+    color: black;
+    font-size: 24px;
+}
+
+#signup-button {
+    text-align: center;
+    background-color: #237b98;
+    border-color: #1c627a;
+    color: white;
+    width: 80px;
+    line-height: 26px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 10px 0px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#login-button {
+    background-color: inherit;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+    line-height: 26px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 0px 0px 0px 8px;
+    font-family: inherit;
+    font-size: 18px;
+}

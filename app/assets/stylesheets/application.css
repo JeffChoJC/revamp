@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    font-family: 'Jaldi', sans-serif;;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: darkkhaki;
+ }
+
+ a {
+    text-decoration: none;
+    color: white;
+ }
