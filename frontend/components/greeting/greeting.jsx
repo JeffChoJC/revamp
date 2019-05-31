@@ -1,11 +1,13 @@
 import React from 'react';
+import NavMenu from '../nav_menu/nav_menu';
 
-const Greeting = ({ currentUser, logout, signupModal, loginModal }) => {
+const Greeting = ({ currentUser, signupModal, loginModal }) => {
     function greeting() {
         return (
-            <header className='header-section'>
-                <h2 className="header-name">Hi, {currentUser.fname}</h2>
-                <button className="header-logout" onClick={logout}>Sign Out</button>
+            <header className='greeting-section'>
+                <h2 className="greeting-name">Hi, {currentUser.fname}</h2>
+                <i id="dropdown" className="fas fa-chevron-down"></i>
+                <NavMenu />
             </header>
         )
     }

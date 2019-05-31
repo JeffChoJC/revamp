@@ -13,10 +13,8 @@ import Modal from './modal/modal';
 const App = () => (
     <>
     <div className='app-content'>
-    <Modal />
-    <NavBar />
-        <div className='header'>
-        </div>
+        <Modal />
+        <NavBar />
     </div>
     </>
 );

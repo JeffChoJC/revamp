@@ -18,20 +18,22 @@
 }
 
 .header-link {
-    width: 200px;
+    width: 170px;
     padding-left: 0px;
-    margin: -4px 0px 10px 0px;
+    margin: -8px 0px 10px -15px;
+    -webkit-font-smoothing: antialiased;
 }
 
 #header-img {
-    width: 80px;
-    height: 65px;
+    width: 85px;
+    height: 70px;
     overflow: hidden;
 }
 
 #app-name {
     color: black;
     font-size: 24px;
+    font-weight: bold;
 }
 
 #signup-button {
@@ -61,4 +63,43 @@
     margin: 0px 0px 0px 8px;
     font-family: inherit;
     font-size: 18px;
+}
+
+.greeting-section {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin: 0px -16px 0px 0px;
+}
+
+.greeting-name {
+    -webkit-font-smoothing: antialiased;
+    font-weight: 200;
+    width: 85px;
+    font-family: inherit;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+#dropdown {
+    color: black;
+    margin-top: 18px;
+}
+
+.navmenu-container {
+    top: 50px;
+    right: 12px;
+    position: absolute;
+    width: 232px;
+    height: 500px;
+    border: 0.5px solid rgba(0, 0, 0, 0.4);
+    background-color: white;
+}
+
+.navmenu-item {
+    display: inline-block;
+    font-family: inherit;
+    font-size: 20px;
+    width: 232px;
+    color: rgba(0, 0, 0, 0.6);
 }
