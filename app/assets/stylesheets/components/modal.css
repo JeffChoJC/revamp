@@ -38,9 +38,12 @@
     margin-bottom: 8px;
     border: 0.5px solid rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
-    border-radius: 3px;
     font-family: inherit;
     font-weight: bold;
+ }
+
+ .input-field:focus {
+    border: 2px solid rgba(128, 128, 128, 0.8);
  }
 
  .submit-form-button {

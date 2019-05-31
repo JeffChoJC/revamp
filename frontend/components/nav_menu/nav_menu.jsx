@@ -13,11 +13,11 @@ const mdp = dispatch => ({
 
 const NavMenu = ({ logout }) => {
     return (
-        <div className="navmenu-container">
-            <Link to="/" class="navmenu-item">My Profile</Link>
-            <Link to="/" class="navmenu-item">My Dining History</Link>
-            <Link to="/" class="navmenu-item">My Saved Restaurants</Link>
-            <Link to="/" class="navmenu-item" onClick={logout}>Sign Out</Link>
+        <div className="navmenu-container hidden">
+            <Link to="/" className="navmenu-item">My Profile</Link>
+            <Link to="/" className="navmenu-item">My Dining History</Link>
+            <Link to="/" className="navmenu-item">My Saved Restaurants</Link>
+            <Link to="/" className="navmenu-item" onClick={logout}>Sign Out</Link>
         </div>
     )
 }

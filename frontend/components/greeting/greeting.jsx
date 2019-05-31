@@ -2,12 +2,25 @@ import React from 'react';
 import NavMenu from '../nav_menu/nav_menu';
 
 const Greeting = ({ currentUser, signupModal, loginModal }) => {
+    function toggle() {
+        const elements = document.getElementsByClassName("navmenu-container");
+        const numElements = elements.length;
+        
+        let i = 0;
+        while (i < numElements) {
+            elements[i].classList.toggle("hidden");
+            i++;
+        } 
+    }
+
     function greeting() {
         return (
-            <header className='greeting-section'>
+            <header onClick={() => toggle()} className='greeting-section'>
                 <h2 className="greeting-name">Hi, {currentUser.fname}</h2>
                 <i id="dropdown" className="fas fa-chevron-down"></i>
                 <NavMenu />
+                <div id="pointer" className="navmenu-container hidden">
+                </div>
             </header>
         )
     }

@@ -1,0 +1,19 @@
+.footer-container {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    height: 54px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .85);
+}
+
+.footer-container-items {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.footer-container > p {
+    margin-top: 10px;
+    color: lightslategray;
+}

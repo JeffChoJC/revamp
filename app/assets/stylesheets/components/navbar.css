@@ -25,12 +25,17 @@
 }
 
 #header-img {
+    position: absolute;
+    top: -6px;
     width: 85px;
-    height: 70px;
+    height: 65px;
     overflow: hidden;
 }
 
 #app-name {
+    position: absolute;
+    top: 15px;
+    left: 95px;
     color: black;
     font-size: 24px;
     font-weight: bold;
@@ -67,6 +72,7 @@
 
 .greeting-section {
     display: flex;
+    cursor: pointer;
     justify-content: center;
     width: auto;
     margin: 0px -16px 0px 0px;
@@ -86,20 +92,48 @@
     margin-top: 18px;
 }
 
+#pointer {
+    position: absolute;
+    right: 25px;
+    top: 42px;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-top: .5px solid rgba(0, 0, 0, 0.5);
+    border-left: .5px solid rgba(0, 0, 0, 0.5);
+    border-bottom: none;
+    border-right: none;
+    transform: rotate(45deg);
+    z-index: 1;
+    border-radius: 0px;
+}
+
 .navmenu-container {
     top: 50px;
     right: 12px;
     position: absolute;
     width: 232px;
-    height: 500px;
-    border: 0.5px solid rgba(0, 0, 0, 0.4);
+    height: auto;
+    border: .5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
     background-color: white;
+    overflow: hidden;
 }
 
 .navmenu-item {
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
     display: inline-block;
     font-family: inherit;
     font-size: 20px;
-    width: 232px;
+    width: 200px;
+    height: 18px;
     color: rgba(0, 0, 0, 0.6);
+    padding: 12.8px 16px;
+}
+
+.navmenu-item:hover {
+    -webkit-font-smoothing: antialiased;
+    color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(128, 128, 128, 0.08);
 }
