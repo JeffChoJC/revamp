@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, login } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions'
 import SessionForm from './session_form';
 
@@ -32,6 +32,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     submit: (user) => dispatch(signup(user)),
+    demoSubmit: (user) => dispatch(login(user)),
     closeModal: () => dispatch(closeModal())
 })
 

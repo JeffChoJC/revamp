@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearField = this.clearField.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,18 @@ class SessionForm extends React.Component {
             () => this.props.closeModal(),
             null
         );
+    }
+
+    demoLogin(e) {
+        e.preventDefault();
+        const demo = {
+            email: 'john_doe@gmail.com',
+            password: 'johndope'
+        }
+        this.props.demoSubmit(demo).then(
+            () => this.props.closeModal(),
+            null
+        )
     }
 
     renderErrors() {
@@ -70,6 +83,7 @@ class SessionForm extends React.Component {
                             />
                             <br/>
                             <input className='submit-form-button' type='submit' value='Sign In' />
+                            <button className='submit-form-button' onClick={this.demoLogin}>Demo Sign In</button>
                         </div>
                     </form>
                 </div>
@@ -109,6 +123,7 @@ class SessionForm extends React.Component {
                                 data-val-required='Please enter your password.'
                             />
                             <input className='submit-form-button' type='submit' value='Create Account' />
+                            <button className='submit-form-button' onClick={this.demoLogin}>Demo Sign In</button>
                         </div>
                     </form>
                 </div>

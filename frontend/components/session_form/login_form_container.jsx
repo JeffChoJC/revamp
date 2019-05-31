@@ -18,6 +18,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     submit: (user) => dispatch(login(user)),
+    demoSubmit: (user) => dispatch(login(user)),
     closeModal: () => dispatch(closeModal())
 })
 
