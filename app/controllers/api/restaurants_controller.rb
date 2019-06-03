@@ -1,15 +1,16 @@
-class RestaurantsController < ApplicationController
+class Api::RestaurantsController < ApplicationController
     def index
         @restaurants = Restaurant.all
     end
 
     def create
-        @restaurant = current_user.restaurants.new(restaurant_params)
+        @restaurant = Restaurants.new(restaurant_params)
+        @restaurant.owner_id = current_user.id
 
         if @restaurant.save!
             render "api/restaurants/show"
         else
-            render json: @restaurant, status: :unprocessable_entity
+            render json: @restaurant.errors.full_messages, status: 422
         end
     end
 
@@ -18,7 +19,7 @@ class RestaurantsController < ApplicationController
         if @restaurant.update_attributes(restaurant_params)
             render "api/restaurants/show"
         else
-            render json: @restaurant, status: :unprocessable_entity
+            render json: @restaurant.errors.full_messages, status: 422
         end
     end
 
@@ -28,6 +29,7 @@ class RestaurantsController < ApplicationController
         params.require(:restaurant).permit(
             :name,
             :description,
+            :phone_number,
             :cuisine,
             :address,
             :city,

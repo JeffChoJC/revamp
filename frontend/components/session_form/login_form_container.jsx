@@ -6,11 +6,11 @@ import SessionForm from './session_form';
 
 const msp = (state, ownProps) => {
     const clearErrors = () => {
-        return state['errors'] = [];
+        return state.errors['session'] = [];
     }
-    
+
     return {
-        errors: state.errors,
+        errors: state.errors.session,
         formType: 'login',
         clearErrors: clearErrors()
     }
@@ -19,6 +19,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
     submit: (user) => dispatch(login(user)),
     demoSubmit: (user) => dispatch(login(user)),
+    openModal: () => dispatch(openModal('signup')),
     closeModal: () => dispatch(closeModal())
 })
 

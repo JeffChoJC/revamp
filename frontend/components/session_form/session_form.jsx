@@ -84,8 +84,13 @@ class SessionForm extends React.Component {
                             <br/>
                             <input className='submit-form-button' type='submit' value='Sign In' />
                             <button className='submit-form-button' onClick={this.demoLogin}>Demo Sign In</button>
+
                         </div>
                     </form>
+                    <br/>
+                    <p className='link-to-signup'>New to OpenRes? &nbsp;
+                        <button onClick={this.props.openModal}>Create an account</button>
+                    </p>
                 </div>
             )
         } else {
@@ -119,8 +124,6 @@ class SessionForm extends React.Component {
                                 onClick={this.clearField('password')}
                                 onChange={this.update('password')}
                                 className='input-field'
-                                data-val='true'
-                                data-val-required='Please enter your password.'
                             />
                             <input className='submit-form-button' type='submit' value='Create Account' />
                             <button className='submit-form-button' onClick={this.demoLogin}>Demo Sign In</button>

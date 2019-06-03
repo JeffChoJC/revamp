@@ -2,7 +2,6 @@ import {
     RECEIVE_RESTAURANTS,
     RECEIVE_RESTAURANT,
     RECEIVE_REVIEW,
-    REMOVE_REVIEW
 } from '../actions/restaurant_actions';
 
 const restaurantsReducer = (state = {}, action) => {
@@ -14,10 +13,11 @@ const restaurantsReducer = (state = {}, action) => {
             const newRestaurant = { [action.restaurant.id]: action.restaurant };
             return Object.assign({}, state, newRestaurant);
         case RECEIVE_REVIEW:
-            const { review, overall_rating } = action;
+            const { review } = action;
+            // const { review, overall_rating } = action;
             const newState = Object.assign({}, state);
             newState[review.restaurant_id].reviewIds.push(review.id);
-            newState[review.restaurant_id].overall_rating = overall_rating;
+            // newState[review.restaurant_id].overall_rating = overall_rating;
             return newState;
         default:
             return state;

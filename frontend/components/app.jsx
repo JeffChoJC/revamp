@@ -7,15 +7,21 @@ import {
     Link,
 } from 'react-router-dom';
 
-import NavBar from './navbar/navbar';
 import Modal from './modal/modal';
+import NavBar from './navbar/navbar';
+import RestaurantIndexContainer from './search/restaurant_index_container';
 import Footer from './footer/footer'
 
 const App = () => (
     <>
     <div className='app-content'>
         <Modal />
-        <NavBar />
+        <header>
+            <Route path="/" component={NavBar} />
+        </header>
+        <Switch>
+            <Route path="/restaurants" component={RestaurantIndexContainer} />
+        </Switch>
         <Footer />
     </div>
     </>

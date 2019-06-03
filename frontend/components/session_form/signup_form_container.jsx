@@ -6,17 +6,19 @@ import SessionForm from './session_form';
 
 const msp = (state, ownProps) => {
     const clearErrors = () => {
-        return state['errors'] = [];
+        return state.errors['session'] = [];
     }
 
-    const errors = state.errors.map((error) => {
+    const errors = state.errors.session.map((error) => {
         switch (error) {
             case 'Fname can\'t be blank':
                 return 'Please enter your first name.'
             case 'Lname can\'t be blank':
                 return 'Please enter your last name.'
             case 'Email can\'t be blank':
-                return 'Please enter your last name.'
+                return 'Please enter your email.'
+            case 'Password is too short (minimum is 6 characters)':
+                return 'Please enter your password.'
             default:
                 return error
         }

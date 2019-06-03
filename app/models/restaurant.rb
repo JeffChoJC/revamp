@@ -8,7 +8,7 @@ class Restaurant < ApplicationRecord
 
     has_many :favorited,
         through: :favorites,
-        source: :user
+        source: :user.
 
     has_many :reservations
     has_many :reviews

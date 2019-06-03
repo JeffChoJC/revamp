@@ -1,4 +1,4 @@
-@restaurants.each do |restuarant|
+@restaurants.each do |restaurant|
     json.set! restaurant.id do
         json.partial! 'api/restaurants/restaurant', restaurant: restaurant
         json.reviewIds []
