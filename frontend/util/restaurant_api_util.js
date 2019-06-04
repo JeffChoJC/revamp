@@ -20,6 +20,14 @@ export const createRestaurant = restaurant => {
     })
 }
 
+export const searchRestaurant = keyword => {
+    return $.ajax({
+        method: "GET",
+        url: "/api/restaurants",
+        data: keyword
+    })
+}
+
 export const updateRestaurant = restaurant => {
     return $.ajax({
         method: "PATCH",

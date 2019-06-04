@@ -1,0 +1,8 @@
+.restaurant-index-container {
+    display: flex;
+    height: 100%;
+}
+
+.restaurant-index-item {
+    height: 120px;
+}

@@ -3,6 +3,8 @@ json.restaurant do
     json.reviewIds @restaurant.reviews.pluck(:id)
 end
 
+# @restaurant.reserations.
+
 @restaurant.reviews.include(:author).each do |review|
     json.reviews do
         json.set! review.id do
