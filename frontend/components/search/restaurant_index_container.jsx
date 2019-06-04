@@ -1,14 +1,18 @@
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRestaurants } from '../../actions/restaurant_actions';
+import { fetchRestaurants, searchRestaurants } from '../../actions/restaurant_actions';
 import { toArray } from '../../reducers/selectors';
 import RestaurantIndex from './restaurant_index';
 
-const msp = (state, ownProps) => ({
-    restaurants: toArray(state.entities.restaurants)
-})
+const msp = (state, ownProps) => {
+    return {
+        restaurants: toArray(state.entities.restaurants),
+    }
+}
 
 const mdp = dispatch => ({
-    fetchRestaurants: () => dispatch(fetchRestaurants())
+    fetchRestaurants: () => dispatch(fetchRestaurants()),
+    searchRestaurants: (keyword) => dispatch(searchRestaurants(keyword))
 })
 
-export default connect(msp, mdp)(RestaurantIndex)
+export default withRouter(connect(msp, mdp)(RestaurantIndex))

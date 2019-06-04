@@ -20,7 +20,7 @@ export const createRestaurant = restaurant => {
     })
 }
 
-export const searchRestaurant = keyword => {
+export const searchRestaurants = keyword => {
     return $.ajax({
         method: "GET",
         url: "/api/restaurants",

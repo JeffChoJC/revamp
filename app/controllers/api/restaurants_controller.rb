@@ -1,8 +1,15 @@
 class Api::RestaurantsController < ApplicationController
     def index
-        @restaurants = Restaurant.all
+        if params[:keyword]
+            @restaurants = Restaurant.search_by_keyword(params[:keyword])
+            # .includes(:reviews, :reservations).order(:name)
+        end
+        
+        unless @restaurants.length > 0
+            @restaurants = Restaurant.all
+        end
     end
-
+    
     def create
         @restaurant = Restaurants.new(restaurant_params)
         @restaurant.owner_id = current_user.id

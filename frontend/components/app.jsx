@@ -10,6 +10,7 @@ import {
 import Modal from './modal/modal';
 import NavBar from './navbar/navbar';
 import RestaurantIndexContainer from './search/restaurant_index_container';
+import SearchContainer from './search/search_container'
 import Footer from './footer/footer'
 
 const App = () => (
@@ -17,10 +18,11 @@ const App = () => (
     <div className='app-content'>
         <Modal />
         <header>
-            <Route path="/" component={NavBar} />
+            <NavBar />
         </header>
         <Switch>
-            <Route path="/restaurants" component={RestaurantIndexContainer} />
+            <Route exact path="/" component={SearchContainer} />
+            <Route path="/restaurants/search" component={RestaurantIndexContainer} />
         </Switch>
         <Footer />
     </div>

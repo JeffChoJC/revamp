@@ -48,6 +48,10 @@ export const updateRestaurant = restaurant => dispatch => (
     ApiUtil.updateRestaurant(restaurant).then(restaurant => dispatch(receiveRestaurant(restaurant)))
 )
 
+export const searchRestaurants = keyword => dispatch => (
+    ApiUtil.searchRestaurants(keyword).then(restaurants => dispatch(receiveRestaurants(restaurants)))
+)
+
 export const createReview = review => dispatch => (
     ApiUtil.createReview(review).then(review => dispatch(receiveReview(review)))
 )
