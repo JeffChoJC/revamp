@@ -17,7 +17,6 @@ class RestaurantIndex extends React.Component {
             const keyString = this.props.location.search.slice(9)
             const keywords = keyString.split("%20")
             const keyword = { keyword: keywords.join(" ") }
-            debugger
 
             this.props.searchRestaurants(keyword) || this.props.fetchRestaurants();
         }
