@@ -20,8 +20,11 @@
 .header-link {
     width: 170px;
     padding-left: 0px;
-    margin: -8px 0px 10px -15px;
+    margin: -8px 5px 0px -15px;
+    padding-bottom: 10px;
+    padding-right: 5px;
     -webkit-font-smoothing: antialiased;
+    border-right: .5px solid rgba(0, 0, 0, 0.17);
 }
 
 #header-img {
@@ -84,7 +87,11 @@
     width: 85px;
     font-family: inherit;
     font-size: 20px;
-    margin-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 18px;
+    border-left: .5px solid rgba(0, 0, 0, 0.17);
 }
 
 #dropdown {
@@ -98,13 +105,13 @@
     top: 42px;
     height: 15px;
     width: 15px;
-    background-color: white;
+    background-color: none;
     border-top: .5px solid rgba(0, 0, 0, 0.5);
     border-left: .5px solid rgba(0, 0, 0, 0.5);
     border-bottom: none;
     border-right: none;
     transform: rotate(45deg);
-    z-index: 1;
+    z-index: 10;
     border-radius: 0px;
 }
 
@@ -118,6 +125,7 @@
     border-radius: 3px;
     background-color: white;
     overflow: hidden;
+    z-index: 9;
 }
 
 .navmenu-item {

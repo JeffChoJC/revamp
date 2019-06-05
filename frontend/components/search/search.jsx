@@ -22,28 +22,45 @@ class Search extends React.Component {
         if (this.props.location.pathname !== "/") return null;
 
         return (
-            <div className="search-banner-container">
-                <h2 className="search-banner">Find your table for any occasion</h2>
+            <div className="banner-container">
+                <h2 className="banner">Find your table for any occasion</h2>
             </div>
         );
     }
 
-
     render() {
-        return (
-            <div className="search-container">
-                {this.banner()}
-                <form className={"searchbar"} onSubmit={this.handleSubmit}>
-                    <i className="fas fa-search"></i>
-                    <input className="searchbar-input"
-                        value={this.state.keyword}
-                        onChange={this.update("keyword")}
-                        placeholder="Location, Restaurant, or Cuisine"
-                    />
+        const content = (id) => {
+            return (
+                <form className="search-container" onSubmit={this.handleSubmit}>
+                    <div className="searchbar">
+                        <i id={id} className="fas fa-search"></i>
+                        <input className="searchbar-input"
+                            value={this.state.keyword}
+                            onChange={this.update("keyword")}
+                            placeholder="Location, Restaurant, or Cuisine"
+                        />
+                    </div>
                     <button className="search-submit">Let's go</button>
                 </form>
-            </div>
-        )
+            )
+        }
+        
+        if (this.props.location.pathname === "/") {
+            return (
+                <div className="splash-search-container">
+                    <div className="banner-with-search-container">
+                        {this.banner()}
+                        { content() }
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="others-searchbar-container">
+                    { content("icon") }
+                </div>
+            )
+        }
     }
 }
 

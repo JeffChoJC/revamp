@@ -1,0 +1,66 @@
+.splash-search-container {
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(rgba(65, 65, 95, 0.6),rgba(65, 65, 95, 0.6) ), url(asset-path("cover-photo-search.jpg"));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.others-searchbar-container {
+    width: 100%;
+    height: 65px;
+    background-image: linear-gradient(rgba(65, 65, 95, 0.6),rgba(65, 65, 95, 0.6) ), url(asset-path("cover-photo-search.jpg"));
+    background-position: right 25% top 30%;
+}
+
+.banner-with-search-container {
+    position: relative;
+    top: 35%;
+    text-align: center;
+}
+
+.banner {
+    font-size: 55px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.search-container {
+    position: relative;
+    top: 10px;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar {
+    width: 280px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.searchbar-input {
+    border: none;
+    padding: 6px 12px;
+    width: 220px;
+    font-family: inherit;
+    font-size: 18px;
+}
+
+.search-submit {
+    width: 130px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border-radius: 5px;
+    background-color: #da3743;
+    border-color: #b8222d;
+    margin-left: 24px;
+}
+
+#icon {
+    margin-left: 11px;
+}

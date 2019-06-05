@@ -4,7 +4,7 @@ import { signup, login } from '../../actions/session_actions';
 import { closeModal } from '../../actions/modal_actions'
 import SessionForm from './session_form';
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
     const clearErrors = () => {
         return state.errors['session'] = [];
     }

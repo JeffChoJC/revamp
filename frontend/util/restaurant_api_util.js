@@ -12,14 +12,6 @@ export const fetchRestaurant = id => {
     })
 }
 
-export const createRestaurant = restaurant => {
-    return $.ajax({
-        method: "POST",
-        url: 'api/restaurants',
-        data: { restaurant }
-    })
-}
-
 export const searchRestaurants = keyword => {
     return $.ajax({
         method: "GET",

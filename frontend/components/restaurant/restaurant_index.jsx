@@ -1,6 +1,6 @@
 import React from 'react';
 import RestaurantIndexItem from './restaurant_index_item';
-import SearchContainer from './search_container';
+import SearchContainer from '../search/search_container';
 
 
 class RestaurantIndex extends React.Component {

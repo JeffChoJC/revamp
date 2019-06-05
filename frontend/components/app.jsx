@@ -9,8 +9,9 @@ import {
 
 import Modal from './modal/modal';
 import NavBar from './navbar/navbar';
-import RestaurantIndexContainer from './search/restaurant_index_container';
+import Home from './home/home_page';
 import SearchContainer from './search/search_container'
+import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import Footer from './footer/footer'
 
 const App = () => (
@@ -21,7 +22,7 @@ const App = () => (
             <NavBar />
         </header>
         <Switch>
-            <Route exact path="/" component={SearchContainer} />
+            <Route exact path="/" component={Home} />
             <Route path="/restaurants/search" component={RestaurantIndexContainer} />
         </Switch>
         <Footer />

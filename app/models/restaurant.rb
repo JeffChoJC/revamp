@@ -20,6 +20,7 @@ class Restaurant < ApplicationRecord
         :cuisine,
         :address,
         :city,
+        :state,
         :zipcode]
 
     def open_time

@@ -1,8 +1,36 @@
 .restaurant-index-container {
     display: flex;
+    justify-content: center;
     height: 100%;
+    margin-top: 20px;
+}
+
+.restaurants {
+    width: 400px;
+}
+
+.restaurant-index-photo {
+    float: left;
+    border-radius: 4px;
+}
+
+.listing-details {
+    float: left;
+    margin: 5px 0px 0px 15px;
+}
+
+.restaurant-name-link {
+    -webkit-font-smoothing: antialiased;
+    color: #247f9e;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .restaurant-index-item {
+    display: table;
     height: 120px;
+    width: 100%;
+    margin: 20px 0px;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.40);
 }
