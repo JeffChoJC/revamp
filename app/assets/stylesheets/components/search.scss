@@ -69,11 +69,10 @@
     border-radius: 5px;
     background-color: white;
     border: none;
-    // padding: 6px 12px;
-    // width: 220px;
     font-family: inherit;
     font-size: 18px;
     display: flex;
+    margin-right: 24px;
 }
 
 .reservation-date {
@@ -93,6 +92,11 @@
     border-bottom-left-radius: 5px;
     padding: 0px 0px 0px 10px;
     border-right: 0.5px solid rgba(0, 0, 0, 0.17);
+    width: 140px;
+}
+
+.reservation-time {
+    width: 170px;
 }
 
 #time-selector {
@@ -100,4 +104,33 @@
     color: black;
     border: none;
     background-color: white;
+    height: 100%;
+    width: 140px;
+}
+
+#ticker {
+    padding-left: 11px;
+}
+
+.reservation-party {
+    width: 170px;
+}
+
+#party-selector {
+    font-family: inherit;
+    color: black;
+    border: none;
+    background-color: white;
+    height: 100%;
+    width: 140px;
+}
+
+#user-icon {
+    padding-left: 10px;
+}
+
+.border-space {
+    color: white;
+    height: 100%;
+    border-left: 0.5px solid rgba(0, 0, 0, 0.17);
 }

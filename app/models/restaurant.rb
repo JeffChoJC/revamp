@@ -124,4 +124,10 @@ class Restaurant < ApplicationRecord
         ["Detroit", "MI"],
         ["Phoenix", "AZ"]
     ]
+
+    PRICE_RANGES = [
+        "$30 and under",
+        "$31 to $50",
+        "$51 and over"
+    ]
 end

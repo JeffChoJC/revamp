@@ -1,22 +1,20 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import { fetchRestaurant } from '../../actions/restaurant_actions';
 import RestaurantShow from "./restaurant_show";
 
-const mapStateToProps = ({ entities, errors, session, ui }, { match }) => {
-    return ({
-        restaurant: entities.restaurants[match.params.id],
-        errors: errors.restaurant,
-        loading: ui.loading.showLoading,
-        currentUser: session.currentUser
-    });
-};
+const msp = (state, ownProps) => {
+    return {
+        restaurant: state.entities.restaurants[ownProps.match.params.id],
+        errors: state.errors.restaurant,
+    }
+}
 
-const mapDispatchToProps = (dispatch, { match }) => {
-    return ({
-        fetchRestaurant: () => dispatch(fetchRestaurant(match.params.id)),
-        fetchFavorites: (userId) => dispatch(fetchFavorites(userId))
-    });
-};
+const mdp = (dispatch) => {
+    return {
+        fetchRestaurant: (id) => dispatch(fetchRestaurant(id)),
+    }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantShow);
+export default withRouter(connect(msp, mdp)(RestaurantShow));

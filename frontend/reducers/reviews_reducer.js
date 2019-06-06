@@ -8,10 +8,10 @@ const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_RESTAURANT:
-            return merge({}, state, action.reviews);
+            return Object.assign({}, state, action.reviews);
         case RECEIVE_REVIEW:
             const { review } = action;
-            return merge({}, state, { [review.id]: review });
+            return Object.assign({}, state, { [review.id]: review });
         case REMOVE_REVIEW:
             let newState = Object.assign({}, state);
             delete newState[action.reviewId];

@@ -26,8 +26,7 @@ export const fetchRestaurants = () => dispatch => (
 
 export const fetchRestaurant = id => dispatch => (
     ApiUtil.fetchRestaurant(id).then(
-        restaurant => dispatch(receiveRestaurant(restaurant)),
-        err => dispatch(receiveRestaurantErrors(err.responseJSON))
+        restaurant => dispatch(receiveRestaurant(restaurant))
     )
 )
 

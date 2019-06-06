@@ -16,7 +16,7 @@ User.create!({
     password: 'johndope'
 })
 
-50.times do
+100.times do
     email = Faker::Internet.email
     next if User.exists?(email: email)
 
@@ -30,6 +30,7 @@ end
 
 Restaurant.create!({
     name: 'FIG & OLIVE',
+    price_range: "$31 to $50",
     description: 'FIG & OLIVE is about passion for the best olive oils, flavors and cuisine from the Riviera & Coastal regions of the South of France, Italy and Spain. It is a full service restaurant featuring lunch, brunch and dinner menus. The exceptional wine list includes over 30 wines offered by the glass or bottle from Italy, France and Spain.',
     phone_number: '(212)319-2002',
     cuisine: 'Mediterranean',
@@ -40,13 +41,14 @@ Restaurant.create!({
     owner_id: 1
 })
 
-40.times do
+70.times do
     city_state = Restaurant::CITIES.sample
     name = Faker::Restaurant.name
     next if Restaurant.exists?(name: name)
 
     Restaurant.create!({
         name: name,
+        price_range: Restaurant::PRICE_RANGES.sample,
         description: Faker::Restaurant.description,
         phone_number: Faker::PhoneNumber.cell_phone,
         cuisine: Restaurant::CUISINES.sample,

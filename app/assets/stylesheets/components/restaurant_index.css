@@ -1,22 +1,38 @@
+.num-tables {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+}
+
 .restaurant-index-container {
+    position: relative;
     display: flex;
     justify-content: center;
     height: 100%;
-    margin-top: 20px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .restaurants {
-    width: 400px;
+    box-sizing: border-box;
 }
 
 .restaurant-index-photo {
-    float: left;
+    /* float: left; */
     border-radius: 4px;
 }
 
 .listing-details {
-    float: left;
+    /* float: left; */
+    width: 70%;
     margin: 5px 0px 0px 15px;
+}
+
+.rating-dollars {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2px;
 }
 
 .restaurant-name-link {
@@ -27,14 +43,23 @@
 }
 
 .restaurant-index-item {
-    display: table;
-    height: 120px;
-    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    height: auto;
+    width: 700px;
     margin: 20px 0px;
     padding-bottom: 20px;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.40);
+    box-sizing: border-box;
 }
 
 .restaurant-brief-details li {
-    margin-top: 2px;
+    margin-top: 3px;
+}
+
+
+
+.booked-times {
+    font-weight: bold;
+    padding-top: 5px;
 }

@@ -26,8 +26,8 @@ class RestaurantIndex extends React.Component {
         const restaurants = this.props.restaurants.map(restaurant => {
             return (
                 <RestaurantIndexItem
-                    key={restaurant.id}
-                    restaurant={restaurant}
+                    key={ restaurant.id } 
+                    restaurant={ restaurant }
                 />
             )
         })
@@ -35,8 +35,10 @@ class RestaurantIndex extends React.Component {
         return (
             <>
             <SearchContainer />
+            <div className="table-results"></div>
             <div className="restaurant-index-container">
                 <ul className="restaurants">
+                    <p className="num-tables">{`${this.props.restaurants.length} TABLES AVAILABLE`}</p>
                     { restaurants }
                 </ul>
             </div>

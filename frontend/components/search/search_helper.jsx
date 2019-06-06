@@ -1,4 +1,4 @@
-export const today = () => {
+export const today = (date) => {
     const months = {
         0: "Jan",
         1: "Feb",
@@ -14,10 +14,9 @@ export const today = () => {
         11: "Dec",
     }
 
-    const day = new Date();
-    const month = months[day.getMonth()];
-    const date = day.getDay();
-    const year = day.getFullYear();
+    let month = months[date.getMonth()];
+    let day = date.getDay();
+    let year = date.getFullYear();
 
-    return `${month} ${date}, ${year}`;
+    return `${month} ${day}, ${year}`;
 }

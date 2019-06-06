@@ -16,7 +16,7 @@ class Search extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault();
-        this.props.history.push(`/restaurants/search?keyword=${this.state.keyword}`);
+        this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }`);
     }
 
     banner() {
@@ -32,34 +32,56 @@ class Search extends React.Component {
     render() {
         const content = (id) => {
             return (
-                <form className="search-container" onSubmit={this.handleSubmit}>
+                <form className="search-container" onSubmit={ this.handleSubmit }>
                     <div className="reservation-options">
                         <div className="reservation-date">
                             <i id="date" className="far fa-calendar"></i>
-                            <input type="text" id="datepicker"
-                                value={`${today()}`}
+                            <input id="datepicker"
+                                value={ today(new Date()) }
                                 readOnly
                             />
                         </div>
-                        <select id="time-selector">
-                            <option value="5:00 PM">5:00 PM</option>
-                            <option value="5:30 PM">5:30 PM</option>
-                            <option value="6:00 PM">6:00 PM</option>
-                            <option value="6:30 PM">6:30 PM</option>
-                            <option value="7:00 PM" selected>7:00 PM</option>
-                            <option value="7:30 PM">7:30 PM</option>
-                            <option value="8:00 PM">8:00 PM</option>
-                            <option value="8:30 PM">8:30 PM</option>
-                            <option value="9:00 PM">9:00 PM</option>
-                            <option value="9:30 PM">9:30 PM</option>
-                            <option value="10:00 PM">10:00 PM</option>
-                        </select>
+                        <div className="reservation-time">
+                            <i id="ticker" className="far fa-clock"></i>
+                            <select id="time-selector">
+                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="2 people">5:30 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                                <option value="6:30 PM">6:30 PM</option>
+                                <option value="7:00 PM" selected>7:00 PM</option>
+                                <option value="7:30 PM">7:30 PM</option>
+                                <option value="8:00 PM">8:00 PM</option>
+                                <option value="8:30 PM">8:30 PM</option>
+                                <option value="9:00 PM">9:00 PM</option>
+                                <option value="9:30 PM">9:30 PM</option>
+                                <option value="10:00 PM">10:00 PM</option>
+                            </select>
+                        </div>
+                        <div className="border-space">.</div>
+                        <div className="reservation-party">
+                            <i id="user-icon" className="far fa-user"></i>
+                            <select id="party-selector">
+                                <option value="1 person">1 person</option>
+                                <option value="2 people" selected>2 people</option>
+                                <option value="3 people">3 people</option>
+                                <option value="4 people">4 people</option>
+                                <option value="5 people">5 people</option>
+                                <option value="6 people">6 people</option>
+                                <option value="7 people">7 people</option>
+                                <option value="8 people">8 people</option>
+                                <option value="9 people">9 people</option>
+                                <option value="10 people">10 people</option>
+                                <option value="11 people">11 people</option>
+                                <option value="12 people">12 people</option>
+                                <option value="Larger party">Larger party</option>
+                            </select>
+                        </div>
                     </div>
                     <div className="searchbar">
-                        <i id={id} className="fas fa-search"></i>
+                        <i id={ id } className="fas fa-search"></i>
                         <input className="searchbar-input"
-                            value={this.state.keyword}
-                            onChange={this.update("keyword")}
+                            value={ this.state.keyword }
+                            onChange={ this.update("keyword") }
                             placeholder="Location, Restaurant, or Cuisine"
                         />
                     </div>
@@ -72,7 +94,7 @@ class Search extends React.Component {
             return (
                 <div className="splash-search-container">
                     <div className="banner-with-search-container">
-                        {this.banner()}
+                        { this.banner() }
                         { content() }
                     </div>
                 </div>
