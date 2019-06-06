@@ -43,7 +43,7 @@ class Restaurant < ApplicationRecord
                 .concat(":#{start_int.to_s[2..3]}")
                 .concat(":00"))
 
-            start_int += 15
+            start_int += 30
             if start_int.to_s[2..3] == "60"
                 start_int += 40
             end

@@ -24,7 +24,7 @@
     font-size: 55px;
     color: white;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .search-container {
@@ -63,4 +63,41 @@
 
 #icon {
     margin-left: 11px;
+}
+
+.reservation-options {
+    border-radius: 5px;
+    background-color: white;
+    border: none;
+    // padding: 6px 12px;
+    // width: 220px;
+    font-family: inherit;
+    font-size: 18px;
+    display: flex;
+}
+
+.reservation-date {
+    height: 100%;
+    overflow: hidden;
+}
+
+#date {
+    padding-left: 11px;
+}
+
+#datepicker {
+    font-family: inherit;
+    height: 100%;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0px 0px 0px 10px;
+    border-right: 0.5px solid rgba(0, 0, 0, 0.17);
+}
+
+#time-selector {
+    font-family: inherit;
+    color: black;
+    border: none;
+    background-color: white;
 }

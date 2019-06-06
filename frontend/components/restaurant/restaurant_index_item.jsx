@@ -15,7 +15,7 @@ const RestaurantIndexItem = props => {
                 </Link>
                 <ul className="restaurant-brief-details">
                     <li className="cuisine">{props.restaurant.cuisine}</li>
-                    <li className="booked-times">{`Booked ${img} times today`}</li>
+                    <li className="booked-times"><i className="fas fa-chart-line">&nbsp;</i>{`Booked ${img} times today`}</li>
                 </ul>
             </div>
         </li>
