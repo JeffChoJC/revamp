@@ -8,12 +8,12 @@ class Restaurant < ApplicationRecord
         foreign_key: :owner_id,
         class_name: 'User'
 
-    has_many :favorited,
-        through: :favorites,
-        source: :user
+    # has_many :favorited,
+    #     through: :favorites,
+    #     source: :user
 
-    has_many :reservations
-    has_many :reviews
+    # has_many :reservations
+    # has_many :reviews
 
     pg_search_scope :search_by_keyword, against: [
         :name,
@@ -59,35 +59,35 @@ class Restaurant < ApplicationRecord
         end
     end
 
-    def overall_rating
-        ratings = self.reviews.pluck(:overall_rating)
-        ratings.sum / ratings.length
-    end
+    # def overall_rating
+    #     ratings = self.reviews.pluck(:overall_rating)
+    #     ratings.sum / ratings.length
+    # end
 
-    def food_rating
-        ratings = self.reviews.pluck(:food_rating)
-        ratings.sum / ratings.length
-    end
+    # def food_rating
+    #     ratings = self.reviews.pluck(:food_rating)
+    #     ratings.sum / ratings.length
+    # end
 
-     def service_rating
-        ratings = self.reviews.pluck(:service_rating)
-        ratings.sum / ratings.length
-    end
+    #  def service_rating
+    #     ratings = self.reviews.pluck(:service_rating)
+    #     ratings.sum / ratings.length
+    # end
 
-     def ambience_rating
-        ratings = self.reviews.pluck(:ambience_rating)
-        ratings.sum / ratings.length
-    end
+    #  def ambience_rating
+    #     ratings = self.reviews.pluck(:ambience_rating)
+    #     ratings.sum / ratings.length
+    # end
 
-     def value_rating
-        ratings = self.reviews.pluck(:value_rating)
-        ratings.sum / ratings.length
-    end
+    #  def value_rating
+    #     ratings = self.reviews.pluck(:value_rating)
+    #     ratings.sum / ratings.length
+    # end
 
-     def noise_level
-        ratings = self.reviews.pluck(:noise_level)
-        ratings.sum / ratings.length
-    end
+    #  def noise_level
+    #     ratings = self.reviews.pluck(:noise_level)
+    #     ratings.sum / ratings.length
+    # end
 
     CUISINES = [
         "American",
