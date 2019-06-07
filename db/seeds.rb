@@ -41,7 +41,7 @@ Restaurant.create!({
     owner_id: User.all.sample.id
 })
 
-70.times do
+150.times do
     city_state = Restaurant::CITIES.sample
     name = Faker::Restaurant.name
     next if Restaurant.exists?(name: name)
