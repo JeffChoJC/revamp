@@ -13,26 +13,12 @@ Other features include: `(currently unavailable)`
 * Writing reviews
 * Saving a restaurant to your favorites
 
-### Live Site: https://git.heroku.com/open-res.git
----
+Live Site: https://git.heroku.com/open-res.git
 
 
-Things you may want to cover:
 
-* Ruby version
+# Features:
+## Restaurant Search
+Users can search for multiple `keyword`s against multiple restaurant data columns. This feature implements the gem `PgSearch`. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="./readme_images/search_example.png">
