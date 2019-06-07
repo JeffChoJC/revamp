@@ -19,6 +19,9 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     background-color: white;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 54px;
  }
 
  a {

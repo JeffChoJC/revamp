@@ -1,13 +1,17 @@
 import React from "react";
 import { today } from './search_helper';
+// import DatePicker from 'react-datepicker';
+// import "react-datepicker/dist/react-datepicker.css";
 
 class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             keyword: "",
+            date: new Date(),
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     update(field) {
@@ -17,6 +21,12 @@ class Search extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }`);
+    }
+
+    handleChange(datepick) {
+        this.setState({
+            date: datepick
+        })
     }
 
     banner() {
@@ -30,14 +40,21 @@ class Search extends React.Component {
     }
 
     render() {
+        const date = today(new Date());
+        
         const content = (id) => {
             return (
                 <form className="search-container" onSubmit={ this.handleSubmit }>
                     <div className="reservation-options">
                         <div className="reservation-date">
                             <i id="date" className="far fa-calendar"></i>
+                            {/* <DatePicker
+                                id="datepicker"
+                                selected={this.state.startDate}
+                                onChange={this.handleChange}
+                            /> */}
                             <input id="datepicker"
-                                value={ today(new Date()) }
+                                value={ date }
                                 readOnly
                             />
                         </div>

@@ -13,3 +13,10 @@ export const recRate = () => {
     const range = Math.floor(Math.random() * 45);
     return (100 - range).toString().concat("%");
 }
+
+export const parseTime = (time) => {
+    const hour = time.slice(0, 2) % 12;
+    const min = time.slice(3, 5)
+
+    return `${hour}:${min}`
+}

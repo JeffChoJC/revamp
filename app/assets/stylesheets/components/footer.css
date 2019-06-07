@@ -3,7 +3,7 @@
     display: flex;
     justify-content: flex-end;
     box-sizing: border-box;
-    top: 100%;
+    bottom: 0;
     height: 54px;
     width: 100%;
     background-color: rgba(0, 0, 0, .85);

@@ -13,9 +13,8 @@ export const today = (date) => {
         10: "Nov",
         11: "Dec",
     }
-
     let month = months[date.getMonth()];
-    let day = date.getDay();
+    let day = date.getDate();
     let year = date.getFullYear();
 
     return `${month} ${day}, ${year}`;

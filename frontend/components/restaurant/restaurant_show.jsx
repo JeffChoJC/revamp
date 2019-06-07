@@ -1,4 +1,5 @@
 import React from "react";
+import { parseTime } from './restaurant_helper';
 
 class RestaurantShow extends React.Component {
     componentDidMount() {
@@ -11,7 +12,6 @@ class RestaurantShow extends React.Component {
         return (
             <>
             <div className="cover-photo">Photo Here</div>
-            {/* <div className="main-restaurant-content"> */}
                 <div className="restaurant-container">
                     <div className="restaurant-overview">
                         <h1 className="restaurant-name">{ restaurant.name }</h1>
@@ -49,13 +49,12 @@ class RestaurantShow extends React.Component {
                                 <i id="clock-icon" className="far fa-clock"></i>
                                 <div className="restaurant-detail-item">
                                     <h3>Hours of Operation</h3>
-                                    Dinner: { restaurant.open_time } - { restaurant.close_time }
+                                    Dinner: {`${ parseTime(restaurant.open_time) }PM - ${ parseTime(restaurant.close_time) }PM`}
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
-            {/* </div> */}
             </>
         );
     }
