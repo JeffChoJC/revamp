@@ -8,6 +8,15 @@ OpenRes is modeled after OpenTable. Like OpenTable, OpenRes is a web application
 * Cuisine
 * Restaurant Name
 
+Other features include: `(currently unavailable)`
+* Making reservations
+* Writing reviews
+* Saving a restaurant to your favorites
+
+### Live Site: https://git.heroku.com/open-res.git
+---
+
+
 Things you may want to cover:
 
 * Ruby version
