@@ -38,7 +38,7 @@ Restaurant.create!({
     city: 'New York',
     state: 'NY',
     zipcode: '10021',
-    owner_id: 1
+    owner_id: User.all.sample.id
 })
 
 70.times do
