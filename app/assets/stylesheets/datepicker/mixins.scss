@@ -1,59 +1,61 @@
-// %triangle-arrow {
-//   margin-left: -$datepicker__triangle-size;
-//   position: absolute;
+@import "variables.scss";
 
-//   &,
-//   &::before {
-//     box-sizing: content-box;
-//     position: absolute;
-//     border: $datepicker__triangle-size solid transparent;
+%triangle-arrow {
+  margin-left: -$datepicker__triangle-size;
+  position: absolute;
 
-//     height: 0;
-//     width: 1px;
-//   }
+  &,
+  &::before {
+    box-sizing: content-box;
+    position: absolute;
+    border: $datepicker__triangle-size solid transparent;
 
-//   &::before {
-//     content: "";
-//     z-index: -1;
-//     border-width: $datepicker__triangle-size;
+    height: 0;
+    width: 1px;
+  }
 
-//     left: -$datepicker__triangle-size;
-//     border-bottom-color: $datepicker__border-color;
-//   }
-// }
+  &::before {
+    content: "";
+    z-index: -1;
+    border-width: $datepicker__triangle-size;
 
-// %triangle-arrow-up {
-//   @extend %triangle-arrow;
+    left: -$datepicker__triangle-size;
+    border-bottom-color: $datepicker__border-color;
+  }
+}
 
-//   top: 0;
-//   margin-top: -$datepicker__triangle-size;
+%triangle-arrow-up {
+  @extend %triangle-arrow;
 
-//   &,
-//   &::before {
-//     border-top: none;
-//     border-bottom-color: $datepicker__background-color;
-//   }
+  top: 0;
+  margin-top: -$datepicker__triangle-size;
 
-//   &::before {
-//     top: -1px;
-//     border-bottom-color: $datepicker__border-color;
-//   }
-// }
+  &,
+  &::before {
+    border-top: none;
+    border-bottom-color: $datepicker__background-color;
+  }
 
-// %triangle-arrow-down {
-//   @extend %triangle-arrow;
+  &::before {
+    top: -1px;
+    border-bottom-color: $datepicker__border-color;
+  }
+}
 
-//   bottom: 0;
-//   margin-bottom: -$datepicker__triangle-size;
+%triangle-arrow-down {
+  @extend %triangle-arrow;
 
-//   &,
-//   &::before {
-//     border-bottom: none;
-//     border-top-color: #fff;
-//   }
+  bottom: 0;
+  margin-bottom: -$datepicker__triangle-size;
 
-//   &::before {
-//     bottom: -1px;
-//     border-top-color: $datepicker__border-color;
-//   }
-// }
+  &,
+  &::before {
+    border-bottom: none;
+    border-top-color: #fff;
+  }
+
+  &::before {
+    bottom: -1px;
+    border-top-color: $datepicker__border-color;
+  }
+}

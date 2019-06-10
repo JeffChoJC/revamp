@@ -43,5 +43,8 @@
   "bugs": {
     "url": "https://github.com/JeffChoJC/full_stack_project/issues"
   },
-  "homepage": "https://github.com/JeffChoJC/full_stack_project#readme"
+  "homepage": "https://github.com/JeffChoJC/full_stack_project#readme",
+  "devDependencies": {
+    "css-loader": "^2.1.1"
+  }
 }
