@@ -1,7 +1,6 @@
 class Api::RestaurantsController < ApplicationController
     def index
         if params[:keyword]
-            debugger
             @restaurants = Restaurant.search_by_keyword(params[:keyword])
             # .includes(:reviews, :reservations).order(:name)
         end
