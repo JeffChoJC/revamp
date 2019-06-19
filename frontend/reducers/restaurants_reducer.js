@@ -1,7 +1,6 @@
 import { 
     RECEIVE_RESTAURANTS,
     RECEIVE_RESTAURANT,
-    RECEIVE_REVIEW,
 } from '../actions/restaurant_actions';
 
 const restaurantsReducer = (state = {}, action) => {
@@ -12,11 +11,6 @@ const restaurantsReducer = (state = {}, action) => {
         case RECEIVE_RESTAURANT:
             const newRestaurant = { [action.restaurant.id]: action.restaurant };
             return Object.assign({}, state, newRestaurant);
-        case RECEIVE_REVIEW:
-            const { review } = action;
-            const newState = Object.assign({}, state);
-            newState[review.restaurant_id].reviewIds.push(review.id);
-            return newState;
         default:
             return state;
     }

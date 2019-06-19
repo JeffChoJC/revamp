@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  fname           :string           not null
+#  lname           :string           not null
+#  phone_number    :string
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ApplicationRecord
 
   attr_reader :password

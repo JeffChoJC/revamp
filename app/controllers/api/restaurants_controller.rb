@@ -1,24 +1,4 @@
 class Api::RestaurantsController < ApplicationController
-    def index
-        if params[:keyword]
-            @restaurants = Restaurant.search_by_keyword(params[:keyword])
-            # .includes(:reviews, :reservations).order(:name)
-        end
-        
-        unless @restaurants.length > 0
-            @restaurants = Restaurant.all
-        end
-    end
-
-    def show
-        @restaurant = Restaurant.find_by(id: params[:id])
-        if @restaurant
-            render "api/restaurants/show"
-        else
-            render json: ["Restaurant unavailable"]
-        end
-    end
-    
     def create
         @restaurant = Restaurants.new(restaurant_params)
         @restaurant.owner_id = current_user.id
@@ -29,16 +9,29 @@ class Api::RestaurantsController < ApplicationController
             render json: @restaurant.errors.full_messages, status: 422
         end
     end
-
-    def update
-        @restaurant = current_user.restuarants.find(params[:id])
-        if @restaurant.update_attributes(restaurant_params)
-            render "api/restaurants/show"
-        else
-            render json: @restaurant.errors.full_messages, status: 422
+    
+    def index
+        if params[:keyword]
+            @restaurants = Restaurant.search_by_keyword(params[:keyword])
+                .includes(:reviews) #, :reservations).order(:name)
+        end
+        
+        unless @restaurants.length > 0
+            @restaurants = Restaurant.all
         end
     end
 
+    def show
+        @restaurant = Restaurant.includes(reviews: :author).
+            find_by(id: params[:id])
+            debugger
+        if @restaurant
+            render "api/restaurants/show"
+        else
+            render json: ["Restaurant unavailable"]
+        end
+    end
+    
     private
 
     def restaurant_params
@@ -52,6 +45,7 @@ class Api::RestaurantsController < ApplicationController
             :city,
             :state,
             :zipcode,
-            :owner_id)
+            :owner_id
+        )
     end
 end

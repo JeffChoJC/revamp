@@ -1,7 +1,35 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id           :bigint           not null, primary key
+#  name         :string           not null
+#  description  :text
+#  cuisine      :string
+#  address      :string           not null
+#  city         :string           not null
+#  state        :string           not null
+#  zipcode      :string           not null
+#  phone_number :string           not null
+#  open_time    :time
+#  close_time   :time
+#  rating       :decimal(, )
+#  price_range  :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  owner_id     :integer          not null
+#
+
 class Restaurant < ApplicationRecord
     include PgSearch
 
-    validates :name, :address, :city, :state, :zipcode, :phone_number, presence: true
+    validates :name, 
+        :address,
+        :city,
+        :state,
+        :zipcode,
+        :phone_number,
+        presence: true
 
     belongs_to :owner,
         primary_key: :id,
@@ -50,12 +78,12 @@ class Restaurant < ApplicationRecord
         end
     end
 
-    def open_slots(restaurant)
-        resDates = restaurant.reservations.pluck(:date)
-        resTimes = restaurant.reservations.pluck(:time)
+    def open_slots
+        # resDates = self.reservations.pluck(:date) #implement dates for time slots
+        resTimes = self.reservations.pluck(:time)
 
         @openings = @time_slots.reject do |slot|
-            reservations.include?(slot)
+            resTimes.include?(slot)
         end
     end
 

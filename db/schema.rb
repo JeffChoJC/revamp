@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_160258) do
+ActiveRecord::Schema.define(version: 2019_06_18_200533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,23 @@ ActiveRecord::Schema.define(version: 2019_06_04_160258) do
     t.index ["phone_number"], name: "index_restaurants_on_phone_number", unique: true
     t.index ["state"], name: "index_restaurants_on_state"
     t.index ["zipcode"], name: "index_restaurants_on_zipcode"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.decimal "overall_rating"
+    t.integer "food_rating", null: false
+    t.integer "service_rating", null: false
+    t.integer "ambience_rating", null: false
+    t.integer "value_rating", null: false
+    t.integer "noise_level", null: false
+    t.text "body", null: false
+    t.integer "author_id", null: false
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id", "restaurant_id"], name: "index_reviews_on_author_id_and_restaurant_id", unique: true
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -8,6 +8,7 @@
 
 User.destroy_all
 Restaurant.destroy_all
+Review.destroy_all
 
 User.create!({
     fname: 'John',
@@ -41,7 +42,7 @@ Restaurant.create!({
     owner_id: User.all.sample.id
 })
 
-150.times do
+250.times do
     city_state = Restaurant::CITIES.sample
     name = Faker::Restaurant.name
     next if Restaurant.exists?(name: name)
@@ -58,4 +59,22 @@ Restaurant.create!({
         zipcode: Faker::Address.zip,
         owner_id: User.all.sample.id
     })
+end
+
+Restaurant.all.each do |restaurant|
+    6.times do
+        author_id = User.all.sample.id
+        next if Review.exists?(author_id: author_id)
+
+        Review.create!({
+            food_rating: Review::RATING_VALUES.sample,
+            service_rating: Review::RATING_VALUES.sample,
+            ambience_rating: Review::RATING_VALUES.sample,
+            value_rating: Review::RATING_VALUES.sample,
+            noise_level: Review::RATING_VALUES.sample,
+            body: Faker::Restaurant.review,
+            author_id: author_id,
+            restaurant_id: restaurant.id
+        })
+    end
 end

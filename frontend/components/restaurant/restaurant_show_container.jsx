@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
 import { fetchRestaurant } from '../../actions/restaurant_actions';
 import RestaurantShow from "./restaurant_show";
 
@@ -17,4 +16,4 @@ const mdp = (dispatch) => {
     }
 }
 
-export default withRouter(connect(msp, mdp)(RestaurantShow));
+export default connect(msp, mdp)(RestaurantShow);
