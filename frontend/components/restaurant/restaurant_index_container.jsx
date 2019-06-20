@@ -5,7 +5,7 @@ import { toArray } from '../../reducers/selectors';
 import RestaurantIndex from './restaurant_index';
 
 const msp = (state) => ({
-    restaurants: toArray(state.entities.restaurants),
+    restaurants: toArray(state.entities.restaurants)
 })
 
 const mdp = dispatch => ({

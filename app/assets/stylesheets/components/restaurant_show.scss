@@ -7,26 +7,31 @@
     color: rgba(0, 0, 0, 0);
 }
 
-.restaurant-container {
-    position: absolute;
+.show-details-container {
+    position: relative;
     left: 50%;
-    margin-left: -450px;
-    top: 300px;
-    width: 900px;
-    display: flex;
+    margin-left: -496px;
+    top: -50px;
+    max-width: 992px;
+    display: inline-block;
     justify-content: space-around;
     z-index: 4;
+}
+
+.overview-details {
+    display: flex;
+    background-color: none;
 }
 
 .restaurant-overview {
     width: 70%;
     background-color: white;
-    padding: 10px 0px 10px 20px;
+    padding: 10px 20px;
 }
 
 .restaurant-name {
     padding: 30px 10px;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.27)
 }
@@ -37,20 +42,22 @@
 }
 
 .restaurant-overview-list li {
-    font-size: 16px;
-    padding-right: 10px;
+    font-size: 18px;
+    padding-right: 15px;
     font-weight: bold;
 }
 
 .restaurant-descr {
     padding: 10px 0px 20px 10px;
-    font-size: 22px;
+    font-size: 24px;
 }
 
 .restaurant-details {
     width: 22%;
-    padding: 25px 0px 0px 25px;
+    margin-left: 35px;
+    padding: 20px;
     background-color: white;
+    font-size: 18px;
 }
 
 .restaurant-details-list h3 {
@@ -63,4 +70,48 @@
 
 .restaurant-detail-item {
     padding-left: 8px;
+}
+
+.reviews-container {
+    position: relative;
+}
+
+.review-index-item {
+    padding: 10px 20px;
+    margin: 10px 0px;
+    display: flex;
+    font-size: 20px;
+}
+
+.author-container {
+    text-align: center;
+    width: 96px;
+    margin: 0px 16px;
+}
+
+#letter-bubble {
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.ratings-body-container {
+    width: 500px;
+}
+
+.ratings-show {
+    display: flex;
+}
+
+.ratings-show p {
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+#ratings-number {
+    color: red;
 }

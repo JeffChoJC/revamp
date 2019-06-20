@@ -1,10 +1,11 @@
 import * as ApiUtil from '../util/review_api_util';
 
-const receiveReview = ({ review, overall_rating, author }) => ({
+export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
+export const REMOVE_REVIEW = "REMOVE_REVIEW";
+
+const receiveReview = ({ review }) => ({
     type: RECEIVE_REVIEW,
     review,
-    overall_rating,
-    author,
 })
 
 const removeReview = reviewId => ({

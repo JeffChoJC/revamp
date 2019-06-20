@@ -20,7 +20,7 @@
     -webkit-font-smoothing: antialiased;
     background-color: white;
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
     padding-bottom: 54px;
  }
 

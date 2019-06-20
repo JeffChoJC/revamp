@@ -17,7 +17,7 @@
 #
 
 class Review < ApplicationRecord
-    after_initialize :overall_rating
+    after_initialize :calculate_overall_rating
 
     validates :food_rating,
         :service_rating,
@@ -44,11 +44,12 @@ class Review < ApplicationRecord
 
     belongs_to :restaurant
 
-    def overall_rating
-        @overall_rating = (self.food_rating +
+    def calculate_overall_rating
+        self.overall_rating = (self.food_rating +
             self.service_rating +
             self.ambience_rating +
             self.value_rating) / 4.0
+        self.save!
     end
 
     RATING_VALUES = [1, 2, 3, 4, 5]

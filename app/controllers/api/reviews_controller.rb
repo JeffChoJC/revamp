@@ -8,6 +8,28 @@ class Api::ReviewsController < ApplicationController
         end
     end
 
+    def show
+        @review = Review.includes(:author).find_by(id: params[id])
+        if @review
+            render "api/reviews/show"
+        else
+            render json: ["Page not found"], status: 404
+        end
+    end
+
+    def update
+        @review = Review.includes(:author).find_by(id: params[id])
+        if @review.update(review_params)
+            render "api/reviews/show"
+        else
+            render json: @review.errors.full_messages, status: 422
+        end
+    end
+
+    def destroy
+
+    end
+
     private
 
     def review_params
@@ -17,6 +39,7 @@ class Api::ReviewsController < ApplicationController
             :ambience_rating,
             :value_rating,
             :noise_level,
+            :body,
             :author_id,
             :restaurant_id
         )

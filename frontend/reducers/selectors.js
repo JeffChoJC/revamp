@@ -1,3 +1,3 @@
-export const toArray = restaurants => (
-    Object.keys(restaurants).map(id => restaurants[id])
+export const toArray = obj => (
+    Object.keys(obj).map(id => obj[id])
 );

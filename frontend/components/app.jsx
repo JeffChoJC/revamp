@@ -16,18 +16,18 @@ import Footer from './footer/footer'
 
 const App = () => (
     <>
-    <div className='app-content'>
-        <Modal />
-        <header>
-            <NavBar />
-        </header>
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/restaurants/search" component={RestaurantIndexContainer} />
-            <Route path="/restaurants/:id" component={RestaurantShowContainer} />
-        </Switch>
+        <div className='app-content'>
+            <Modal />
+            <header>
+                <NavBar />
+            </header>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/restaurants/search" component={RestaurantIndexContainer} />
+                <Route path="/restaurants/:id" component={RestaurantShowContainer} />
+            </Switch>
+        </div>
         <Footer />
-    </div>
     </>
 );
 

@@ -88,8 +88,11 @@ class Restaurant < ApplicationRecord
     end
 
     def overall_rating
-        ratings = self.reviews.pluck(:overall_rating)
-        ratings.sum / ratings.length
+        ratings = self.reviews.map do |review|
+            review.overall_rating
+        end
+        
+        self.rating = ratings.sum / ratings.length
     end
 
     def food_rating

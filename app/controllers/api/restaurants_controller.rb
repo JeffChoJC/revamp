@@ -22,9 +22,8 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.includes(reviews: :author).
-            find_by(id: params[:id])
-            debugger
+        @restaurant = Restaurant.includes(:reviews)
+            .find_by(id: params[:id])
         if @restaurant
             render "api/restaurants/show"
         else
