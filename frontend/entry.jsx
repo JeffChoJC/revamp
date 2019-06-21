@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 
-import * as actions from './actions/session_actions';
-
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     if (window.currentUser) {
@@ -20,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
     const root = document.getElementById("root");
-
-    window.getState = store.getState;
 
     ReactDOM.render(<Root store={store} />, root);
 });

@@ -9,17 +9,16 @@
 
 .show-details-container {
     position: relative;
-    left: 50%;
-    margin-left: -496px;
+    margin-left: auto;
+    margin-right: auto;
     top: -50px;
     max-width: 992px;
-    display: inline-block;
-    justify-content: space-around;
     z-index: 4;
 }
 
 .overview-details {
     display: flex;
+    justify-content: space-between;
     background-color: none;
 }
 
@@ -48,7 +47,7 @@
 }
 
 .restaurant-descr {
-    padding: 10px 0px 20px 10px;
+    padding: 10px 10px 20px;
     font-size: 24px;
 }
 
@@ -74,6 +73,7 @@
 
 .reviews-container {
     position: relative;
+    padding: 20px 0px;
 }
 
 .review-index-item {
@@ -86,25 +86,63 @@
 .author-container {
     text-align: center;
     width: 96px;
-    margin: 0px 16px;
+}
+
+.background-circle {
+    margin-left: auto;
+    margin-right: auto;
+    color: red;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #DA3743;
+    // margin-bottom
 }
 
 #letter-bubble {
-    margin-left: 20px;
-    padding-left: 20px;
-    padding-top: 20px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    background-color: red;
+    color: white;
+    height: auto;
+    width: inherit;
+    border-radius: inherit;
+    padding-top: 18px;
+    font-size: 24px;
+}
+
+.firstname {
+    margin: 10px 0px;
 }
 
 .ratings-body-container {
     width: 500px;
 }
 
+.review-stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: 'Font Awesome 5 Free';
+}
+ 
+.review-stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+}
+ 
+.review-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 900;
+}
+ 
+.review-stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #DA3743;
+}
+
 .ratings-show {
     display: flex;
+    margin-top: 15px;
 }
 
 .ratings-show p {
@@ -113,5 +151,5 @@
 }
 
 #ratings-number {
-    color: red;
+    color: #DA3743;
 }

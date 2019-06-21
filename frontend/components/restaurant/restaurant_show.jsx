@@ -50,6 +50,7 @@ class RestaurantShow extends React.Component {
                                 </li>
                             </ul>
                             <p className="restaurant-descr">{restaurant.description}</p>
+                            {this.reviewDetails()}
                         </div>
                         <div className="restaurant-details">
                             <ul className="restaurant-details-list">
@@ -79,7 +80,6 @@ class RestaurantShow extends React.Component {
                             </ul>
                         </div>
                     </div>
-                    {this.reviewDetails()}
                 </div>
             </div>
         );
