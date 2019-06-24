@@ -97,27 +97,27 @@ class Restaurant < ApplicationRecord
 
     def food_rating
         ratings = self.reviews.pluck(:food_rating)
-        ratings.sum / ratings.length
+        (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
      def service_rating
         ratings = self.reviews.pluck(:service_rating)
-        ratings.sum / ratings.length
+        (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
      def ambience_rating
         ratings = self.reviews.pluck(:ambience_rating)
-        ratings.sum / ratings.length
+        (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
      def value_rating
         ratings = self.reviews.pluck(:value_rating)
-        ratings.sum / ratings.length
+        (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
      def noise_level
         ratings = self.reviews.pluck(:noise_level)
-        ratings.sum / ratings.length
+        (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
     CUISINES = [

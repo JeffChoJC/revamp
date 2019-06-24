@@ -18,9 +18,7 @@ const App = () => (
     <>
         <div className='app-content'>
             <Modal />
-            <header>
-                <NavBar />
-            </header>
+            <NavBar />
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/restaurants/search" component={RestaurantIndexContainer} />

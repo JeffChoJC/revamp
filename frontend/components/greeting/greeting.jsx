@@ -16,7 +16,7 @@ const Greeting = ({ currentUser, signupModal, loginModal }) => {
     function greeting() {
         return (
             <header onClick={() => toggle()} className='greeting-section'>
-                <h2 className="greeting-name">Hi, {currentUser.fname}</h2>
+                <h2 className="greeting-name">Hi, { currentUser.fname }</h2>
                 <i id="dropdown" className="fas fa-chevron-down"></i>
                 <NavMenu />
                 <div id="pointer" className="navmenu-container hidden">
@@ -28,8 +28,8 @@ const Greeting = ({ currentUser, signupModal, loginModal }) => {
     function links() {
         return (
             <nav className="session-nav">
-                <button id="signup-button" onClick={signupModal}>Sign up</button>
-                <button id="login-button" onClick={loginModal}>Sign in</button>
+                <button id="signup-button" onClick={ signupModal }>Sign up</button>
+                <button id="login-button" onClick={ loginModal }>Sign in</button>
             </nav>
         )
     }

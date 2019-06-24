@@ -1,7 +1,5 @@
-import { 
-    RECEIVE_RESTAURANTS,
-    RECEIVE_RESTAURANT,
-} from '../actions/restaurant_actions';
+import { RECEIVE_RESTAURANTS, RECEIVE_RESTAURANT } from '../actions/restaurant_actions';
+import { RECEIVE_REVIEW } from '../actions/review_actions';
 
 const restaurantsReducer = (state = {}, action) => {
     Object.freeze(state)
