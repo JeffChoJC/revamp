@@ -61,7 +61,7 @@ class RestaurantShow extends React.Component {
             return (
                 <div className="reviews-container">
                     <button className="edit-review-button"
-                        onClick={ editModal }>Edit your review</button>
+                        onClick={ this.props.editModal }>Edit your review</button>
                     {reviewList}
                 </div>
             )
@@ -69,7 +69,7 @@ class RestaurantShow extends React.Component {
             return (
                 <div className="reviews-container">
                     <button className="create-review-button"
-                        onClick={craeteModal}>Write a review</button>
+                        onClick={ this.props.createModal }>Write a review</button>
                     {reviewList}
                 </div>
             )

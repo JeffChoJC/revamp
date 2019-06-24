@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchRestaurant } from '../../actions/restaurant_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
 import RestaurantShow from "./restaurant_show";
 import { toArray } from '../../reducers/selectors';
 
 const msp = (state, ownProps) => {
     let reviewed = false;
-    for (key in state.entities.reviews) {
-        if (key[author_id] === state.session.id) {
+    const reviews = state.entities.reviews
+    for (let key in reviews) {
+        debugger
+        if (reviews[key]["author_id"] === state.session.id) {
             reviewed = true;
         }
     };
@@ -24,6 +27,9 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
     return {
         fetchRestaurant: (id) => dispatch(fetchRestaurant(id)),
+        createModal: () => dispatch(openModal('createReview')),
+        editModal: () => dispatch(openModal('editReview')),
+        closeModal: () => dispatch(closeModal())
     }
 }
 
