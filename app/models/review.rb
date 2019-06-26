@@ -49,7 +49,6 @@ class Review < ApplicationRecord
             self.service_rating +
             self.ambience_rating +
             self.value_rating) / 4.0
-        self.save!
     end
 
     RATING_VALUES = [1, 2, 3, 4, 5]
