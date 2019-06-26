@@ -1,5 +1,5 @@
 @restaurants.each do |restaurant|
-    json.set! restaurant.id do
+    json.set! restaurant.name do
         json.partial! 'api/restaurants/restaurant', restaurant: restaurant
     end
 end

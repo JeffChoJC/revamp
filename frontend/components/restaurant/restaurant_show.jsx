@@ -22,19 +22,19 @@ class RestaurantShow extends React.Component {
                     <p id="restaurant-overall">{ Math.round(restaurant.rating * 100) / 100 } &nbsp; based on recent ratings</p>
                 </div>
                 <ul>
-                    <li>
+                    <li key="food">
                         <p id="rating-number">{ restaurant.food_rating }</p>
                         <p>Food</p>
                     </li>
-                    <li>
+                    <li key="service">
                         <p id="rating-number">{ restaurant.service_rating }</p>
                         <p>Service</p>
                     </li>
-                    <li>
+                    <li key="ambience">
                         <p id="rating-number">{restaurant.ambience_rating}</p>
                         <p>Ambience</p>
                     </li>
-                    <li id="last-rating">
+                    <li key="value" id="last-rating">
                         <p id="rating-number">{restaurant.value_rating}</p>
                         <p>Value</p>
                     </li>
@@ -61,7 +61,7 @@ class RestaurantShow extends React.Component {
             return (
                 <div className="reviews-container">
                     <button className="edit-review-button"
-                        onClick={ this.props.editModal }>Edit your review</button>
+                        onClick={ this.props.editModal }>Edit review</button>
                     {reviewList}
                 </div>
             )

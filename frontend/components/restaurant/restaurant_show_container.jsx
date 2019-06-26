@@ -9,7 +9,6 @@ const msp = (state, ownProps) => {
     let reviewed = false;
     const reviews = state.entities.reviews
     for (let key in reviews) {
-        debugger
         if (reviews[key]["author_id"] === state.session.id) {
             reviewed = true;
         }

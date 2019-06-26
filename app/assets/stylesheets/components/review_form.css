@@ -1,0 +1,40 @@
+.review-form-container {
+    font-size: 20px;
+}
+
+.review-form h3 {
+    font-weight: bold;
+    margin: 5px;
+}
+
+.title-rating-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.review-stars-container {
+    text-align: left;
+    padding: 10px 30px;
+}
+
+.review-star-rating {
+    font-size: 24px;
+}
+
+#filled {
+    color: #DA3743;
+    cursor: pointer;
+}
+
+#empty {
+    color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.review-body {
+    width: 95%;
+    font-family: inherit;
+    font-size: 18px;
+    padding: 2px 8px;
+}

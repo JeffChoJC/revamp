@@ -1,5 +1,4 @@
 import React from 'react';
-import { createReview } from '../../actions/review_actions';
 
 class ReviewForm extends React.Component {
     constructor(props) {
@@ -11,7 +10,7 @@ class ReviewForm extends React.Component {
                 ambience_rating: 0,
                 value_rating: 0,
                 noise_level: 0,
-                body: 0,
+                body: "",
 
                 hoverField: null,
                 hoverStars: null
@@ -30,6 +29,7 @@ class ReviewForm extends React.Component {
                 hoverStars: null
             }
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     componentDidMount() {
@@ -40,7 +40,33 @@ class ReviewForm extends React.Component {
         return e => this.setState({ [field]: e.target.value })
     }
 
+    rating(field) {
+        let stars = [];
+        let max;
+
+        if (field === "noise_level") {
+            max = 4;
+        } else {
+            max = 5;
+        }
+
+        for (let i = 1; i <= max; i++) {
+            let numStars = this.state.hoverField === field ? this.state.hoverStars : this.state[field];
+            let color = (i <= numStars) ? "filled" : "empty"
+
+            stars.push(
+                <i key={i} className="fas fa-star" id={ color }
+                    onMouseEnter={ this.handleMouseEnter(field, i) }
+                    onMouseLeave={ this.handleMouseLeave() }
+                    onClick={ this.rate(field, i) }>
+                </i>
+            )
+        }
+        return stars;
+    }
+
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const review = Object.assign({}, this.state, {
             author_id: this.props.currentUser.id,
@@ -49,12 +75,92 @@ class ReviewForm extends React.Component {
 
         delete review.hoverField;
         delete review.hoverStars;
-        this.props.createReview(review);
+        if (this.props.formType === 'create') {
+            this.props.createReview(review);
+        } else {
+            this.props.editReview(review);
+        }
+    }
+
+    handleMouseEnter(field, stars) {
+        return e => this.setState({
+            hoverField: field,
+            hoverStars: stars
+        })
+    }
+
+    handleMouseLeave(e) {
+        return e => this.setState({
+           hoverField: null,
+           hoverStars: null 
+        })
+    }
+
+    rate(field, stars) {
+        return e => this.setState({ [field]: stars })
     }
 
     render() {
-        const { review } = this.props;
-        if (!review) return null;
+        const { restaurant, currentUser } = this.props;
+        return (
+            <div className="review-form-container">
+                <form className="review-form" onSubmit={ this.handleSubmit }>
+                    <h3 className="review-header">
+                        {`${currentUser.fname}, how was your experience at ${restaurant.name}?`}
+                    </h3>
+                    <h3>Rate your dining experience:</h3>
+                    <div className="review-stars-container">
+                        <div className="title-rating-container">
+                            <p>Food</p>
+                            <div className="review-star-rating">
+                                { this.rating("food_rating") }
+                            </div>
+                        </div>
+
+                        <div className="title-rating-container">
+                            <p>Service</p>
+                            <div className="review-star-rating">
+                                { this.rating("service_rating") }
+                            </div>
+                        </div>
+
+                        <div className="title-rating-container">
+                            <p>Ambience</p>
+                            <div className="review-star-rating">
+                                { this.rating("ambience_rating") }
+                            </div>
+                        </div>
+
+                        <div className="title-rating-container">
+                            <p>Value</p>
+                            <div className="review-star-rating">
+                                { this.rating("value_rating") }
+                            </div>
+                        </div>
+
+                        <div className="title-rating-container">
+                            <p>Noise Level</p>
+                            <div className="review-star-rating">
+                                { this.rating("noise_level") }
+                            </div>
+                        </div>
+                    </div>
+                    <div className="review-body-container">
+                        <textarea
+                            className="review-body"
+                            placeholder="Please leave a brief description about your experience."
+                            value={ this.state.body }
+                            onChange={ this.update('body') }
+                        />
+                    </div>
+
+                    <input type="submit"
+                        value="Submit Review"
+                        className="review-submit"
+                    />
+                </form>
+            </div>
+        )
     }
 }
 
