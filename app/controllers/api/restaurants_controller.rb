@@ -1,7 +1,6 @@
 class Api::RestaurantsController < ApplicationController
     def create
         @restaurant = Restaurants.new(restaurant_params)
-        @restaurant.owner_id = current_user.id
 
         if @restaurant.save!
             render "api/restaurants/show"

@@ -5,6 +5,7 @@ import LoginFormContainer from '../session_form/login_form_container';
 import SignupFormContainer from '../session_form/signup_form_container';
 import CreateReviewContainer from '../reviews/create_review_container';
 import EditReviewContainer from '../reviews/edit_review_container';
+import { Route } from 'react-router-dom';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -19,10 +20,10 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;
         case 'createReview':
-            component = <CreateReviewContainer />;
+            component = <Route path="/restaurants/:id" component={CreateReviewContainer} />;
             break;
         case 'editReview':
-            component = <EditReviewContainer />;
+            component = <Route path="/restaurants/:id" component={EditReviewContainer} />;
             break;
         default:
             return null;

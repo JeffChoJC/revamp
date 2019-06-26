@@ -1,7 +1,6 @@
 import React from "react";
 import { parseTime } from './restaurant_helper';
 import ReviewIndexItem from '../reviews/review_index_item';
-import { Link } from 'react-router-dom';
 
 class RestaurantShow extends React.Component {
     componentDidMount() {

@@ -62,9 +62,9 @@ Restaurant.create!({
 end
 
 Restaurant.all.each do |restaurant|
-    6.times do
+    5.times do
         author_id = User.all.sample.id
-        next if Review.exists?(author_id: author_id)
+        next if restaurant.reviews.exists?(author_id: author_id)
 
         Review.create!({
             food_rating: Review::RATING_VALUES.sample,

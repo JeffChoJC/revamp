@@ -66,9 +66,8 @@ class ReviewForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
-        const review = Object.assign({}, this.state, {
+        const review = Object.assign({}, this.props.review, this.state, {
             author_id: this.props.currentUser.id,
             restaurant_id: this.props.restaurant.id
         })

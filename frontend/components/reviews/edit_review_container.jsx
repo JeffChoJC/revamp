@@ -7,7 +7,6 @@ import ReviewForm from './review_form';
 
 const msp = (state, ownProps) => {
     const user_id = state.entities.users[state.session.id].id;
-    const restaurant_id = ownProps.location.pathname[ownProps.location.pathname.length - 1];
     const reviews = toArray(state.entities.reviews);
     const userReview = {};
     reviews.forEach(review => {
@@ -15,10 +14,10 @@ const msp = (state, ownProps) => {
             Object.assign(userReview, review);
         }
     });
-    
+
     return {
         currentUser: state.entities.users[state.session.id],
-        restaurant: state.entities.restaurants[restaurant_id],
+        restaurant: state.entities.restaurants[ownProps.match.params.id],
         review: userReview,
         formType: 'edit'
     }
