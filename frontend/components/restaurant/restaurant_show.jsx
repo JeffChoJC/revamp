@@ -69,13 +69,19 @@ class RestaurantShow extends React.Component {
 
         if (reviewed) {
             return (
-                <button className="edit-review-button" type="button"
-                    onClick={this.props.editModal}>Edit your review</button>
+                <button className="review-button" type="button"
+                    onClick={this.props.editModal}>
+                        <i className="far fa-edit"></i>
+                        &nbsp; Edit your review
+                </button>
             )
         } else {
             return (
-                <button className="create-review-button" type="button"
-                    onClick={this.props.createModal}>Write a review</button>
+                <button className="review-button" type="button"
+                    onClick={this.props.createModal}>
+                        <i className="far fa-edit"></i>
+                        &nbsp; Write a review
+                    </button>
             )
         }
     }
@@ -103,7 +109,9 @@ class RestaurantShow extends React.Component {
                             </ul>
                             <p className="restaurant-descr">{ restaurant.description }</p>
                             { this.overallReviews() }
-                            { this.reviewButton() }
+                            <div className="review-button-container">
+                                { this.reviewButton() }
+                            </div>
                             { this.reviewDetails() }
                         </div>
                         <div className="restaurant-details">

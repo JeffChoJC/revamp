@@ -33,8 +33,23 @@
 }
 
 .review-body {
-    width: 95%;
+    width: 90%;
     font-family: inherit;
     font-size: 18px;
     padding: 2px 8px;
+}
+
+.submit-review-button {
+    margin-top: 10px;
+    width: 95%;
+    font-family: inherit;
+    background-color: #DA3743;
+    color: white;
+}
+
+.delete-review-button {
+    width: 95%;
+    font-family: inherit;
+    background-color: #DA3743;
+    color: white;
 }

@@ -109,7 +109,7 @@ class ReviewForm extends React.Component {
     deleteButton(review) {
         if (this.props.formType === "edit") {
             return (
-                <button type="submit"
+                <button type="submit" className="delete-review-button"
                     onClick={ () => this.handleDelete(review) }>Delete Review</button>
             )
         }
@@ -171,7 +171,7 @@ class ReviewForm extends React.Component {
 
                     <input type="submit"
                         value="Submit Review"
-                        className="review-submit"
+                        className="submit-review-button"
                     />
                 </form>
                 { this.deleteButton(review) }

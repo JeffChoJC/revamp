@@ -73,7 +73,6 @@
 
 .reviews-container {
     position: relative;
-    padding: 20px 0px;
 }
 
 .review-index-item {
@@ -218,4 +217,22 @@
 
 #rating-number {
     font-weight: bold;
+}
+
+.review-button-container {
+    text-align: right;
+}
+
+.review-button {
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 20px;
+    color: #DA3743;
+    padding: 5px;
+    margin: 5px 0px;
+}
+
+.review-button:hover {
+    background-color: rgba(225, 0, 0, 0.05);
 }
