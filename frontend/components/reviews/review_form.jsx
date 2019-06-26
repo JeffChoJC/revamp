@@ -138,7 +138,7 @@ class ReviewForm extends React.Component {
                         </div>
 
                         <div className="title-rating-container">
-                            <p>Noise Level</p>
+                            <p>Noise (1 - Quiet)</p>
                             <div className="review-star-rating">
                                 { this.rating("noise_level") }
                             </div>

@@ -43,7 +43,7 @@ class RestaurantShow extends React.Component {
     }
 
     reviewDetails() {
-        const { reviews, authors, reviewed } = this.props;
+        const { reviews, authors } = this.props;
         const reviewList = reviews.map(review => {
             return (
                 <ul>
@@ -56,21 +56,26 @@ class RestaurantShow extends React.Component {
             )
         })
 
+        return (
+            <div className="reviews-container">
+                {reviewList}
+            </div>
+        )
+    }
+
+    reviewButton() {
+        const { reviewed, loggedIn } = this.props;
+        if (!loggedIn) return null;
+
         if (reviewed) {
             return (
-                <div className="reviews-container">
-                    <button className="edit-review-button"
-                        onClick={ this.props.editModal }>Edit review</button>
-                    {reviewList}
-                </div>
+                <button className="edit-review-button"
+                    onClick={this.props.editModal}>Edit your review</button>
             )
         } else {
             return (
-                <div className="reviews-container">
-                    <button className="create-review-button"
-                        onClick={ this.props.createModal }>Write a review</button>
-                    {reviewList}
-                </div>
+                <button className="create-review-button"
+                    onClick={this.props.createModal}>Write a review</button>
             )
         }
     }
@@ -98,6 +103,7 @@ class RestaurantShow extends React.Component {
                             </ul>
                             <p className="restaurant-descr">{ restaurant.description }</p>
                             { this.overallReviews() }
+                            { this.reviewButton() }
                             { this.reviewDetails() }
                         </div>
                         <div className="restaurant-details">

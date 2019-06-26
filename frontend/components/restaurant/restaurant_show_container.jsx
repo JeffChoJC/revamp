@@ -19,6 +19,7 @@ const msp = (state, ownProps) => {
         reviews: toArray(state.entities.reviews),
         authors: state.entities.users,
         reviewed: Boolean(reviewed),
+        loggedIn: Boolean(state.session.id),
         errors: state.errors.restaurant,
     }
 }
