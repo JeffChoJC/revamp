@@ -69,12 +69,12 @@ class RestaurantShow extends React.Component {
 
         if (reviewed) {
             return (
-                <button className="edit-review-button"
+                <button className="edit-review-button" type="button"
                     onClick={this.props.editModal}>Edit your review</button>
             )
         } else {
             return (
-                <button className="create-review-button"
+                <button className="create-review-button" type="button"
                     onClick={this.props.createModal}>Write a review</button>
             )
         }

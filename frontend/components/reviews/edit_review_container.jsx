@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
             Object.assign(userReview, review);
         }
     });
-
+    
     return {
         currentUser: state.entities.users[state.session.id],
         restaurant: state.entities.restaurants[ownProps.match.params.id],
@@ -25,7 +25,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
     editReview: (review) => dispatch(updateReview(review)),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
+    deleteReview: (review) => dispatch(deleteReview(review)),
     closeModal: () => dispatch(closeModal())
 })
 

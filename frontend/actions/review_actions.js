@@ -3,24 +3,26 @@ import * as ApiUtil from '../util/review_api_util';
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
 
-const receiveReview = review => ({
+const receiveReview = ({ review, restaurant}) => ({
     type: RECEIVE_REVIEW,
     review,
+    restaurant
 })
 
-const removeReview = reviewId => ({
+const removeReview = ({ review, restaurant }) => ({
     type: REMOVE_REVIEW,
-    reviewId
+    reviewId: review.id,
+    restaurant
 })
 
 export const createReview = review => dispatch => (
-    ApiUtil.createReview(review).then(review => dispatch(receiveReview(review)))
+    ApiUtil.createReview(review).then(obj => dispatch(receiveReview(obj)))
 )
 
 export const updateReview = review => dispatch => (
-    ApiUtil.updateReview(review).then(review => dispatch(receiveReview(review)))
+    ApiUtil.updateReview(review).then(obj => dispatch(receiveReview(obj)))
 )
 
-export const deleteReview = reviewId => dispatch => (
-    ApiUtil.deleteReview(reviewId).then(review => dispatch(removeReview(reviewId)))
+export const deleteReview = review => dispatch => (
+    ApiUtil.deleteReview(review).then(obj => dispatch(removeReview(obj)))
 )

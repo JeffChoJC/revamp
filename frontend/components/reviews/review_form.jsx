@@ -75,13 +75,11 @@ class ReviewForm extends React.Component {
         delete review.hoverField;
         delete review.hoverStars;
         if (this.props.formType === 'create') {
-            this.props.createReview(review).then(
-                this.props.closeModal
-            );
+            this.props.createReview(review)
+                .then(this.props.closeModal)
         } else {
-            this.props.editReview(review).then(
-                this.props.closeModal
-            );
+            this.props.editReview(review)
+                .then(this.props.closeModal)
         }
     }
 
@@ -103,8 +101,22 @@ class ReviewForm extends React.Component {
         return e => this.setState({ [field]: stars })
     }
 
+    handleDelete(review) {
+        return this.props.deleteReview(review)
+            .then(this.props.closeModal)
+    }
+
+    deleteButton(review) {
+        if (this.props.formType === "edit") {
+            return (
+                <button type="submit"
+                    onClick={ () => this.handleDelete(review) }>Delete Review</button>
+            )
+        }
+    }
+
     render() {
-        const { restaurant, currentUser } = this.props;
+        const { restaurant, currentUser, review } = this.props;
         return (
             <div className="review-form-container">
                 <form className="review-form" onSubmit={ this.handleSubmit }>
@@ -162,6 +174,7 @@ class ReviewForm extends React.Component {
                         className="review-submit"
                     />
                 </form>
+                { this.deleteButton(review) }
             </div>
         )
     }

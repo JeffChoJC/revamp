@@ -15,7 +15,7 @@ class Api::RestaurantsController < ApplicationController
         end
         
         unless @restaurants.length > 0
-            @restaurants = Restaurant.all
+            @restaurants = Restaurant.all.order(:name)
         end
     end
 
