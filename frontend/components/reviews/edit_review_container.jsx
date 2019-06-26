@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { toArray } from '../../reducers/selectors';
 import { updateReview, deleteReview } from '../../actions/review_actions';
+import { closeModal } from '../../actions/modal_actions';
 import ReviewForm from './review_form';
 
 const msp = (state, ownProps) => {
