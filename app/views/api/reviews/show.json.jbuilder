@@ -3,7 +3,7 @@ json.review do
 end
 
 json.restaurant do
-    json.partial! "api/restaurants/restaurant", restaurant: Restaurant.all[@review.restaurant_id]
+    json.partial! "api/restaurants/restaurant", restaurant: Restaurant.all[@review.restaurant_id - 1]
     json.rating Restaurant.all[@review.restaurant_id].overall_rating
     json.food_rating Restaurant.all[@review.restaurant_id].food_rating
     json.service_rating Restaurant.all[@review.restaurant_id].service_rating
