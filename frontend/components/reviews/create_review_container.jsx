@@ -5,13 +5,11 @@ import { createReview } from '../../actions/review_actions';
 
 import ReviewForm from './review_form';
 
-const msp = (state, ownProps) => {
-    return {
-        currentUser: state.entities.users[state.session.id],
-        restaurant: state.entities.restaurants[ownProps.match.params.id],
-        formType: 'create'
-    }
-}
+const msp = (state, ownProps) => ({
+    currentUser: state.entities.users[state.session.id],
+    restaurant: state.entities.restaurants[ownProps.match.params.id],
+    formType: 'create'
+})
 
 const mdp = dispatch => ({
     createReview: (review) => dispatch(createReview(review)),

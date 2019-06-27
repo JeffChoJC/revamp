@@ -16,7 +16,7 @@ const msp = (state, ownProps) => {
 
     return {
         restaurant: state.entities.restaurants[ownProps.match.params.id],
-        reviews: toArray(state.entities.reviews),
+        reviews: toArray(reviews),
         authors: state.entities.users,
         reviewed: Boolean(reviewed),
         loggedIn: Boolean(state.session.id),
