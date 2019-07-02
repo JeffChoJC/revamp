@@ -34,8 +34,8 @@ class SessionForm extends React.Component {
     demoLogin(e) {
         e.preventDefault();
         const demo = {
-            email: 'john_doe@gmail.com',
-            password: 'johndope'
+            email: 'guest_doe@gmail.com',
+            password: 'guestdope'
         }
         this.props.demoSubmit(demo).then(
             () => this.props.closeModal(),

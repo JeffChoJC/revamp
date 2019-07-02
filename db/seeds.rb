@@ -11,10 +11,10 @@ Restaurant.destroy_all
 Review.destroy_all
 
 User.create!({
-    fname: 'John',
+    fname: 'Guest',
     lname: 'Doe',
-    email: 'john_doe@gmail.com',
-    password: 'johndope'
+    email: 'guest_doe@gmail.com',
+    password: 'guestdope'
 })
 
 100.times do

@@ -142,7 +142,7 @@ class Restaurant < ApplicationRecord
         ["Los Angeles", "CA"],
         ["Chicago", "IL"],
         ["Dallas", "TX"],
-        ["San Fransisco", "CA"],
+        ["San Francisco", "CA"],
         ["Seattle", "WA"],
         ["Miami", "FL"],
         ["Orlando", "FL"],
