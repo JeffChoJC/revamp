@@ -11,7 +11,8 @@ class Api::RestaurantsController < ApplicationController
     
     def index
         if params[:keyword]
-            @restaurants = Restaurant.order(:name).search_by_keyword(params[:keyword])
+            @restaurants = Restaurant.includes(:reservations)
+                .order(:name).search_by_keyword(params[:keyword])
         end
         
         unless @restaurants.length > 0

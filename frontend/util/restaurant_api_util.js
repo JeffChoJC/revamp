@@ -1,10 +1,3 @@
-export const fetchRestaurants = () => {
-    return $.ajax({
-        method: "GET",
-        url: 'api/restaurants',
-    })
-}
-
 export const fetchRestaurant = id => {
     return $.ajax({
         method: "GET",
@@ -13,6 +6,7 @@ export const fetchRestaurant = id => {
 }
 
 export const searchRestaurants = keyword => {
+    debugger
     return $.ajax({
         method: "GET",
         url: "/api/restaurants",

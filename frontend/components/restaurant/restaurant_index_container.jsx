@@ -1,6 +1,6 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchRestaurants, searchRestaurants } from '../../actions/restaurant_actions';
+import { searchRestaurants } from '../../actions/restaurant_actions';
 import { toArray } from '../../reducers/selectors';
 import RestaurantIndex from './restaurant_index';
 
@@ -9,7 +9,6 @@ const msp = (state) => ({
 })
 
 const mdp = dispatch => ({
-    fetchRestaurants: () => dispatch(fetchRestaurants()),
     searchRestaurants: (keyword) => dispatch(searchRestaurants(keyword))
 })
 

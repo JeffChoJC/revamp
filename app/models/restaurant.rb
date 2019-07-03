@@ -81,8 +81,7 @@ class Restaurant < ApplicationRecord
     end
 
     def open_slots
-        # resDates = self.reservations.pluck(:date) #implement dates for time slots
-        resTimes = self.reservations.pluck(:time)
+        # resTimes = self.reservations.find_by(date: )
 
         @openings = @time_slots.reject do |slot|
             resTimes.include?(slot)

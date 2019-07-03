@@ -17,11 +17,6 @@ const receiveRestaurant = ({ restaurant, reviews, authors }) => ({
     authors
 })
 
-export const fetchRestaurants = () => dispatch => (
-    ApiUtil.fetchRestaurants().then(restaurants => dispatch(receiveRestaurants(restaurants))
-    )
-)
-
 export const fetchRestaurant = id => dispatch => (
     ApiUtil.fetchRestaurant(id).then(
         restaurant => dispatch(receiveRestaurant(restaurant))

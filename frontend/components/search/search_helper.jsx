@@ -1,21 +1,22 @@
-export const today = (date) => {
+export const parseDate = date => {
+    const parts = date.split(" ");
     const months = {
-        0: "Jan",
-        1: "Feb",
-        2: "Mar",
-        3: "Apr",
-        4: "May",
-        5: "Jun",
-        6: "Jul",
-        7: "Aug",
-        8: "Sep",
-        9: "Oct",
-        10: "Nov",
-        11: "Dec",
+        "Jan": "01",
+        "Feb": "02",
+        "Mar": "03",
+        "Apr": "04",
+        "May": "05",
+        "Jun": "06",
+        "Jul": "07",
+        "Aug": "08",
+        "Sep": "09",
+        "Oct": "10",
+        "Nov": "11",
+        "Dec": "12"
     }
-    let month = months[date.getMonth()];
-    let day = date.getDate();
-    let year = date.getFullYear();
+    const month = months[parts[1]];
+    const day = parts[2];
+    const year = parts[3];
 
-    return `${month} ${day}, ${year}`;
+    return `${month}/${day}/${year}`;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { today } from './search_helper';
+import { parseDate } from './search_helper';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -26,6 +26,7 @@ class Search extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault();
+        const date = parseDate(String(this.state.date));
         this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }`);
     }
 
@@ -40,8 +41,6 @@ class Search extends React.Component {
     }
 
     render() {
-        const date = today(new Date());
-        
         const content = (id) => {
             return (
                 <form className="search-container" onSubmit={ this.handleSubmit }>
