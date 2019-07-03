@@ -51,6 +51,8 @@ class Restaurant < ApplicationRecord
         :state,
         :zipcode]
 
+    after_initialize :open_time, :close_time, :generate_time_slots
+
     def open_time
         @open_time ||= "17:00:00"
     end
@@ -59,11 +61,11 @@ class Restaurant < ApplicationRecord
         @close_time ||= "22:00:00"
     end
 
-    def generate_time_slots(open_time, close_time)
+    def generate_time_slots
         @time_slots = []
 
-        start_int = open_time[0..1].concat(open_time[3..4]).to_i
-        finish_int = close_time[0..1].concat(close_time[3..4]).to_i
+        start_int = @open_time[0..1].concat(@open_time[3..4]).to_i
+        finish_int = @close_time[0..1].concat(@close_time[3..4]).to_i
 
         until start_int == finish_int
             @time_slots.push(
