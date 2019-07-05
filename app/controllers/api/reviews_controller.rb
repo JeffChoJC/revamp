@@ -22,7 +22,7 @@ class Api::ReviewsController < ApplicationController
         if @review.destroy!
             render "api/reviews/show"
         else
-            render json: @review.errors.full_messages, status: 422
+            render json: ["Review does not exist."]
         end
     end
 

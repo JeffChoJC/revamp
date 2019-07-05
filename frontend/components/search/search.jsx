@@ -9,12 +9,16 @@ class Search extends React.Component {
         this.state = {
             keyword: "",
             date: new Date(),
+            time: "19:00:00",
+            partySize: "2"
         };
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
     update(field) {
+        debugger
         return e => this.setState({ [field]: e.target.value });
     }
 
@@ -27,7 +31,8 @@ class Search extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const date = parseDate(String(this.state.date));
-        this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }`);
+        const time = this.state.time;
+        this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }#${ date }#${ time }`);
     }
 
     banner() {
@@ -55,37 +60,36 @@ class Search extends React.Component {
                         </div>
                         <div className="reservation-time">
                             <i id="ticker" className="far fa-clock"></i>
-                            <select id="time-selector">
-                                <option value="5:00 PM">5:00 PM</option>
-                                <option value="2 people">5:30 PM</option>
-                                <option value="6:00 PM">6:00 PM</option>
-                                <option value="6:30 PM">6:30 PM</option>
-                                <option value="7:00 PM" selected>7:00 PM</option>
-                                <option value="7:30 PM">7:30 PM</option>
-                                <option value="8:00 PM">8:00 PM</option>
-                                <option value="8:30 PM">8:30 PM</option>
-                                <option value="9:00 PM">9:00 PM</option>
-                                <option value="9:30 PM">9:30 PM</option>
-                                <option value="10:00 PM">10:00 PM</option>
+                            <select id="time-selector" onChange={ this.update("time") }>
+                                <option value="17:00:00">5:00 PM</option>
+                                <option value="17:30:00">5:30 PM</option>
+                                <option value="18:00:00">6:00 PM</option>
+                                <option value="18:30:00">6:30 PM</option>
+                                <option value="19:00:00" selected>7:00 PM</option>
+                                <option value="19:30:00">7:30 PM</option>
+                                <option value="20:00:00">8:00 PM</option>
+                                <option value="20:30:00">8:30 PM</option>
+                                <option value="21:00:00">9:00 PM</option>
+                                <option value="21:30:00">9:30 PM</option>
                             </select>
                         </div>
                         <div className="border-space">.</div>
                         <div className="reservation-party">
                             <i id="user-icon" className="far fa-user"></i>
-                            <select id="party-selector">
-                                <option value="1 person">1 person</option>
-                                <option value="2 people" selected>2 people</option>
-                                <option value="3 people">3 people</option>
-                                <option value="4 people">4 people</option>
-                                <option value="5 people">5 people</option>
-                                <option value="6 people">6 people</option>
-                                <option value="7 people">7 people</option>
-                                <option value="8 people">8 people</option>
-                                <option value="9 people">9 people</option>
-                                <option value="10 people">10 people</option>
-                                <option value="11 people">11 people</option>
-                                <option value="12 people">12 people</option>
-                                <option value="Larger party">Larger party</option>
+                            <select id="party-selector" onChange={ this.update("partySize") }>
+                                <option value="1">1 person</option>
+                                <option value="2" selected>2 people</option>
+                                <option value="3">3 people</option>
+                                <option value="4">4 people</option>
+                                <option value="5">5 people</option>
+                                <option value="6">6 people</option>
+                                <option value="7">7 people</option>
+                                <option value="8">8 people</option>
+                                <option value="9">9 people</option>
+                                <option value="10">10 people</option>
+                                <option value="11">11 people</option>
+                                <option value="12">12 people</option>
+                                <option value="13">Larger party</option>
                             </select>
                         </div>
                     </div>
@@ -101,7 +105,7 @@ class Search extends React.Component {
                 </form>
             )
         }
-        
+
         if (this.props.location.pathname === "/") {
             return (
                 <div className="splash-search-container">

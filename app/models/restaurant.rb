@@ -80,11 +80,11 @@ class Restaurant < ApplicationRecord
         end
     end
 
-    def open_slots
-        # resTimes = self.reservations.find_by(date: )
-
+    def open_slots(date)
+        existing_res = self.reservations.where(date: date)
+        # TRY SENDING IN DATE FROM FRONT END FOR GENERATING TIME ICONS
         @openings = @time_slots.reject do |slot|
-            resTimes.include?(slot)
+            existing_res.include?(slot)
         end
     end
 

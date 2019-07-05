@@ -4,21 +4,24 @@ import SearchContainer from '../search/search_container';
 
 
 class RestaurantIndex extends React.Component {
-    parseKeyword() {
-        const keyString = this.props.location.search.slice(9)
-        const keywords = keyString.split("%20")
-        const keyword = { keyword: keywords.join(" ") }
-
+    search() {
+        const keyString = this.props.location.search.slice(9);
+        const keywords = keyString.split("%20");
+        const datetime = this.props.location.hash.split("#");
+        const date = datetime[1];
+        const time = datetime[2];
+        const keyword = { keyword: keywords.join(" "), date: date, time: time }
+        debugger
         this.props.searchRestaurants(keyword);
     }
 
     componentDidMount() {
-        this.parseKeyword();
+        this.search();
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.location !== this.props.location) {
-            this.parseKeyword();
+            this.search();
         }
     }
 
