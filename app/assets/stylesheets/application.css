@@ -14,19 +14,23 @@
  *= require_self
  */
 
+ html {
+   min-height: 100%;
+ }
+
  body {
-    font-family: 'Jaldi', sans-serif;;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    background-color: white;
-    position: relative;
-    min-height: 100%;
-    padding-bottom: 54px;
+   font-family: 'Jaldi', sans-serif;;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   background-color: white;
+   position: relative;
+   min-height: 100%;
+   padding-bottom: 54px;
  }
 
  a {
-    text-decoration: none;
-    color: white;
+   text-decoration: none;
+   color: white;
  }
 
 .hidden {
