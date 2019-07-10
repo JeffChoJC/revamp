@@ -1,5 +1,5 @@
 export const parseDate = date => {
-    const parts = date.split(" ");
+    const parts = String(date).split(" ");
     const months = {
         "Jan": "01",
         "Feb": "02",

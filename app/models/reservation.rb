@@ -17,7 +17,8 @@ class Reservation < ApplicationRecord
     belongs_to :user
 
     validates :date,
-        :time,
         :party_size,
         presence: true
+
+    validates :time, uniqueness: { scope: :date }
 end

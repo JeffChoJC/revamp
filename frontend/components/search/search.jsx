@@ -10,7 +10,7 @@ class Search extends React.Component {
             keyword: "",
             date: new Date(),
             time: "19:00:00",
-            partySize: "2"
+            party_size: "2"
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +18,6 @@ class Search extends React.Component {
     }
 
     update(field) {
-        debugger
         return e => this.setState({ [field]: e.target.value });
     }
 
@@ -30,7 +29,7 @@ class Search extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault();
-        const date = parseDate(String(this.state.date));
+        const date = parseDate(this.state.date);
         const time = this.state.time;
         this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }#${ date }#${ time }`);
     }
@@ -60,12 +59,13 @@ class Search extends React.Component {
                         </div>
                         <div className="reservation-time">
                             <i id="ticker" className="far fa-clock"></i>
-                            <select id="time-selector" onChange={ this.update("time") }>
+                            <select id="time-selector" defaultValue={ this.state.time }
+                                onChange={ this.update("time") }>
                                 <option value="17:00:00">5:00 PM</option>
                                 <option value="17:30:00">5:30 PM</option>
                                 <option value="18:00:00">6:00 PM</option>
                                 <option value="18:30:00">6:30 PM</option>
-                                <option value="19:00:00" selected>7:00 PM</option>
+                                <option value="19:00:00">7:00 PM</option>
                                 <option value="19:30:00">7:30 PM</option>
                                 <option value="20:00:00">8:00 PM</option>
                                 <option value="20:30:00">8:30 PM</option>
@@ -76,9 +76,10 @@ class Search extends React.Component {
                         <div className="border-space">.</div>
                         <div className="reservation-party">
                             <i id="user-icon" className="far fa-user"></i>
-                            <select id="party-selector" onChange={ this.update("partySize") }>
+                            <select id="party-selector" defaultValue={ this.state.party_size }
+                                onChange={ this.update("party_size") }>
                                 <option value="1">1 person</option>
-                                <option value="2" selected>2 people</option>
+                                <option value="2">2 people</option>
                                 <option value="3">3 people</option>
                                 <option value="4">4 people</option>
                                 <option value="5">5 people</option>

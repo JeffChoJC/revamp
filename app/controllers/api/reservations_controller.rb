@@ -1,11 +1,10 @@
-class ReservationsController < ApplicationController
+class Api::ReservationsController < ApplicationController
     def create
         @reservation = Reservation.new(reservation_params)
-
-        if @reservation.save!
+        if @reservation.save
             render "api/reservations/show"
         else
-            render json: @reservations.errors.full_messages, status: 422
+            render json: ["There are no available tables for this day and time. Please try again."], status: 422
         end
     end
 

@@ -11,7 +11,7 @@ class RestaurantIndex extends React.Component {
         const date = datetime[1];
         const time = datetime[2];
         const keyword = { keyword: keywords.join(" "), date: date, time: time }
-        debugger
+        
         this.props.searchRestaurants(keyword);
     }
 

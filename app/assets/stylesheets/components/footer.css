@@ -2,12 +2,13 @@
     position: fixed;
     display: flex;
     justify-content: flex-end;
-    box-sizing: border-box;
     bottom: 0;
-    height: 65px;
+    left: 0;
+    height: 58px;
     width: 100%;
-    background-color: rgba(0, 0, 0, .85);
+    background-color: rgba(30, 30, 30);
     font-size: 18px;
+    z-index: 5;
 }
 
 .footer-container-items {

@@ -25,7 +25,11 @@
    background-color: white;
    position: relative;
    min-height: 100%;
-   padding-bottom: 54px;
+   width: 100%;
+   /* max-width: 1750px; */
+   padding-bottom: 58px;
+   margin-left: auto;
+   margin-right: auto;
  }
 
  a {

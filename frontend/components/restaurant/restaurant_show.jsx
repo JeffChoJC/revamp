@@ -1,6 +1,7 @@
 import React from "react";
 import { parseTime } from './restaurant_helper';
 import ReviewIndexItem from '../reviews/review_index_item';
+import ReservationFormContainer from "../reservation/reservation_form_container";
 
 class RestaurantShow extends React.Component {
     componentDidMount() {
@@ -115,6 +116,7 @@ class RestaurantShow extends React.Component {
                             { this.reviewDetails() }
                         </div>
                         <div className="restaurant-details">
+                            <ReservationFormContainer />
                             <ul className="restaurant-details-list">
                                 <li key="3">
                                     <i id="map-icon" className="far fa-map"></i>

@@ -12,7 +12,7 @@
     margin-left: auto;
     margin-right: auto;
     top: -50px;
-    max-width: 992px;
+    max-width: 1000px;
     z-index: 4;
 }
 
@@ -23,16 +23,17 @@
 }
 
 .restaurant-overview {
-    width: 70%;
+    width: 66%;
     background-color: white;
-    padding: 10px 20px;
+    padding: 10px 10px;
+    margin-right: 15px;
 }
 
 .restaurant-name {
     padding: 30px 10px;
     font-size: 50px;
     font-weight: bold;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.27)
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.5)
 }
 
 .restaurant-overview-list {
@@ -52,11 +53,17 @@
 }
 
 .restaurant-details {
-    width: 22%;
-    margin-left: 35px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    margin-left: 15px;
     background-color: white;
     font-size: 18px;
+}
+
+.restaurant-details-list {
+    padding: 10px;
+    margin: 10px 0px;
 }
 
 .restaurant-details-list h3 {
@@ -182,8 +189,8 @@
 .ratings-summary {
     font-size: 20px;
     padding: 30px 10px;
-    border-top: 0.5px solid rgba(0, 0, 0, 0.17);
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.17);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .title-header {
@@ -208,7 +215,7 @@
 .ratings-summary li {
     text-align: center;
     padding: 0px 10px;
-    border-right: 0.5px solid rgba(0, 0, 0, 0.17);
+    border-right: 0.5px solid rgba(0, 0, 0, 0.5);
 }
 
 #last-rating {
@@ -234,5 +241,5 @@
 }
 
 .review-button:hover {
-    background-color: rgba(225, 0, 0, 0.05);
+    background-color: rgba(225, 0, 0, 0.1);
 }

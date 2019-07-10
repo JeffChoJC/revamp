@@ -31,10 +31,6 @@ class ReviewForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
-    componentDidMount() {
-
-    }
 
     update(field) {
         return e => this.setState({ [field]: e.target.value })
@@ -75,10 +71,10 @@ class ReviewForm extends React.Component {
         delete review.hoverField;
         delete review.hoverStars;
         if (this.props.formType === 'create') {
-            this.props.createReview(review)
+            return this.props.createReview(review)
                 .then(this.props.closeModal)
         } else {
-            this.props.editReview(review)
+            return this.props.editReview(review)
                 .then(this.props.closeModal)
         }
     }

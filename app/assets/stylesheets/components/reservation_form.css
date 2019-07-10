@@ -1,0 +1,74 @@
+.reservation-form-container {
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+}
+
+.reservation-form-container .header {
+    padding: 10px 0px 20px 0px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.4);
+}
+
+.reservation-form-container h1 {
+    padding: 15px 0px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.select-container {
+    width: 100%;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.4);
+}
+
+.resform-select {
+    font-family: inherit;
+    margin: 2px;
+    width: 100%;
+    border-style: none;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.resform-date-time {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.resform-date-container {
+    width: 48%;
+    padding-bottom: 1px;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.4);
+}
+
+#resform-datepicker {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+}
+
+.resform-time-container {
+    width: 48%;
+    z-index: 2;
+}
+
+.resform-submit {
+    font-family: inherit;
+    font-size: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #DA3743;
+    color: white;
+    border-radius: 4px;
+}
+
+.resform-error {
+    color: red;
+    padding-top: 10px;
+}
