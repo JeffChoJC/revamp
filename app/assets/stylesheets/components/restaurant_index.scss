@@ -1,5 +1,5 @@
 .num-tables {
-    margin-top: 20px;
+    // margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     width: 100%;
@@ -12,10 +12,19 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(asset-path("index_background.jpg"));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .restaurants {
     box-sizing: border-box;
+    padding: 15px 35px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
 }
 
 .restaurant-index-photo {

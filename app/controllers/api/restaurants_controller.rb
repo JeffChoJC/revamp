@@ -33,7 +33,7 @@ class Api::RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.includes(:reviews)
+        @restaurant = Restaurant.includes(:reviews, :reservations)
             .find_by(id: params[:id])
         if @restaurant
             render "api/restaurants/show"
