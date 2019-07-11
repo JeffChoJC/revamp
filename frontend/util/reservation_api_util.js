@@ -10,7 +10,7 @@ export const editReservation = reservation => {
     return $.ajax({
         method: "PATCH",
         url: `/api/reservations/${ reservation.id }`,
-        data: { review }
+        data: { reservation }
     })
 }
 

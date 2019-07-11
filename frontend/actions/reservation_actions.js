@@ -6,8 +6,8 @@ export const REMOVE_RESERVATION = "REMOVE_RESERVATION";
 export const RECEIVE_RES_ERRORS = 'RECEIVE_RES_ERRORS'
 
 const receiveReservation = reservation => ({
-        type: RECEIVE_RESERVATION,
-        reservation
+    type: RECEIVE_RESERVATION,
+    reservation
 })
 
 const receiveReservations = reservations => ({
@@ -16,7 +16,7 @@ const receiveReservations = reservations => ({
 })
 
 const removeReservation = id => ({
-    type: RECEIVE_RESERVATION,
+    type: REMOVE_RESERVATION,
     id
 })
 
@@ -44,5 +44,5 @@ export const fetchReservations = () => dispatch => (
 )
 
 export const cancelReservation = id => dispatch => (
-    ApiUtil.cancelReservation(id).then(() => dispatch(removeReservation(id)))
+    ApiUtil.cancelReservation(id).then(reservation => dispatch(removeReservation(reservation.user_id)))
 )

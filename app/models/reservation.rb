@@ -20,5 +20,6 @@ class Reservation < ApplicationRecord
         :party_size,
         presence: true
 
-    validates :time, uniqueness: { scope: :date }
+    validates :time, uniqueness: { scope: [:date, :restaurant_id] }
+    validates :user_id, uniqueness: { scope: :restaurant_id }
 end

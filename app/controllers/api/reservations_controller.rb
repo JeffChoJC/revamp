@@ -4,7 +4,7 @@ class Api::ReservationsController < ApplicationController
         if @reservation.save
             render "api/reservations/show"
         else
-            render json: ["There are no available tables for this day and time. Please try again."], status: 422
+            render json: @reservation.errors.full_messages, status: 422
         end
     end
 

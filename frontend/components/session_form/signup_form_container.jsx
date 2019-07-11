@@ -22,8 +22,7 @@ const msp = (state) => {
             default:
                 return error
         }
-        }
-    );
+    });
 
     return {
         errors: errors,

@@ -22,3 +22,10 @@ end
     end
 end
 
+@restaurant.reservations.each do |reservation|
+    json.reservations do
+        json.set! reservation.user_id do
+            json.partial! 'api/reservations/reservation', reservation: reservation
+        end
+    end
+end
