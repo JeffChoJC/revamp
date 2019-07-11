@@ -10,7 +10,7 @@ class ReservationForm extends React.Component {
 
         if (this.props.reserved) {
             this.state = {
-                date: new Date(parseDate(reservation.date)),
+                date: new Date(reservation.date),
                 time: reservation.time,
                 party_size: reservation.party_size
             }
@@ -39,7 +39,7 @@ class ReservationForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const reservation = Object.assign({}, this.props.reservation, this.state, {
-            date: this.state.date,
+            date: parseDate(this.state.date),
             restaurant_id: this.props.restaurant.id,
             user_id: this.props.userId
         })
