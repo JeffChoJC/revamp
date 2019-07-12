@@ -14,7 +14,6 @@ class ReservationForm extends React.Component {
                 time: reservation.time,
                 party_size: reservation.party_size
             }
-            debugger
         } else {
             this.state = {
                 date: new Date(),
@@ -43,7 +42,6 @@ class ReservationForm extends React.Component {
             restaurant_id: this.props.restaurant.id,
             user_id: this.props.userId
         })
-        debugger
         
         if (!this.props.reserved) {
             return this.props.create(reservation)
@@ -53,7 +51,6 @@ class ReservationForm extends React.Component {
     }
 
     handleDelete(reservationId) {
-        debugger
         return () => this.props.cancel(reservationId)
     }
 

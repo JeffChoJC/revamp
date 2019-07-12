@@ -7,7 +7,7 @@ const msp = (state, ownProps) => {
     const clearErrors = () => {
         return state.errors['reservation'] = [];
     }
-
+    
     const errors = state.errors.reservation.map((error) => {
         switch (error) {
             case 'User must exist':
