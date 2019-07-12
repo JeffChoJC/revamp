@@ -12,7 +12,7 @@ class Api::RestaurantsController < ApplicationController
     def index
         if params[:keyword]
             @date = params[:date]
-            restaurants = Restaurant.includes(:reservations)
+            restaurants = Restaurant.includes(:reviews, :reservations)
                 .order(:name).search_by_keyword(params[:keyword])
             @restaurants = restaurants.each do |restaurant|
                 reservations = restaurant.reservations.where(date: params[:date])
