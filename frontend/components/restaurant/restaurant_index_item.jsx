@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { numDollars, recRate } from './restaurant_helper';
+import { numDollars, recRate, parseTime } from './restaurant_helper';
+import { toArray } from '../../reducers/selectors';
 
 const RestaurantIndexItem = props => {
     const img = Math.floor(Math.random() * 30);
+
+    const openings = toArray(props.restaurant.openings);
+    const timeslots = openings.slice(0, 5).map(slot => {
+        return (
+            <>
+            <p className="timeslot">{ parseTime(slot) }</p>
+            &nbsp; &nbsp;
+            </>
+        )
+    })
 
     return (
         <li className="restaurant-index-item">
@@ -30,6 +41,9 @@ const RestaurantIndexItem = props => {
                         {`Booked ${ img } times today`}
                     </li>
                 </ul>
+                <div className="timeslots-container">
+                    { timeslots }
+                </div>
             </div>
         </li>
     )

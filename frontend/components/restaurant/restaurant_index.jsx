@@ -26,6 +26,8 @@ class RestaurantIndex extends React.Component {
     }
 
     render() {
+        if (!this.props.restaurants) return null;
+        
         const restaurants = this.props.restaurants.map(restaurant => {
             return (
                 <RestaurantIndexItem
@@ -41,7 +43,7 @@ class RestaurantIndex extends React.Component {
             <div className="table-results"></div>
             <div className="restaurant-index-container">
                 <ul className="restaurants">
-                    <p className="num-tables">{`${this.props.restaurants.length} TABLES AVAILABLE`}</p>
+                    <p className="num-tables">{`${this.props.restaurants.length} RESTAURANTS AVAILABLE`}</p>
                     { restaurants }
                 </ul>
             </div>

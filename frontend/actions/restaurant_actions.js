@@ -5,7 +5,7 @@ export const RECEIVE_RESTAURANT = "RECEIVE_RESTAURANT";
 export const RECEIVE_RESTAURANT_ERRORS = 'RECEIVE_RESTAURANT_ERRORS';
 
 // RESTAURANTS
-const receiveRestaurants = restaurants => ({
+const receiveRestaurants = ({ restaurants }) => ({
     type: RECEIVE_RESTAURANTS,
     restaurants
 })
