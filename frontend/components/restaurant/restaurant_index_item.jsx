@@ -5,8 +5,14 @@ import { toArray } from '../../reducers/selectors';
 
 const RestaurantIndexItem = props => {
     const img = Math.floor(Math.random() * 30);
+    
+    let openings = [];
+    if (!props.restaurant.openings) {
+        return null;
+    } else {
+        openings = toArray(props.restaurant.openings);
+    }
 
-    const openings = toArray(props.restaurant.openings);
     const timeslots = openings.slice(0, 5).map(slot => {
         return (
             <>
