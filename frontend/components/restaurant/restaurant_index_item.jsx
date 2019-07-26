@@ -13,14 +13,31 @@ const RestaurantIndexItem = props => {
         openings = toArray(props.restaurant.openings);
     }
 
-    const timeslots = openings.slice(0, 5).map(slot => {
-        return (
-            <>
-            <p className="timeslot">{ parseTime(slot) }</p>
-            &nbsp; &nbsp;
+    let timeslots = [];
+    if (props.time) {
+        let target = openings.indexOf(props.time);
+        switch (target > 1) {
+            case true:
+                timeslots = openings.slice(target - 2, target + 3).map(slot => {
+                    return (
+                        <>
+                            <p className="timeslot">{parseTime(slot)}</p>
+                            &nbsp; &nbsp;
             </>
-        )
-    })
+                    )
+                })
+                break;
+            case false:
+                timeslots = openings.slice(0, 5).map(slot => {
+                    return (
+                        <>
+                            <p className="timeslot">{parseTime(slot)}</p>
+                            &nbsp; &nbsp;
+            </>
+                    )
+                })
+        }
+    }
 
     return (
         <li className="restaurant-index-item">

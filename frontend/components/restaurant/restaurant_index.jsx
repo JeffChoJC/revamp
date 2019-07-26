@@ -27,12 +27,14 @@ class RestaurantIndex extends React.Component {
 
     render() {
         if (!this.props.restaurants) return null;
+        const datetime = this.props.location.hash.split("#");
         
         const restaurants = this.props.restaurants.map(restaurant => {
             return (
                 <RestaurantIndexItem
                     key={ restaurant.id } 
                     restaurant={ restaurant }
+                    time={ datetime[2] }
                 />
             )
         })
