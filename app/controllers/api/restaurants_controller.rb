@@ -12,19 +12,8 @@ class Api::RestaurantsController < ApplicationController
     def index
         if params[:keyword]
             @date = params[:date]
-            restaurants = Restaurant.includes(:reviews, :reservations)
+            @restaurants = Restaurant.includes(:reviews, :reservations)
                 .order(:name).search_by_keyword(params[:keyword])
-            @restaurants = restaurants.each do |restaurant|
-                reservations = restaurant.reservations.where(date: params[:date])
-                openReservations = reservations.reject do |reservation|
-                    reservation.time == params[:time]
-                end
-
-                availRestIds = openReservations.pluck(:restaurant_id)
-                availRestaurants = availRestIds.map do |id|
-                    restaurants.where(id: id)
-                end
-            end
         end
         
         unless @restaurants.length > 0

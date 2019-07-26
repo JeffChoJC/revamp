@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { parseDate } from '../search/search_helper';
 import SearchContainer from '../search/search_container';
 
 const Home = () => (
@@ -9,27 +10,27 @@ const Home = () => (
             <div id="featured-areas-container">
                 <h2 id="featured-areas-header">Featured Areas</h2>
                 <div className="search-links-container">
-                    <Link to="/restaurants/search?keyword=new%20york"
+                    <Link to={`/restaurants/search?keyword=new%20york#${ parseDate(new Date()) }`}
                         className="new-york-search">
                         <p className="area-header">New York</p>
                     </Link>
-                    <Link to="/restaurants/search?keyword=chicago"
+                    <Link to={`/restaurants/search?keyword=chicago#${parseDate(new Date())}`}
                         className="chicago-search">
                         <p className="area-header">Chicago</p>
                     </Link>
-                    <Link to="/restaurants/search?keyword=los%20angeles"
+                    <Link to={`/restaurants/search?keyword=los%20angeles#${parseDate(new Date())}`}
                         className="los-angeles-search">
                         <p className="area-header">Los Angeles</p>
                     </Link>
-                    <Link to="/restaurants/search?keyword=san%20francisco"
+                    <Link to={`/restaurants/search?keyword=san%20francisco#${parseDate(new Date())}`}
                         className="san-francisco-search">
                         <p className="area-header">San Francisco</p>
                     </Link>
-                    <Link to="/restaurants/search?keyword=miami"
+                    <Link to={`/restaurants/search?keyword=miami#${parseDate(new Date())}`}
                         className="miami-search">
                         <p className="area-header">Miami</p>
                     </Link>
-                    <Link to="/restaurants/search?keyword=las%20vegas"
+                    <Link to={`/restaurants/search?keyword=las%20vegas#${parseDate(new Date())}`}
                         className="las-vegas-search">
                         <p className="area-header">Las Vegas</p>
                     </Link>

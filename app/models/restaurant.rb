@@ -81,8 +81,10 @@ class Restaurant < ApplicationRecord
     end
 
     def open_slots(date)
-        existing_res = self.reservations.where(date: date)
-        
+        existing_res = self.reservations.map do |reservation|
+            reservation.time if reservation.date == date
+        end
+
         @openings = @time_slots.reject do |slot|
             existing_res.include?(slot)
         end

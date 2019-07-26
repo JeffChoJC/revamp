@@ -8,7 +8,7 @@ class RestaurantIndex extends React.Component {
         const keyString = this.props.location.search.slice(9);
         const keywords = keyString.split("%20");
         const datetime = this.props.location.hash.split("#");
-        const date = datetime[1];
+        const date = datetime[1].split("%20").join(" ");
         const time = datetime[2];
         const keyword = { keyword: keywords.join(" "), date: date, time: time }
         
