@@ -16,6 +16,15 @@ const RestaurantIndexItem = props => {
     let timeslots = [];
     if (props.time) {
         let target = openings.indexOf(props.time);
+        while (target === -1) {
+            let time = Number(props.time.slice(0, 2) + props.time.slice(3, 5));
+            time += 30;
+            debugger
+
+            if (String(time).slice(2,4) === "60") time += 40;
+            target = openings.indexOf(String(time).slice(0, 2) + ":" + String(time).slice(2, 4) + ":00");
+        }
+
         switch (target > 1) {
             case true:
                 timeslots = openings.slice(target - 2, target + 3).map(slot => {
@@ -23,7 +32,7 @@ const RestaurantIndexItem = props => {
                         <>
                             <p className="timeslot">{parseTime(slot)}</p>
                             &nbsp; &nbsp;
-            </>
+                        </>
                     )
                 })
                 break;
@@ -33,7 +42,7 @@ const RestaurantIndexItem = props => {
                         <>
                             <p className="timeslot">{parseTime(slot)}</p>
                             &nbsp; &nbsp;
-            </>
+                        </>
                     )
                 })
         }
