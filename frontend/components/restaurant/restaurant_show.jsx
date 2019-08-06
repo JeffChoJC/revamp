@@ -17,7 +17,7 @@ class RestaurantShow extends React.Component {
                 <div className="title-header">Overall Ratings and Reviews</div>
                 <div>
                     <div className="restaurant-stars-outer">
-                        <div className="restaurant-stars-inner" style={{width: `${stars}`}}></div>
+                        <div className="restaurant-stars-inner" style={ {width: `${stars}`} }></div>
                     </div>
                     <p id="restaurant-overall">{ Math.round(restaurant.rating * 100) / 100 } &nbsp; based on recent ratings</p>
                 </div>
@@ -31,11 +31,11 @@ class RestaurantShow extends React.Component {
                         <p>Service</p>
                     </li>
                     <li key="ambience">
-                        <p id="rating-number">{restaurant.ambience_rating}</p>
+                        <p id="rating-number">{ restaurant.ambience_rating }</p>
                         <p>Ambience</p>
                     </li>
                     <li key="value" id="last-rating">
-                        <p id="rating-number">{restaurant.value_rating}</p>
+                        <p id="rating-number">{ restaurant.value_rating }</p>
                         <p>Value</p>
                     </li>
                 </ul>
@@ -49,9 +49,9 @@ class RestaurantShow extends React.Component {
             return (
                 <ul>
                     <ReviewIndexItem
-                        key={review.id}
-                        review={review}
-                        authors={authors}
+                        key={ review.id }
+                        review={ review }
+                        authors={ authors }
                     />
                 </ul>
             )
@@ -59,7 +59,7 @@ class RestaurantShow extends React.Component {
 
         return (
             <div className="reviews-container">
-                {reviewList}
+                { reviewList }
             </div>
         )
     }
@@ -71,7 +71,7 @@ class RestaurantShow extends React.Component {
         if (reviewed) {
             return (
                 <button className="review-button" type="button"
-                    onClick={this.props.editModal}>
+                    onClick={ this.props.editModal }>
                         <i className="far fa-edit"></i>
                         &nbsp; Edit your review
                 </button>
@@ -79,7 +79,7 @@ class RestaurantShow extends React.Component {
         } else {
             return (
                 <button className="review-button" type="button"
-                    onClick={this.props.createModal}>
+                    onClick={ this.props.createModal }>
                         <i className="far fa-edit"></i>
                         &nbsp; Write a review
                     </button>
@@ -116,7 +116,7 @@ class RestaurantShow extends React.Component {
                             { this.reviewDetails() }
                         </div>
                         <div className="restaurant-details">
-                            <ReservationFormContainer />
+                            <ReservationFormContainer time={ this.props.location.hash.slice(1, 9) }/>
                             <ul className="restaurant-details-list">
                                 <li key="3">
                                     <i id="map-icon" className="far fa-map"></i>

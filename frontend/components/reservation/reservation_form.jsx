@@ -17,7 +17,7 @@ class ReservationForm extends React.Component {
         } else {
             this.state = {
                 date: new Date(),
-                time: "19:00:00",
+                time: this.props.time,
                 party_size: "2"
             }
         }
