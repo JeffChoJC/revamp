@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { cancelReservation, fetchReservations } from '../../actions/reservation_actions';
 import { toArray } from '../../reducers/selectors';
+import { parseTime } from '../restaurant/restaurant_helper';
 
 const msp = ({ session, entities: { users, reservations } }) => ({
     currentUser: users[session.id],
@@ -26,9 +27,18 @@ class Profile extends React.Component {
         const img = Math.floor(Math.random() * 30);
         const res = reservations.map(reservation => {
             return (
-                <Link to={`/restaurants/${reservation.restaurant_id}`}>
-                    <img className="reservation-index-photo" src={window.images[img]} />
-                </Link>
+                <>
+                <div className="reservation-index-item">
+                    <Link to={`/restaurants/${reservation.restaurant_id}`}>
+                        <img className="reservation-index-photo" src={window.images[img]} />
+                    </Link>
+                    <div className="reservation-details">
+                        <p id="res-restaurant-name">{ reservation.restaurant.name }</p>
+                        <p>{ reservation.date } at { parseTime(reservation.time) } PM.</p>
+                        <p>Table for { reservation.party_size } people.</p>
+                    </div>
+                </div>
+                </>
             )
         })
 
