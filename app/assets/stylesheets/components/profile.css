@@ -1,0 +1,39 @@
+.profile-container {
+    width: 100%;
+}
+
+.user-header {
+    font-size: 45px;
+    border-top: 1px solid rgba(0, 0, 0, .17);
+    border-bottom: 1px solid rgba(0, 0, 0, .17);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.user-header h1 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-content-container {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.profile-navigation {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+}
+
+.profile-nav-res1 {
+    color: black;
+}
+
+.profile-nav-fav1 {
+    color: rgba(0, 0, 0, .3);
+}
+

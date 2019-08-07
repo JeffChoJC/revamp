@@ -1,6 +1,6 @@
 class Api::ReservationsController < ApplicationController
     def index
-        @reservations = Reservation.includes(:restaurants).where(user_id: params[userId])
+        @reservations = Reservation.where("user_id = ?", params[:userId]).includes(:restaurant)
     end
 
     def create

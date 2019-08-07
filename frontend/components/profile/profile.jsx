@@ -1,22 +1,55 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
+import { cancelReservation, fetchReservations } from '../../actions/reservation_actions';
+import { toArray } from '../../reducers/selectors';
 
-const msp = ({ session, entities: { users } }) => ({
-    currentUser: users[session.id]
+const msp = ({ session, entities: { users, reservations } }) => ({
+    currentUser: users[session.id],
+    reservations: toArray(reservations)
 });
 
 const mdp = dispatch => ({
-    logout: () => dispatch(logout())
+    fetchReservations: userId => dispatch(fetchReservations(userId)),
+    cancel: id => dispatch(cancelReservation(id))
 })
 
-const NavMenu = ({ logout }) => {
-    return (
-        <div className="navmenu-container hidden">
-            <Link to="/profile" className="navmenu-item">My Profile</Link>
-            <Link to="/favorites" className="navmenu-item">My Saved Restaurants</Link>
-            <Link to="/" className="navmenu-item" onClick={logout}>Sign Out</Link>
-        </div>
-    )
+class Profile extends React.Component {
+    componentDidMount() {
+        this.props.fetchReservations(this.props.currentUser.id);
+    }
+
+    render() {
+        const { currentUser, reservations } = this.props;
+        if (!reservations) return null;
+
+        const img = Math.floor(Math.random() * 30);
+        const res = reservations.map(reservation => {
+            return (
+                <Link to={`/restaurants/${reservation.restaurant_id}`}>
+                    <img className="reservation-index-photo" src={window.images[img]} />
+                </Link>
+            )
+        })
+
+        return (
+            <div className="profile-container">
+                <div className="user-header">
+                    <h1>{ currentUser.fname } { currentUser.lname }</h1>
+                </div>
+                <div className="profile-content-container">
+                    <div className="profile-navigation">
+                        <Link to="/profile" className="profile-nav-res1">Reservations</Link>
+                        <Link to="/favorites" className="profile-nav-fav1">Saved Restaurants</Link>
+                    </div>
+                    <div className="reservations-index-container">
+                        <h1>Upcoming Reservations</h1>
+                        { res }
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
-export default connect(msp, mdp)(NavMenu);
+export default connect(msp, mdp)(Profile);
