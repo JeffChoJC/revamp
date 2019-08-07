@@ -14,10 +14,11 @@ export const editReservation = reservation => {
     })
 }
 
-export const fetchReservations = () => {
+export const fetchReservations = userId => {
     return $.ajax({
         method: "GET",
         url: "/api/reservations",
+        data: { userId }
     })
 }
 

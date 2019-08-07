@@ -39,8 +39,8 @@ export const editReservation = reservation => dispatch => (
     )
 )
 
-export const fetchReservations = () => dispatch => (
-    ApiUtil.fetchReservations().then(reservations => dispatch(receiveReservations(reservations)))
+export const fetchReservations = userId => dispatch => (
+    ApiUtil.fetchReservations(userId).then(reservations => dispatch(receiveReservations(reservations)))
 )
 
 export const cancelReservation = id => dispatch => (
