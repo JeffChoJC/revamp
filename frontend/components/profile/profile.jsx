@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { cancelReservation, fetchReservations } from '../../actions/reservation_actions';
+import { fetchReservations } from '../../actions/reservation_actions';
 import { toArray } from '../../reducers/selectors';
 import { parseTime } from '../restaurant/restaurant_helper';
 
@@ -12,7 +12,6 @@ const msp = ({ session, entities: { users, reservations } }) => ({
 
 const mdp = dispatch => ({
     fetchReservations: userId => dispatch(fetchReservations(userId)),
-    cancel: id => dispatch(cancelReservation(id))
 })
 
 class Profile extends React.Component {
@@ -26,6 +25,8 @@ class Profile extends React.Component {
 
         const img = Math.floor(Math.random() * 30);
         const res = reservations.map(reservation => {
+            if (!reservation.restaurant) return null;
+
             return (
                 <>
                 <div className="reservation-index-item">
@@ -36,6 +37,7 @@ class Profile extends React.Component {
                         <p id="res-restaurant-name">{ reservation.restaurant.name }</p>
                         <p>{ reservation.date } at { parseTime(reservation.time) } PM.</p>
                         <p>Table for { reservation.party_size } people.</p>
+                        <Link to={`/restaurants/${reservation.restaurant_id}`} className="modify-link">Modify</Link>
                     </div>
                 </div>
                 </>
