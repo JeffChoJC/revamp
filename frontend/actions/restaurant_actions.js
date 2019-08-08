@@ -10,12 +10,13 @@ const receiveRestaurants = ({ restaurants }) => ({
     restaurants
 })
 
-const receiveRestaurant = ({ restaurant, reviews, authors, reservations }) => ({
+const receiveRestaurant = ({ restaurant, reviews, authors, reservations, favorites }) => ({
     type: RECEIVE_RESTAURANT,
     restaurant,
     reviews,
     authors,
-    reservations
+    reservations,
+    favorites
 })
 
 export const fetchRestaurant = id => dispatch => (

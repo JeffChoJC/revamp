@@ -1,7 +1,8 @@
 import React from "react";
 import { parseTime } from './restaurant_helper';
 import ReviewIndexItem from '../reviews/review_index_item';
-import ReservationFormContainer from "../reservation/reservation_form_container";
+import ReservationFormContainer from '../reservation/reservation_form_container';
+import Favorites from '../favorite/favorites';
 
 class RestaurantShow extends React.Component {
     componentDidMount() {
@@ -93,6 +94,7 @@ class RestaurantShow extends React.Component {
 
         return (
             <div className="show">
+                <Favorites restaurant={ restaurant }/>
                 <div className="cover-photo">Photo Here</div>
                 <div className="show-details-container">
                     <div className="overview-details">

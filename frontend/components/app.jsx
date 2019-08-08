@@ -12,7 +12,7 @@ import Home from './home/home_page';
 import RestaurantIndexContainer from './restaurant/restaurant_index_container';
 import RestaurantShowContainer from './restaurant/restaurant_show_container';
 import Profile from './profile/profile';
-// import FavoritesContainer from './'
+import Favorites from './favorite/favorites';
 import Footer from './footer/footer'
 
 const App = () => (
@@ -25,7 +25,7 @@ const App = () => (
                 <Route path="/restaurants/search" component={ RestaurantIndexContainer } />
                 <Route path="/restaurants/:id" component={ RestaurantShowContainer } />
                 <Route path="/profile" component={ Profile } />
-                {/* <Route path="/favorites" component={ FavoritesContainer } /> */}
+                <Route path="/favorites" component={ Favorites } />
             </Switch>
         </div>
         <Footer />

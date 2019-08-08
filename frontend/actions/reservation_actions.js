@@ -20,7 +20,7 @@ const removeReservation = id => ({
     id
 })
 
-export const receiveErrors = errors => ({
+const receiveErrors = errors => ({
     type: RECEIVE_RES_ERRORS,
     errors
 })

@@ -24,11 +24,11 @@ const msp = (state, ownProps) => {
     }
 }
 
-const mdp = (dispatch) => ({
-    fetchRestaurant: (id) => dispatch(fetchRestaurant(id)),
+const mdp = dispatch => ({
+    fetchRestaurant: id => dispatch(fetchRestaurant(id)),
     createModal: () => dispatch(openModal('createReview')),
     editModal: () => dispatch(openModal('editReview')),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
 })
 
 export default connect(msp, mdp)(RestaurantShow);

@@ -29,3 +29,11 @@ end
         end
     end
 end
+
+@restaurant.favorites.each do |favorite|
+    json.favorites do
+        json.set! favorite.user_id do
+            json.partial! 'api/favorites/favorite', favorite: favorite
+        end
+    end
+end

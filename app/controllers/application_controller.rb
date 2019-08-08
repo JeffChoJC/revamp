@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     end
 
     def ensure_logged_in
+        render json: ['Please sign in.'], status: 403 unless logged_in?
     end
 
     def login(user)

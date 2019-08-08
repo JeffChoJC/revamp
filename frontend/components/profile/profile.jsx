@@ -12,7 +12,7 @@ const msp = ({ session, entities: { users, reservations } }) => ({
 
 const mdp = dispatch => ({
     fetchReservations: userId => dispatch(fetchReservations(userId)),
-})
+}) 
 
 class Profile extends React.Component {
     componentDidMount() {

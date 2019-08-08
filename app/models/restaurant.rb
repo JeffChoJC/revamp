@@ -35,13 +35,14 @@ class Restaurant < ApplicationRecord
         primary_key: :id,
         foreign_key: :owner_id,
         class_name: 'User'
-
+        
+    has_many :reservations
+    has_many :reviews
+    has_many :favorites
+        
     has_many :favorited,
         through: :favorites,
         source: :user
-
-    has_many :reservations
-    has_many :reviews
 
     pg_search_scope :search_by_keyword, against: [
         :name,
