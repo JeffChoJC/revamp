@@ -33,7 +33,7 @@ class Favorites extends React.Component {
     handleEvent(e) {
         const { favorite, save, unsave } = this.props;
         e.preventDefault();
-        
+
         if (favorite) {
             return unsave(favorite.user_id);
         } else {
@@ -47,13 +47,17 @@ class Favorites extends React.Component {
 
         if (favorited) {
             return (
-                <button className="unfavorite-button" type="button"
-                    onClick={this.handleEvent}>Restaraunt Saved!</button>
+                <button className="unfavorite-button" type="button" onClick={this.handleEvent}>
+                    <i id="saved-bookmark" class="fas fa-bookmark"></i>
+                    <p>Restaraunt Saved!</p>
+                </button>
             )
         } else {
             return (
-                <button className="favorite-button" type="button"
-                    onClick={ this.handleEvent }>Save this Restaurant</button>
+                <button className="favorite-button" type="button" onClick={ this.handleEvent }>
+                    <i className="far fa-bookmark"></i>
+                    <p>Save this restaurant</p>
+                </button>
             )
         }
     }

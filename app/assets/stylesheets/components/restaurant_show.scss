@@ -243,3 +243,48 @@
 .review-button:hover {
     background-color: rgba(225, 0, 0, 0.1);
 }
+
+.favorite-button {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    height: 50px;
+    border-radius: 4px;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+}
+
+.favorite-button p {
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: Jaldi, sans-serif;
+}
+
+.fa-bookmark {
+    padding: 15px 0px;
+    font-size: 18px;
+}
+
+.unfavorite-button {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    height: 50px;
+    border-radius: 4px;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+}
+
+.unfavorite-button p {
+    padding: 8px 10px;
+    font-size: 18px;
+    font-family: Jaldi, sans-serif;
+}
+
+#saved-bookmark {
+    color: #DA3743;
+    padding: 15px 0px;
+    font-size: 18px;
+}
