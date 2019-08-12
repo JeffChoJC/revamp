@@ -255,6 +255,10 @@
     right: 30px;
 }
 
+.favorite-button:hover {
+    border: 2px solid #DA3743;
+}
+
 .favorite-button p {
     padding: 8px 10px;
     font-size: 18px;
@@ -275,6 +279,10 @@
     position: absolute;
     top: 80px;
     right: 30px;
+}
+
+.unfavorite-button:hover {
+    border: 2px solid #DA3743;
 }
 
 .unfavorite-button p {

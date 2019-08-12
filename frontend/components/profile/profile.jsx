@@ -29,12 +29,12 @@ class Profile extends React.Component {
 
             return (
                 <>
-                <div className="reservation-index-item">
+                <div className="profile-index-item">
                     <Link to={`/restaurants/${reservation.restaurant_id}`}>
-                        <img className="reservation-index-photo" src={window.images[img]} />
+                        <img className="profile-index-photo" src={window.images[img]} />
                     </Link>
-                    <div className="reservation-details">
-                        <p id="res-restaurant-name">{ reservation.restaurant.name }</p>
+                    <div className="profile-details">
+                        <p id="profile-restaurant-name">{ reservation.restaurant.name }</p>
                         <p>{ reservation.date } at { parseTime(reservation.time) } PM.</p>
                         <p>Table for { reservation.party_size } people.</p>
                         <Link to={`/restaurants/${reservation.restaurant_id}`} className="modify-link">Modify</Link>
@@ -54,7 +54,7 @@ class Profile extends React.Component {
                         <Link to="/profile" className="profile-nav-res1">Reservations</Link>
                         <Link to="/favorites" className="profile-nav-fav1">Saved Restaurants</Link>
                     </div>
-                    <div className="reservations-index-container">
+                    <div className="profile-index-container">
                         <h1>Upcoming Reservations</h1>
                         { res }
                     </div>
