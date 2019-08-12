@@ -24,7 +24,7 @@ export const createFavorite = favorite => dispatch => (
 )
 
 export const fetchFavorites = userId => (dispatch) => (
-    ApiUtil.fetchFavorite(userId).then(favorites => dispatch(receiveFavorites(favorites)))
+    ApiUtil.fetchFavorites(userId).then(favorites => dispatch(receiveFavorites(favorites)))
 );
 
 export const deleteFavorite = id => (dispatch) => (
