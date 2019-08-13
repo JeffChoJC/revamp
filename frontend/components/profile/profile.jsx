@@ -34,7 +34,9 @@ class Profile extends React.Component {
                         <img className="profile-index-photo" src={window.images[img]} />
                     </Link>
                     <div className="profile-details">
-                        <p id="profile-restaurant-name">{ reservation.restaurant.name }</p>
+                        <Link to={`/restaurants/${reservation.restaurant_id}`} id="profile-restaurant-name">
+                            {reservation.restaurant.name}
+                        </Link>
                         <p>{ reservation.date } at { parseTime(reservation.time) } PM.</p>
                         <p>Table for { reservation.party_size } people.</p>
                         <Link to={`/restaurants/${reservation.restaurant_id}`} className="modify-link">Modify</Link>

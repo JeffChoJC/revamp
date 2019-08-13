@@ -9,7 +9,6 @@ class Api::FavoritesController < ApplicationController
 
     def index
         @favorites = Favorite.where('user_id = ?', params[:userId])
-        debugger
     end
 
     def destroy

@@ -25,6 +25,7 @@ class FavoritesIndex extends React.Component {
         const img = Math.floor(Math.random() * 30);
         const res = favorites.map(favorite => {
             if (!favorite.restaurant) return null;
+            const stars = `${Math.round((favorite.restaurant.rating / 5) * 100)}%`;
 
             return (
                 <>
@@ -33,8 +34,13 @@ class FavoritesIndex extends React.Component {
                             <img className="profile-index-photo" src={ window.images[img] } />
                         </Link>
                         <div className="profile-details">
-                            <p id="profile-restaurant-name">{ favorite.restaurant.name }</p>
-                            <p>{ favorite.restaurant.overall_rating }</p>
+                            <Link to={`/restaurants/${favorite.restaurant_id}`} id="profile-restaurant-name">
+                                {favorite.restaurant.name}
+                            </Link>
+                            <br/>
+                            <div className="restaurant-stars-outer">
+                                <div className="restaurant-stars-inner" style={{ width: `${stars}` }}></div>
+                            </div>
                             <p>{ favorite.restaurant.cuisine }</p>
                         </div>
                         <Link to={`/restaurants/${ favorite.restaurant_id }`}>Reserve Now</Link>
