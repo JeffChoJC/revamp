@@ -48,7 +48,7 @@ class Favorites extends React.Component {
         if (favorited) {
             return (
                 <button className="unfavorite-button" type="button" onClick={this.handleEvent}>
-                    <i id="saved-bookmark" class="fas fa-bookmark"></i>
+                    <i id="saved-bookmark" className="fas fa-bookmark"></i>
                     <p>Restaraunt Saved!</p>
                 </button>
             )

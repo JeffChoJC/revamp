@@ -24,9 +24,10 @@ class FavoritesIndex extends React.Component {
         if (!favorites) return null;
 
         const res = favorites.map(favorite => {
+            if (!favorite.restaurant) return null;
+            
             const img = Math.floor(Math.random() * 30);
             const stars = `${Math.round((favorite.restaurant.rating / 5) * 100)}%`;
-            if (!favorite.restaurant) return null;
 
             return (
                 <>
@@ -40,7 +41,7 @@ class FavoritesIndex extends React.Component {
                             </Link>
                             <br/>
                             <button className="unsave-button" onClick={ () => this.props.deleteFavorite(favorite.id) }>
-                                <i id="saved-icon" class="fas fa-bookmark"></i>
+                                <i id="saved-icon" className="fas fa-bookmark"></i>
                                 <p>Remove from saved restaurants</p>
                             </button>
                             <div className="favorites-stars-outer">
