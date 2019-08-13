@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { fetchFavorites } from '../../actions/favorite_actions';
+import { fetchFavorites, deleteFavorite } from '../../actions/favorite_actions';
 import { toArray } from '../../reducers/selectors';
 
 const msp = ({ session, entities: { users, favorites } }) => ({
@@ -11,6 +11,7 @@ const msp = ({ session, entities: { users, favorites } }) => ({
 
 const mdp = dispatch => ({
     fetchFavorites: userId => dispatch(fetchFavorites(userId)),
+    deleteFavorite: id => dispatch(deleteFavorite(id))
 })
 
 class FavoritesIndex extends React.Component {
@@ -22,10 +23,10 @@ class FavoritesIndex extends React.Component {
         const { currentUser, favorites } = this.props;
         if (!favorites) return null;
 
-        const img = Math.floor(Math.random() * 30);
         const res = favorites.map(favorite => {
-            if (!favorite.restaurant) return null;
+            const img = Math.floor(Math.random() * 30);
             const stars = `${Math.round((favorite.restaurant.rating / 5) * 100)}%`;
+            if (!favorite.restaurant) return null;
 
             return (
                 <>
@@ -38,12 +39,18 @@ class FavoritesIndex extends React.Component {
                                 {favorite.restaurant.name}
                             </Link>
                             <br/>
-                            <div className="restaurant-stars-outer">
-                                <div className="restaurant-stars-inner" style={{ width: `${stars}` }}></div>
+                            <button className="unsave-button" onClick={ () => this.props.deleteFavorite(favorite.id) }>
+                                <i id="saved-icon" class="fas fa-bookmark"></i>
+                                <p>Remove from saved restaurants</p>
+                            </button>
+                            <div className="favorites-stars-outer">
+                                <div className="favorites-stars-inner" style={{ width: `${stars}` }}></div>
                             </div>
                             <p>{ favorite.restaurant.cuisine }</p>
                         </div>
-                        <Link to={`/restaurants/${ favorite.restaurant_id }`}>Reserve Now</Link>
+                        <Link to={`/restaurants/${ favorite.restaurant_id }`} className="link-to-show">
+                            Reserve Now
+                        </Link>
                     </div>
                 </>
             )

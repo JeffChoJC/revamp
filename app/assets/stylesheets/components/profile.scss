@@ -76,6 +76,10 @@
     border-radius: 10px;
 }
 
+.profile-details {
+    width: 63%;
+}
+
 .profile-details p {
     font-size: 18px;
     margin: 4px 0px;
@@ -91,4 +95,61 @@
     display: inline-block;
     padding: 10px 0px;
     color: teal;
+}
+
+.unsave-button {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    border: none;
+    padding: 0px;
+    margin-bottom: 3px;
+}
+
+.unsave-button p {
+    padding: 0px 5px;
+    font-size: 14px;
+}
+
+#saved-icon {
+    color: #DA3743;
+    font-size: 14px;
+    padding: 6px 0px;
+}
+
+.favorites-stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 700;
+}
+ 
+.favorites-stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: rgba(0, 0, 0, 0.15);
+}
+ 
+.favorites-stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  font-weight: 700;
+}
+ 
+.favorites-stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #FEAA6D;
+}
+
+.link-to-show {
+    text-align: center;
+    background-color: #DA3743;
+    position: relative;
+    top: 25px;
+    height: 32px;
+    width: 130px;
+    padding-top: 16px;
+    border-radius: 5px;
+    margin-right: 25px;
 }
