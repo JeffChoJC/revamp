@@ -100,7 +100,7 @@ class ReservationForm extends React.Component {
         const { reservation } = this.props;
 
         if (!reservation) return null;
-        if (this.props.reserved) return null;
+        if (reservation.type === undefined) return null;
 
         if (reservation.type === "create") {
             return reservation.message[0];
