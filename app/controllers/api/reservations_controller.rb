@@ -5,6 +5,7 @@ class Api::ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new(reservation_params)
+        @type = "create"
         if @reservation.save
             render "api/reservations/show"
         else
@@ -14,6 +15,7 @@ class Api::ReservationsController < ApplicationController
 
     def update
         @reservation = Reservation.find_by(id: params[:id])
+        @type = "update"
         if @reservation.update(reservation_params)
             render "api/reservations/show"
         else

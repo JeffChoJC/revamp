@@ -96,12 +96,26 @@ class ReservationForm extends React.Component {
         )
     }
 
+    renderMessage() {
+        const { reservation } = this.props;
+
+        if (!reservation) return null;
+        if (this.props.reserved) return null;
+
+        if (reservation.type === "create") {
+            return reservation.message[0];
+        } else {
+            return reservation.message[1];
+        }
+    }
+
     render() {
         return (
             <div className="reservation-form-container">
                 <form className="reservation-form">
                     <h1 className="header">Make a Reservation</h1>
                     { this.renderErrors() }
+                    { this.renderMessage() }
                     <div className="resform-party-size-container">
                         <h1>Party Size</h1>
                         <div className="select-container">
