@@ -115,7 +115,7 @@ class ReservationForm extends React.Component {
                 <form className="reservation-form">
                     <h1 className="header">Make a Reservation</h1>
                     { this.renderErrors() }
-                    { this.renderMessage() }
+                    <div class="confirmation-msg">{ this.renderMessage() }</div>
                     <div className="resform-party-size-container">
                         <h1>Party Size</h1>
                         <div className="select-container">
