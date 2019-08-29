@@ -35,7 +35,7 @@ class Favorites extends React.Component {
         e.preventDefault();
 
         if (favorite) {
-            return unsave(favorite.user_id);
+            return unsave(favorite);
         } else {
             return save(this.state);
         }
