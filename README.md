@@ -41,7 +41,7 @@ Users can select date, time, and party size and OpenRes will generate a list of 
 ## Favorites:
 Accessing a favorite restaurant is made easy. Once the user has saved a restaurant, it is accessible through the drop down menu in the top-right corner via "Saved Restaurants".
 
-<img src="./readme_images/favorites.gif>
+<img src="./readme_images/favorites.gif">
 
 ## Reviews:
 Once logged in, OpenRes allows users to leave a single review per restaurant. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
