@@ -142,7 +142,7 @@ class ReservationForm extends React.Component {
                             <DatePicker
                                 id="resform-datepicker"
                                 selected={ this.state.date }
-                                onChange={this.handleChange}
+                                onChange={ this.handleChange }
                             />
                         </div>
                         <div className="resform-time-container">

@@ -23,17 +23,16 @@ class FavoritesIndex extends React.Component {
         const { currentUser, favorites } = this.props;
         if (!favorites) return null;
 
-        const res = favorites.map(favorite => {
+        const fav = favorites.map(favorite => {
             if (!favorite.restaurant) return null;
-            
-            const img = Math.floor(Math.random() * 30);
+
             const stars = `${Math.round((favorite.restaurant.rating / 5) * 100)}%`;
 
             return (
                 <>
                     <div className="profile-index-item">
                         <Link to={`/restaurants/${ favorite.restaurant_id }`}>
-                            <img className="profile-index-photo" src={ window.images[img] } />
+                            <img className="profile-index-photo" src={ window.images[Math.floor(Math.random() * 30)] } />
                         </Link>
                         <div className="profile-details">
                             <Link to={`/restaurants/${favorite.restaurant_id}`} id="profile-restaurant-name">
@@ -69,7 +68,7 @@ class FavoritesIndex extends React.Component {
                     </div>
                     <div className="profile-index-container">
                         <h1>Saved Restaurants</h1>
-                        {res}
+                        {fav}
                     </div>
                 </div>
             </div>

@@ -23,7 +23,6 @@ class Profile extends React.Component {
         const { currentUser, reservations } = this.props;
         if (!reservations) return null;
 
-        const img = Math.floor(Math.random() * 30);
         const res = reservations.map(reservation => {
             if (!reservation.restaurant) return null;
 
@@ -31,7 +30,7 @@ class Profile extends React.Component {
                 <>
                 <div className="profile-index-item">
                     <Link to={`/restaurants/${reservation.restaurant_id}`}>
-                        <img className="profile-index-photo" src={window.images[img]} />
+                            <img className="profile-index-photo" src={ window.images[Math.floor(Math.random() * 30)] } />
                     </Link>
                     <div className="profile-details">
                         <Link to={`/restaurants/${reservation.restaurant_id}`} id="profile-restaurant-name">
