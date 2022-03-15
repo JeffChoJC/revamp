@@ -97,28 +97,18 @@ class Company < ApplicationRecord
         self.rating = ratings.sum / ratings.length
     end
 
-    def food_rating
-        ratings = self.reviews.pluck(:food_rating)
-        (ratings.sum * 100.0 / ratings.length).round / 100.0
-    end
-
-     def service_rating
+    def service_rating
         ratings = self.reviews.pluck(:service_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
-     def ambience_rating
-        ratings = self.reviews.pluck(:ambience_rating)
-        (ratings.sum * 100.0 / ratings.length).round / 100.0
-    end
-
-     def value_rating
+    def value_rating
         ratings = self.reviews.pluck(:value_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
-     def noise_level
-        ratings = self.reviews.pluck(:noise_level)
+    def efficiency_rating
+        ratings = self.reviews.pluck(:efficiency_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
