@@ -1,11 +1,10 @@
 # == Schema Information
 #
-# Table name: restaurants
+# Table name: companies
 #
 #  id           :bigint           not null, primary key
 #  name         :string           not null
-#  description  :text
-#  cuisine      :string
+#  industry     :string
 #  address      :string           not null
 #  city         :string           not null
 #  state        :string           not null
@@ -14,13 +13,11 @@
 #  open_time    :time
 #  close_time   :time
 #  rating       :decimal(, )
-#  price_range  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  owner_id     :integer          not null
-#
 
-class Restaurant < ApplicationRecord
+class Company < ApplicationRecord
     include PgSearch
 
     validates :name, 
@@ -50,7 +47,8 @@ class Restaurant < ApplicationRecord
         :address,
         :city,
         :state,
-        :zipcode]
+        :zipcode
+    ]
 
     after_initialize :open_time, :close_time, :generate_time_slots
 
@@ -124,23 +122,6 @@ class Restaurant < ApplicationRecord
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
-    CUISINES = [
-        "American",
-        "Chinese",
-        "French",
-        "Greek",
-        "Italian",
-        "Indian",
-        "Japanese",
-        "Korean",
-        "Mediterranean",
-        "Mexican",
-        "Soul",
-        "Thai",
-        "Turkish",
-        "Vietnamese"
-    ]
-
     CITIES = [
         ["New York", "NY"],
         ["Los Angeles", "CA"],
@@ -158,11 +139,5 @@ class Restaurant < ApplicationRecord
         ["Philadelphia", "PA"],
         ["Detroit", "MI"],
         ["Phoenix", "AZ"]
-    ]
-
-    PRICE_RANGES = [
-        "$30 and under",
-        "$31 to $50",
-        "$51 and over"
     ]
 end
