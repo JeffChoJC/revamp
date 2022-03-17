@@ -43,7 +43,7 @@ class Company < ApplicationRecord
 
     pg_search_scope :search_by_keyword, against: [
         :name,
-        :cuisine,
+        :industry,
         :address,
         :city,
         :state,
