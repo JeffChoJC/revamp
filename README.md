@@ -1,16 +1,15 @@
-# OpenRes
+#Revamp
 
-OpenRes is modeled after OpenTable. Like OpenTable, OpenRes is a web application that primarily features searching for and making reservations at restaurants using a wide range of search parameters: 
+Revamp is modeled after OpenTable. Unlike OpenTable, Revamp is a web application that primarily features searching for and making reservations with contractors and companies using a wide range of search parameters: 
 * Date
 * Time
-* Party Size
 * Location (i.e. city, state, etc.)
-* Cuisine
-* Restaurant Name
+* Industry
+* Company Name
 
 Other features include:
 * Writing reviews
-* Saving a restaurant to your favorites
+* Saving a contractor or company to your favorites
 
 Live Site: https://git.heroku.com/open-res.git
 
@@ -31,10 +30,10 @@ Users can search for multiple `keyword`s against multiple restaurant data column
 <img src="./readme_images/search.gif">
 
 ## User-Authorization:
-OpenRes features backend auth using BCrypt for password hashing purposes. Logged in user state is persisted via cookies unless deliberately signed out. Email addresses used to sign up are saved to the rails backend with associated passwor digests where uniqueness is ensured by database and model restraints.
+Revamp features backend auth using BCrypt for password hashing purposes. Logged in user state is persisted via cookies unless deliberately signed out. Email addresses used to sign up are saved to the rails backend with associated passwor digests where uniqueness is ensured by database and model restraints.
 
 ## Reservations:
-Users can select date, time, and party size and OpenRes will generate a list of restaurants with available reservations closest to the selected options.
+Users can select date, time, and party size and Revamp will generate a list of restaurants with available reservations closest to the selected options.
 
 <img src="./readme_images/reservation.gif">
 
@@ -44,6 +43,6 @@ Accessing a favorite restaurant is made easy. Once the user has saved a restaura
 <img src="./readme_images/favorites.gif">
 
 ## Reviews:
-Once logged in, OpenRes allows users to leave a single review per restaurant. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
+Once logged in, Revamp allows users to leave a single review per restaurant. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
 
 <img src="./readme_images/reviews.gif">

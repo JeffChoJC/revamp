@@ -17,22 +17,19 @@
 class Review < ApplicationRecord
     after_initialize :calculate_overall_rating
 
-    validates
-        :service_rating,
+    validates :service_rating,
         :value_rating,
         :efficiency_rating,
         :body,
         presence: true
 
-    validates
-        :overall_rating,
+    validates :overall_rating,
         :service_rating,
         :value_rating,
         :efficiency_rating,
         inclusion: { in: 1..5 }
 
-    validates
-        :author_id,
+    validates :author_id,
         uniqueness: { scope: :company_id, message: "You have already reviewed this company." }
 
     belongs_to :author,

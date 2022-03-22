@@ -13,6 +13,7 @@ Review.destroy_all
 User.create!({
     fname: 'Guest',
     lname: 'Doe',
+    phone_number: '(201)-655-4945',
     email: 'guest_doe@gmail.com',
     password: 'guestdope'
 })
@@ -31,7 +32,7 @@ end
 
 Company.create!({
     name: 'John & Company',
-    industry: 'Renovation'
+    industry: 'Renovation',
     phone_number: '(212)319-2002',
     address: '10 E 52nd Street',
     city: 'New York',
@@ -43,7 +44,10 @@ Company.create!({
 250.times do
     city_state = Company::CITIES.sample
     name = Faker::Company.name
+    phone_number = Faker::PhoneNumber.cell_phone
+
     next if Company.exists?(name: name)
+    next if Company.exists?(phone_number: phone_number)
 
     Company.create!({
         name: name,

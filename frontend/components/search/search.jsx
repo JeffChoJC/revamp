@@ -9,7 +9,7 @@ class Search extends React.Component {
         this.state = {
             keyword: "",
             date: new Date(),
-            time: "19:00:00",
+            time: "8:00:00",
             party_size: "2"
         };
 
@@ -39,7 +39,7 @@ class Search extends React.Component {
 
         return (
             <div className="banner-container">
-                <h2 className="banner">Find your table for any occasion</h2>
+                <h2 className="banner">Find Your Contractor</h2>
             </div>
         );
     }
@@ -61,36 +61,29 @@ class Search extends React.Component {
                             <i id="ticker" className="far fa-clock"></i>
                             <select id="time-selector" defaultValue={ this.state.time }
                                 onChange={ this.update("time") }>
+                                <option value="8:00:00">8:00 AM</option>
+                                <option value="8:30:00">8:30 AM</option>
+                                <option value="9:00:00">9:00 AM</option>
+                                <option value="9:30:00">9:30 AM</option>
+                                <option value="10:30:00">10:00 AM</option>
+                                <option value="10:30:00">10:30 AM</option>
+                                <option value="11:30:00">11:00 AM</option>
+                                <option value="11:30:00">11:30 AM</option>
+                                <option value="12:30:00">12:00 PM</option>
+                                <option value="12:30:00">12:30 PM</option>
+                                <option value="13:00:00">1:00 PM</option>
+                                <option value="13:30:00">1:30 PM</option>
+                                <option value="14:00:00">2:00 PM</option>
+                                <option value="14:30:00">2:30 PM</option>
+                                <option value="15:00:00">3:00 PM</option>
+                                <option value="15:30:00">3:30 PM</option>
+                                <option value="16:00:00">4:00 PM</option>
+                                <option value="16:30:00">4:30 PM</option>
                                 <option value="17:00:00">5:00 PM</option>
                                 <option value="17:30:00">5:30 PM</option>
                                 <option value="18:00:00">6:00 PM</option>
                                 <option value="18:30:00">6:30 PM</option>
                                 <option value="19:00:00">7:00 PM</option>
-                                <option value="19:30:00">7:30 PM</option>
-                                <option value="20:00:00">8:00 PM</option>
-                                <option value="20:30:00">8:30 PM</option>
-                                <option value="21:00:00">9:00 PM</option>
-                                <option value="21:30:00">9:30 PM</option>
-                            </select>
-                        </div>
-                        <div className="border-space">.</div>
-                        <div className="reservation-party">
-                            <i id="user-icon" className="far fa-user"></i>
-                            <select id="party-selector" defaultValue={ this.state.party_size }
-                                onChange={ this.update("party_size") }>
-                                <option value="1">1 person</option>
-                                <option value="2">2 people</option>
-                                <option value="3">3 people</option>
-                                <option value="4">4 people</option>
-                                <option value="5">5 people</option>
-                                <option value="6">6 people</option>
-                                <option value="7">7 people</option>
-                                <option value="8">8 people</option>
-                                <option value="9">9 people</option>
-                                <option value="10">10 people</option>
-                                <option value="11">11 people</option>
-                                <option value="12">12 people</option>
-                                <option value="13">Larger party</option>
                             </select>
                         </div>
                     </div>
@@ -99,10 +92,10 @@ class Search extends React.Component {
                         <input className="searchbar-input"
                             value={ this.state.keyword }
                             onChange={ this.update("keyword") }
-                            placeholder="Location, Restaurant, or Cuisine"
+                            placeholder="Location or Industry"
                         />
                     </div>
-                    <button className="search-submit">Let's go</button>
+                    <button className="search-submit">Search</button>
                 </form>
             )
         }

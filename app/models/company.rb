@@ -53,11 +53,11 @@ class Company < ApplicationRecord
     after_initialize :open_time, :close_time, :generate_time_slots
 
     def open_time
-        @open_time ||= "17:00:00"
+        @open_time ||= "8:00:00"
     end
 
     def close_time
-        @close_time ||= "22:00:00"
+        @close_time ||= "19:00:00"
     end
 
     def generate_time_slots
