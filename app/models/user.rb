@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   has_many :reservations
 
-  has_many :owned_restaurants,
+  has_many :owned_companies,
     foreign_key: :owner_id
 
   has_many :reviews,
@@ -32,9 +32,9 @@ class User < ApplicationRecord
     
   has_many :favorites
 
-  has_many :favorite_restaurants,
+  has_many :favorite_companies,
     through: :favorites,
-    source: :restaurant
+    source: :company
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

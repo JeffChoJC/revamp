@@ -9,7 +9,7 @@
 #  efficiency_rating    :integer          not null
 #  body                 :text             not null
 #  author_id            :integer          not null
-#  restaurant_id        :integer          not null
+#  company_id        :integer          not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #

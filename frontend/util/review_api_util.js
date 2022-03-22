@@ -1,7 +1,7 @@
 export const createReview = review => {
     return $.ajax({
         method: "POST",
-        url: `api/restaurants/${review.restaurant_id}/reviews`,
+        url: `api/companies/${review.company_id}/reviews`,
         data: { review }
     })
 }
@@ -9,7 +9,7 @@ export const createReview = review => {
 export const updateReview = review => {
     return $.ajax({
         method: "PATCH",
-        url: `api/restaurants/${review.restaurant_id}/reviews/${review.id}`,
+        url: `api/companies/${review.company_id}/reviews/${review.id}`,
         data: { review }
     })
 }
@@ -17,6 +17,6 @@ export const updateReview = review => {
 export const deleteReview = review => {
     return $.ajax({
         method: "DELETE",
-        url: `api/restaurants/${review.restaurant_id}/reviews/${review.id}`,
+        url: `api/companies/${review.company_id}/reviews/${review.id}`,
     })
 }

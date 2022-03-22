@@ -24,8 +24,8 @@ Live Site: https://git.heroku.com/open-res.git
 * Webpack 4.32.2
 
 # Features:
-## Restaurant Search:
-Users can search for multiple `keyword`s against multiple restaurant data columns. This feature implements the gem `PgSearch`. 
+## Company Search:
+Users can search for multiple `keyword`s against multiple company data columns. This feature implements the gem `PgSearch`. 
 
 <img src="./readme_images/search.gif">
 
@@ -33,16 +33,16 @@ Users can search for multiple `keyword`s against multiple restaurant data column
 Revamp features backend auth using BCrypt for password hashing purposes. Logged in user state is persisted via cookies unless deliberately signed out. Email addresses used to sign up are saved to the rails backend with associated passwor digests where uniqueness is ensured by database and model restraints.
 
 ## Reservations:
-Users can select date, time, and party size and Revamp will generate a list of restaurants with available reservations closest to the selected options.
+Users can select date, time, and party size and Revamp will generate a list of companies with available reservations closest to the selected options.
 
 <img src="./readme_images/reservation.gif">
 
 ## Favorites:
-Accessing a favorite restaurant is made easy. Once the user has saved a restaurant, it is accessible through the drop down menu in the top-right corner via "Saved Restaurants".
+Accessing a favorite company is made easy. Once the user has saved a company, it is accessible through the drop down menu in the top-right corner via "Saved Companies".
 
 <img src="./readme_images/favorites.gif">
 
 ## Reviews:
-Once logged in, Revamp allows users to leave a single review per restaurant. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
+Once logged in, Revamp allows users to leave a single review per company. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
 
 <img src="./readme_images/reviews.gif">

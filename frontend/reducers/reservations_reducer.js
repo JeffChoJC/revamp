@@ -4,7 +4,7 @@ import {
     REMOVE_RESERVATION,
 } from '../actions/reservation_actions';
 
-import { RECEIVE_RESTAURANT } from '../actions/restaurant_actions';
+import { RECEIVE_COMPANY } from '../actions/company_actions';
 
 const reservationsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -17,7 +17,7 @@ const reservationsReducer = (state = {}, action) => {
             let newState = Object.assign({}, state);
             delete newState[action.id];
             return newState;
-        case RECEIVE_RESTAURANT:
+        case RECEIVE_COMPANY:
             return Object.assign({}, action.reservations);
         default:
             return state;

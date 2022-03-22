@@ -30,14 +30,12 @@ class Api::ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(
-            :food_rating,
             :service_rating,
-            :ambience_rating,
             :value_rating,
-            :noise_level,
+            :efficiency_rating,
             :body,
             :author_id,
-            :restaurant_id
+            :company_id
         )
     end
 end

@@ -31,7 +31,7 @@ class Search extends React.Component {
         e.preventDefault();
         const date = parseDate(this.state.date);
         const time = this.state.time;
-        this.props.history.push(`/restaurants/search?keyword=${ this.state.keyword }#${ date }#${ time }`);
+        this.props.history.push(`/companies/search?keyword=${ this.state.keyword }#${ date }#${ time }`);
     }
 
     banner() {

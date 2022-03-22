@@ -3,16 +3,16 @@ import * as ApiUtil from '../util/review_api_util';
 export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
 
-const receiveReview = ({ review, restaurant}) => ({
+const receiveReview = ({ review, company}) => ({
     type: RECEIVE_REVIEW,
     review,
-    restaurant
+    company
 })
 
-const removeReview = ({ review, restaurant }) => ({
+const removeReview = ({ review, company }) => ({
     type: REMOVE_REVIEW,
     reviewId: review.id,
-    restaurant
+    company
 })
 
 export const createReview = review => dispatch => (

@@ -1,45 +1,43 @@
-class Api::RestaurantsController < ApplicationController
+class Api::CompaniesController < ApplicationController
     def create
-        @restaurant = Restaurants.new(restaurant_params)
+        @company = Companies.new(company_params)
 
-        if @restaurant.save!
-            render "api/restaurants/show"
+        if @companies.save!
+            render "api/companies/show"
         else
-            render json: @restaurant.errors.full_messages, status: 422
+            render json: @company.errors.full_messages, status: 422
         end
     end
     
     def index
         if params[:keyword]
             @date = params[:date]
-            @restaurants = Restaurant.includes(:reviews, :reservations)
+            @companies = Company.includes(:reviews, :reservations)
                 .order(:name).search_by_keyword(params[:keyword])
         end
         
-        unless @restaurants.length > 0
-            @restaurants = Restaurant.all.order(:name)
+        unless @companies.length > 0
+            @companies = Company.all.order(:name)
         end
     end
 
     def show
-        @restaurant = Restaurant.includes(:reviews, :reservations, :favorites)
+        @company = Company.includes(:reviews, :reservations, :favorites)
             .find_by(id: params[:id])
-        if @restaurant
-            render "api/restaurants/show"
+        if @company
+            render "api/companies/show"
         else
-            render json: ["Restaurant unavailable"]
+            render json: ["Company unavailable"]
         end
     end
     
     private
 
-    def restaurant_params
-        params.require(:restaurant).permit(
+    def company_params
+        params.require(:company).permit(
             :name,
-            :price_range,
-            :description,
+            :industry,
             :phone_number,
-            :cuisine,
             :address,
             :city,
             :state,

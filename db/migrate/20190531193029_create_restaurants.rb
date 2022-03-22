@@ -17,13 +17,13 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :restaurants, :name, unique: true
-    add_index :restaurants, :phone_number, unique: true
-    add_index :restaurants, :address, unique: true
-    add_index :restaurants, :industry
-    add_index :restaurants, :city
-    add_index :restaurants, :state
-    add_index :restaurants, :zipcode
-    add_index :restaurants, :owner_id
+    add_index :companies, :name, unique: true
+    add_index :companies, :phone_number, unique: true
+    add_index :companies, :address, unique: true
+    add_index :companies, :industry
+    add_index :companies, :city
+    add_index :companies, :state
+    add_index :companies, :zipcode
+    add_index :companies, :owner_id
   end
 end

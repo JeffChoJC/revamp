@@ -1,4 +1,4 @@
 json.extract! favorite,
     :id,
-    :restaurant_id,
+    :company_id,
     :user_id

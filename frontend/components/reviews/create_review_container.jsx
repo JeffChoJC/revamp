@@ -7,7 +7,7 @@ import ReviewForm from './review_form';
 
 const msp = (state, ownProps) => ({
     currentUser: state.entities.users[state.session.id],
-    restaurant: state.entities.restaurants[ownProps.match.params.id],
+    company: state.entities.companies[ownProps.match.params.id],
     formType: 'create'
 })
 

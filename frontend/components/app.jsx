@@ -9,8 +9,8 @@ import {
 import Modal from './modal/modal';
 import NavBar from './navbar/navbar';
 import Home from './home/home_page';
-import RestaurantIndexContainer from './restaurant/restaurant_index_container';
-import RestaurantShowContainer from './restaurant/restaurant_show_container';
+import CompanyIndexContainer from './company/company_index_container';
+import CompanyShowContainer from './company/company_show_container';
 import Profile from './profile/profile';
 import FavoritesIndex from './favorite/favorites_index';
 import Footer from './footer/footer'
@@ -22,8 +22,8 @@ const App = () => (
             <NavBar />
             <Switch>
                 <Route exact path="/" component={ Home } />
-                <Route path="/restaurants/search" component={ RestaurantIndexContainer } />
-                <Route path="/restaurants/:id" component={ RestaurantShowContainer } />
+                <Route path="/companies/search" component={ CompanyIndexContainer } />
+                <Route path="/companies/:id" component={ CompanyShowContainer } />
                 <Route path="/profile" component={ Profile } />
                 <Route path="/favorites" component={ FavoritesIndex } />
             </Switch>

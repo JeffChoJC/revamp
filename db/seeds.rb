@@ -10,14 +10,6 @@ User.destroy_all
 Company.destroy_all
 Review.destroy_all
 
-User.create!({
-    fname: 'Guest',
-    lname: 'Doe',
-    phone_number: '(201)-655-4945',
-    email: 'guest_doe@gmail.com',
-    password: 'guestdope'
-})
-
 100.times do
     email = Faker::Internet.email
     next if User.exists?(email: email)
