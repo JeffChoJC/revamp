@@ -88,7 +88,7 @@ class SessionForm extends React.Component {
                         </div>
                     </form>
                     <br/>
-                    <p className='link-to-signup'>New to OpenRes? &nbsp;
+                    <p className='link-to-signup'>New to Revamp? &nbsp;
                         <button onClick={this.props.openModal}>Create an account</button>
                     </p>
                 </div>
@@ -97,7 +97,7 @@ class SessionForm extends React.Component {
             return (
                 <div className='signup-form-container'>
                     <form onSubmit={this.handleSubmit} className='signup-form-box'>
-                        <p id="form-header">Welcome to OpenRes!</p>
+                        <p id="form-header">Welcome to Revamp!</p>
                         {this.renderErrors()}
                         <div className='signup-form'>
                             <input type='text'

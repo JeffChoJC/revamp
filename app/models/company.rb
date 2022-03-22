@@ -1,11 +1,10 @@
 # == Schema Information
 #
-# Table name: restaurants
+# Table name: companies
 #
 #  id           :bigint           not null, primary key
 #  name         :string           not null
-#  description  :text
-#  cuisine      :string
+#  industry     :string
 #  address      :string           not null
 #  city         :string           not null
 #  state        :string           not null
@@ -14,13 +13,11 @@
 #  open_time    :time
 #  close_time   :time
 #  rating       :decimal(, )
-#  price_range  :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  owner_id     :integer          not null
-#
 
-class Restaurant < ApplicationRecord
+class Company < ApplicationRecord
     include PgSearch
 
     validates :name, 
@@ -46,20 +43,21 @@ class Restaurant < ApplicationRecord
 
     pg_search_scope :search_by_keyword, against: [
         :name,
-        :cuisine,
+        :industry,
         :address,
         :city,
         :state,
-        :zipcode]
+        :zipcode
+    ]
 
     after_initialize :open_time, :close_time, :generate_time_slots
 
     def open_time
-        @open_time ||= "17:00:00"
+        @open_time ||= "8:00:00"
     end
 
     def close_time
-        @close_time ||= "22:00:00"
+        @close_time ||= "19:00:00"
     end
 
     def generate_time_slots
@@ -99,47 +97,20 @@ class Restaurant < ApplicationRecord
         self.rating = ratings.sum / ratings.length
     end
 
-    def food_rating
-        ratings = self.reviews.pluck(:food_rating)
-        (ratings.sum * 100.0 / ratings.length).round / 100.0
-    end
-
-     def service_rating
+    def service_rating
         ratings = self.reviews.pluck(:service_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
-     def ambience_rating
-        ratings = self.reviews.pluck(:ambience_rating)
-        (ratings.sum * 100.0 / ratings.length).round / 100.0
-    end
-
-     def value_rating
+    def value_rating
         ratings = self.reviews.pluck(:value_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
 
-     def noise_level
-        ratings = self.reviews.pluck(:noise_level)
+    def efficiency_rating
+        ratings = self.reviews.pluck(:efficiency_rating)
         (ratings.sum * 100.0 / ratings.length).round / 100.0
     end
-
-    CUISINES = [
-        "American",
-        "Chinese",
-        "French",
-        "Greek",
-        "Italian",
-        "Indian",
-        "Japanese",
-        "Korean",
-        "Mediterranean",
-        "Mexican",
-        "Soul",
-        "Thai",
-        "Turkish",
-        "Vietnamese"
-    ]
 
     CITIES = [
         ["New York", "NY"],
@@ -158,11 +129,5 @@ class Restaurant < ApplicationRecord
         ["Philadelphia", "PA"],
         ["Detroit", "MI"],
         ["Phoenix", "AZ"]
-    ]
-
-    PRICE_RANGES = [
-        "$30 and under",
-        "$31 to $50",
-        "$51 and over"
     ]
 end

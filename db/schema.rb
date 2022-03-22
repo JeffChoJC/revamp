@@ -17,28 +17,26 @@ ActiveRecord::Schema.define(version: 2019_08_08_153013) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "restaurant_id", null: false
-    t.index ["user_id", "restaurant_id"], name: "index_favorites_on_user_id_and_restaurant_id", unique: true
+    t.integer "company_id", null: false
+    t.index ["user_id", "company_id"], name: "index_favorites_on_user_id_and_company_id", unique: true
   end
 
   create_table "reservations", force: :cascade do |t|
     t.string "date", null: false
     t.string "time", null: false
-    t.integer "party_size", null: false
-    t.integer "restaurant_id", null: false
+    t.integer "company_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["restaurant_id", "date", "time"], name: "index_reservations_on_restaurant_id_and_date_and_time", unique: true
-    t.index ["restaurant_id", "user_id"], name: "index_reservations_on_restaurant_id_and_user_id", unique: true
-    t.index ["restaurant_id"], name: "index_reservations_on_restaurant_id"
+    t.index ["company_id", "date", "time"], name: "index_reservations_on_company_id_and_date_and_time", unique: true
+    t.index ["company_id", "user_id"], name: "index_reservations_on_company_id_and_user_id", unique: true
+    t.index ["company_id"], name: "index_reservations_on_company_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
-  create_table "restaurants", force: :cascade do |t|
+  create_table "companies", force: :cascade do |t|
     t.string "name", null: false
-    t.text "description"
-    t.string "cuisine"
+    t.string "industry", null: false
     t.string "address", null: false
     t.string "city", null: false
     t.string "state", null: false
@@ -47,35 +45,31 @@ ActiveRecord::Schema.define(version: 2019_08_08_153013) do
     t.time "open_time"
     t.time "close_time"
     t.decimal "rating"
-    t.string "price_range"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "owner_id", null: false
-    t.index ["address"], name: "index_restaurants_on_address", unique: true
-    t.index ["city"], name: "index_restaurants_on_city"
-    t.index ["cuisine"], name: "index_restaurants_on_cuisine"
-    t.index ["name"], name: "index_restaurants_on_name", unique: true
-    t.index ["owner_id"], name: "index_restaurants_on_owner_id"
-    t.index ["phone_number"], name: "index_restaurants_on_phone_number", unique: true
-    t.index ["state"], name: "index_restaurants_on_state"
-    t.index ["zipcode"], name: "index_restaurants_on_zipcode"
+    t.index ["name"], name: "index_companies_on_name", unique: true
+    t.index ["address"], name: "index_companies_on_address", unique: true
+    t.index ["city"], name: "index_companies_on_city"
+    t.index ["state"], name: "index_companies_on_state"
+    t.index ["zipcode"], name: "index_companies_on_zipcode"
+    t.index ["owner_id"], name: "index_companies_on_owner_id"
+    t.index ["phone_number"], name: "index_companies_on_phone_number", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
     t.decimal "overall_rating"
-    t.integer "food_rating", null: false
     t.integer "service_rating", null: false
-    t.integer "ambience_rating", null: false
     t.integer "value_rating", null: false
-    t.integer "noise_level", null: false
+    t.integer "efficiency_rating", null: false
     t.text "body", null: false
     t.integer "author_id", null: false
-    t.integer "restaurant_id", null: false
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id", "restaurant_id"], name: "index_reviews_on_author_id_and_restaurant_id", unique: true
+    t.index ["author_id", "company_id"], name: "index_reviews_on_author_id_and_company_id", unique: true
     t.index ["author_id"], name: "index_reviews_on_author_id"
-    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["company_id"], name: "index_reviews_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
