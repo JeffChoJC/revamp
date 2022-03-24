@@ -15,6 +15,29 @@ ActiveRecord::Schema.define(version: 2019_08_08_153013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "industry", null: false
+    t.string "address", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "zipcode", null: false
+    t.string "phone_number", null: false
+    t.time "open_time"
+    t.time "close_time"
+    t.decimal "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "owner_id", null: false
+    t.index ["address"], name: "index_companies_on_address", unique: true
+    t.index ["city"], name: "index_companies_on_city"
+    t.index ["name"], name: "index_companies_on_name", unique: true
+    t.index ["owner_id"], name: "index_companies_on_owner_id"
+    t.index ["phone_number"], name: "index_companies_on_phone_number", unique: true
+    t.index ["state"], name: "index_companies_on_state"
+    t.index ["zipcode"], name: "index_companies_on_zipcode"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "company_id", null: false
@@ -32,29 +55,6 @@ ActiveRecord::Schema.define(version: 2019_08_08_153013) do
     t.index ["company_id", "user_id"], name: "index_reservations_on_company_id_and_user_id", unique: true
     t.index ["company_id"], name: "index_reservations_on_company_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "industry", null: false
-    t.string "address", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "zipcode", null: false
-    t.string "phone_number", null: false
-    t.time "open_time"
-    t.time "close_time"
-    t.decimal "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "owner_id", null: false
-    t.index ["name"], name: "index_companies_on_name", unique: true
-    t.index ["address"], name: "index_companies_on_address", unique: true
-    t.index ["city"], name: "index_companies_on_city"
-    t.index ["state"], name: "index_companies_on_state"
-    t.index ["zipcode"], name: "index_companies_on_zipcode"
-    t.index ["owner_id"], name: "index_companies_on_owner_id"
-    t.index ["phone_number"], name: "index_companies_on_phone_number", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|

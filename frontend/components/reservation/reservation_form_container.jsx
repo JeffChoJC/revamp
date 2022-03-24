@@ -24,7 +24,7 @@ const msp = (state, ownProps) => {
 
     return {
         reservation: state.entities.reservations[state.session.id],
-        restaurant: state.entities.restaurants[ownProps.match.params.id],
+        company: state.entities.companies[ownProps.match.params.id],
         userId: state.session.id,
         reserved: reserved,
         errors: errors,

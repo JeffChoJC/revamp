@@ -20,10 +20,10 @@ function Modal({ modal, closeModal }) {
             component = <SignupFormContainer />;
             break;
         case 'createReview':
-            component = <Route path="/restaurants/:id" component={CreateReviewContainer} />;
+            component = <Route path="/companies/:id" component={CreateReviewContainer} />;
             break;
         case 'editReview':
-            component = <Route path="/restaurants/:id" component={EditReviewContainer} />;
+            component = <Route path="/companies/:id" component={EditReviewContainer} />;
             break;
         default:
             return null;

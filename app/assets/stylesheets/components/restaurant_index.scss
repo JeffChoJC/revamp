@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-.restaurant-index-container {
+.company-index-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@
     background-position: center;
 }
 
-.restaurants {
+.companies {
     box-sizing: border-box;
     padding: 15px 35px;
     border: none;
@@ -24,7 +24,7 @@
     border-radius: 10px;
 }
 
-.restaurant-index-photo {
+.company-index-photo {
     border-radius: 8px;
 }
 
@@ -44,14 +44,14 @@
     font-size: 19px;
 }
 
-.restaurant-name-link {
+.company-name-link {
     -webkit-font-smoothing: antialiased;
     color: #247f9e;
     font-size: 28px;
     font-weight: bold;
 }
 
-.restaurant-index-item {
+.company-index-item {
     display: flex;
     justify-content: space-around;
     height: auto;
@@ -62,7 +62,7 @@
     box-sizing: border-box;
 }
 
-.restaurant-brief-details li {
+.company-brief-details li {
     margin-top: 3px;
 }
 

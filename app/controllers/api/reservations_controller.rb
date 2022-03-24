@@ -1,6 +1,6 @@
 class Api::ReservationsController < ApplicationController
     def index
-        @reservations = Reservation.includes(:restaurant).where("user_id = ?", params[:userId])
+        @reservations = Reservation.includes(:company).where("user_id = ?", params[:userId])
     end
 
     def create
@@ -39,7 +39,7 @@ class Api::ReservationsController < ApplicationController
             :date,
             :time,
             :party_size,
-            :restaurant_id,
+            :company_id,
             :user_id
         )
     end

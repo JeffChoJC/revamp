@@ -1,9 +1,9 @@
 import React from 'react';
-import RestaurantIndexItem from './restaurant_index_item';
+import CompanyIndexItem from './company_index_item';
 import SearchContainer from '../search/search_container';
 
 
-class RestaurantIndex extends React.Component {
+class CompanyIndex extends React.Component {
     search() {
         const keyString = this.props.location.search.slice(9);
         const keywords = keyString.split("%20");
@@ -12,7 +12,7 @@ class RestaurantIndex extends React.Component {
         const time = datetime[2];
         const keyword = { keyword: keywords.join(" "), date: date, time: time }
         
-        this.props.searchRestaurants(keyword);
+        this.props.searchCompanies(keyword);
     }
 
     componentDidMount() {
@@ -26,14 +26,14 @@ class RestaurantIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.restaurants) return null;
+        if (!this.props.companies) return null;
         const datetime = this.props.location.hash.split("#");
         
-        const restaurants = this.props.restaurants.map(restaurant => {
+        const companies = this.props.companies.map(company => {
             return (
-                <RestaurantIndexItem
-                    key={ restaurant.id } 
-                    restaurant={ restaurant }
+                <CompanyIndexItem
+                    key={ company.id } 
+                    company={ company }
                     time={ datetime[2] }
                 />
             )
@@ -43,10 +43,10 @@ class RestaurantIndex extends React.Component {
             <>
             <SearchContainer />
             <div className="table-results"></div>
-            <div className="restaurant-index-container">
-                <ul className="restaurants">
-                    <p className="num-tables">{`${this.props.restaurants.length} RESTAURANTS AVAILABLE`}</p>
-                    { restaurants }
+            <div className="company-index-container">
+                <ul className="companies">
+                    <p className="num-tables">{`${this.props.companies.length} COMPANIES AVAILABLE`}</p>
+                    { companies }
                 </ul>
             </div>
             </>
@@ -54,4 +54,4 @@ class RestaurantIndex extends React.Component {
     }
 }
 
-export default RestaurantIndex;
+export default CompanyIndex;

@@ -24,7 +24,7 @@ class Favorites extends React.Component {
 
         this.state = {
             user_id: this.props.currentUserId,
-            restaurant_id: this.props.restaurant.id
+            company_id: this.props.company.id
         }
 
         this.handleEvent = this.handleEvent.bind(this);
@@ -56,7 +56,7 @@ class Favorites extends React.Component {
             return (
                 <button className="favorite-button" type="button" onClick={ this.handleEvent }>
                     <i className="far fa-bookmark"></i>
-                    <p>Save this restaurant</p>
+                    <p>Save this company</p>
                 </button>
             )
         }

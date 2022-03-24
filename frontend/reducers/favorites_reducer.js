@@ -2,12 +2,12 @@ import {
     RECEIVE_FAVORITE,
     RECEIVE_FAVORITES,
     REMOVE_FAVORITE } from '../actions/favorite_actions';
-import { RECEIVE_RESTAURANT } from '../actions/restaurant_actions'
+import { RECEIVE_COMPANY } from '../actions/company_actions'
 
 const favoritesReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_RESTAURANT:
+        case RECEIVE_COMPANY:
             return Object.assign({}, action.favorites);
         case RECEIVE_FAVORITE:
             return Object.assign({}, state, action.favorite);

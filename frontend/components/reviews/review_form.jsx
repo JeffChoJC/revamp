@@ -65,7 +65,7 @@ class ReviewForm extends React.Component {
         e.preventDefault();
         const review = Object.assign({}, this.props.review, this.state, {
             author_id: this.props.currentUser.id,
-            restaurant_id: this.props.restaurant.id
+            company_id: this.props.company.id
         })
 
         delete review.hoverField;
@@ -112,12 +112,12 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        const { restaurant, currentUser, review } = this.props;
+        const { company, currentUser, review } = this.props;
         return (
             <div className="review-form-container">
                 <form className="review-form" onSubmit={ this.handleSubmit }>
                     <h3 className="review-header">
-                        {`${currentUser.fname}, how was your experience at ${restaurant.name}?`}
+                        {`${currentUser.fname}, how was your experience at ${company.name}?`}
                     </h3>
                     <h3>Rate your dining experience:</h3>
                     <div className="review-stars-container">

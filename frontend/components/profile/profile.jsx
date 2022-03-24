@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { fetchReservations } from '../../actions/reservation_actions';
 import { toArray } from '../../reducers/selectors';
-import { parseTime } from '../restaurant/restaurant_helper';
+import { parseTime } from '../company/company_helper';
 
 const msp = ({ session, entities: { users, reservations } }) => ({
     currentUser: users[session.id],
@@ -24,21 +24,21 @@ class Profile extends React.Component {
         if (!reservations) return null;
 
         const res = reservations.map(reservation => {
-            if (!reservation.restaurant) return null;
+            if (!reservation.company) return null;
 
             return (
                 <>
                 <div className="profile-index-item">
-                    <Link to={`/restaurants/${reservation.restaurant_id}`}>
+                    <Link to={`/companies/${reservation.company_id}`}>
                             <img className="profile-index-photo" src={ window.images[Math.floor(Math.random() * 30)] } />
                     </Link>
                     <div className="profile-details">
-                        <Link to={`/restaurants/${reservation.restaurant_id}`} id="profile-restaurant-name">
-                            {reservation.restaurant.name}
+                        <Link to={`/companies/${reservation.company_id}`} id="profile-company-name">
+                            {reservation.company.name}
                         </Link>
                         <p>{ reservation.date } at { parseTime(reservation.time) } PM.</p>
                         <p>Table for { reservation.party_size } people.</p>
-                        <Link to={`/restaurants/${reservation.restaurant_id}`} className="modify-link">Modify</Link>
+                        <Link to={`/companies/${reservation.company_id}`} className="modify-link">Modify</Link>
                     </div>
                 </div>
                 </>
@@ -53,7 +53,7 @@ class Profile extends React.Component {
                 <div className="profile-content-container">
                     <div className="profile-navigation">
                         <Link to="/profile" className="profile-nav-res1">Reservations</Link>
-                        <Link to="/favorites" className="profile-nav-fav1">Saved Restaurants</Link>
+                        <Link to="/favorites" className="profile-nav-fav1">Saved Companies</Link>
                     </div>
                     <div className="profile-index-container">
                         <h1>Upcoming Reservations</h1>

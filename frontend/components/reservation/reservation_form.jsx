@@ -39,7 +39,7 @@ class ReservationForm extends React.Component {
         e.preventDefault();
         const reservation = Object.assign({}, this.props.reservation, this.state, {
             date: parseDate(this.state.date),
-            restaurant_id: this.props.restaurant.id,
+            company_id: this.props.company.id,
             user_id: this.props.userId
         })
         

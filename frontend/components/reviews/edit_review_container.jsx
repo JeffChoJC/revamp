@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
     
     return {
         currentUser: state.entities.users[state.session.id],
-        restaurant: state.entities.restaurants[ownProps.match.params.id],
+        company: state.entities.companies[ownProps.match.params.id],
         review: userReview,
         formType: 'edit'
     }

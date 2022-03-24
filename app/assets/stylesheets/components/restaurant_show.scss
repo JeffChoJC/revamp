@@ -22,37 +22,37 @@
     background-color: none;
 }
 
-.restaurant-overview {
+.company-overview {
     width: 66%;
     background-color: white;
     padding: 10px 10px;
     margin-right: 15px;
 }
 
-.restaurant-name {
+.company-name {
     padding: 30px 10px;
     font-size: 50px;
     font-weight: bold;
     border-bottom: 0.5px solid rgba(0, 0, 0, 0.5)
 }
 
-.restaurant-overview-list {
+.company-overview-list {
     display: flex;
     padding: 15px 0px 10px 10px;
 }
 
-.restaurant-overview-list li {
+.company-overview-list li {
     font-size: 18px;
     padding-right: 15px;
     font-weight: bold;
 }
 
-.restaurant-descr {
+.company-descr {
     padding: 10px 10px 20px;
     font-size: 24px;
 }
 
-.restaurant-details {
+.company-details {
     display: flex;
     flex-direction: column;
     width: 33%;
@@ -61,20 +61,20 @@
     font-size: 18px;
 }
 
-.restaurant-details-list {
+.company-details-list {
     padding: 10px;
     margin: 10px 0px;
 }
 
-.restaurant-details-list h3 {
+.company-details-list h3 {
     font-weight: bold;
 }
 
-.restaurant-details-list li {
+.company-details-list li {
     display: flex;
 }
 
-.restaurant-detail-item {
+.company-detail-item {
     padding-left: 8px;
 }
 
@@ -163,19 +163,19 @@
     color: #DA3743;
 }
 
-.restaurant-stars-outer {
+.company-stars-outer {
   display: inline-block;
   position: relative;
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
  
-.restaurant-stars-outer::before {
+.company-stars-outer::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: rgba(0, 0, 0, 0.15);
 }
  
-.restaurant-stars-inner {
+.company-stars-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -183,7 +183,7 @@
   font-weight: 900;
 }
  
-.restaurant-stars-inner::before {
+.company-stars-inner::before {
   content: "\f005 \f005 \f005 \f005 \f005";
   color: #DA3743;
 }
@@ -200,7 +200,7 @@
     padding: 5px 0px;
 }
 
-#restaurant-overall {
+#company-overall {
     padding: 7px 10px;
 }
 

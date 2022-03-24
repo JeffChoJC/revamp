@@ -3,12 +3,12 @@ import {
     REMOVE_REVIEW,
 } from '../actions/review_actions';
 
-import { RECEIVE_RESTAURANT } from '../actions/restaurant_actions';
+import { RECEIVE_COMPANY } from '../actions/company_actions';
 
 const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_RESTAURANT:
+        case RECEIVE_COMPANY:
             return Object.assign({}, action.reviews);
         case RECEIVE_REVIEW:
             return Object.assign({}, state, { [action.review.id]: action.review });
