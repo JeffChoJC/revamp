@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
 Company.destroy_all
@@ -22,30 +22,21 @@ Review.destroy_all
     )
 end
 
-Company.create!({
-    name: 'John & Company',
-    industry: 'Renovation',
-    phone_number: '(212)319-2002',
-    address: '10 E 52nd Street',
-    city: 'New York',
-    state: 'NY',
-    zipcode: '10021',
-    owner_id: User.all.sample.id
-})
-
 250.times do
     city_state = Company::CITIES.sample
     name = Faker::Company.name
     phone_number = Faker::PhoneNumber.cell_phone
+    address = Faker::Address.street_address
 
     next if Company.exists?(name: name)
     next if Company.exists?(phone_number: phone_number)
+    next if Company.exists?(address: address)
 
     Company.create!({
         name: name,
         industry: Faker::Company.industry,
-        phone_number: Faker::PhoneNumber.cell_phone,
-        address: Faker::Address.street_address,
+        phone_number: phone_number,
+        address: address,
         city: city_state[0],
         state: city_state[1],
         zipcode: Faker::Address.zip,
@@ -62,7 +53,7 @@ Company.all.each do |company|
             service_rating: Review::RATING_VALUES.sample,
             value_rating: Review::RATING_VALUES.sample,
             efficiency_rating: Review::RATING_VALUES.sample,
-            body: Faker::Company.review,
+            body: Faker::Restaurant.review,
             author_id: author_id,
             company_id: company.id
         })

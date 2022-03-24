@@ -9,7 +9,7 @@
 #  efficiency_rating    :integer          not null
 #  body                 :text             not null
 #  author_id            :integer          not null
-#  company_id        :integer          not null
+#  company_id           :integer          not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
@@ -23,8 +23,7 @@ class Review < ApplicationRecord
         :body,
         presence: true
 
-    validates :overall_rating,
-        :service_rating,
+    validates :service_rating,
         :value_rating,
         :efficiency_rating,
         inclusion: { in: 1..5 }
@@ -44,7 +43,7 @@ class Review < ApplicationRecord
             self.service_rating +
             self.value_rating +
             self.efficiency_rating
-        ) / 4.0
+        ) / 3.0
     end
 
     RATING_VALUES = [1, 2, 3, 4, 5]

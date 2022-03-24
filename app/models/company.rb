@@ -50,7 +50,7 @@ class Company < ApplicationRecord
         :zipcode
     ]
 
-    after_initialize :open_time, :close_time, :generate_time_slots
+    after_initialize :open_time, :close_time, #:generate_time_slots
 
     def open_time
         @open_time ||= "8:00:00"
@@ -60,34 +60,34 @@ class Company < ApplicationRecord
         @close_time ||= "19:00:00"
     end
 
-    def generate_time_slots
-        @time_slots = []
+    # def generate_time_slots
+    #     @time_slots = []
 
-        start_int = @open_time[0..1].concat(@open_time[3..4]).to_i
-        finish_int = @close_time[0..1].concat(@close_time[3..4]).to_i
+    #     start_int = @open_time[0..1].concat(@open_time[3..4]).to_i
+    #     finish_int = @close_time[0..1].concat(@close_time[3..4]).to_i
 
-        until start_int == finish_int
-            @time_slots.push(
-                start_int.to_s[0..1]
-                .concat(":#{start_int.to_s[2..3]}")
-                .concat(":00"))
+    #     until start_int == finish_int
+    #         @time_slots.push(
+    #             start_int.to_s[0..1]
+    #             .concat(":#{start_int.to_s[2..3]}")
+    #             .concat(":00"))
 
-            start_int += 30
-            if start_int.to_s[2..3] == "60"
-                start_int += 40
-            end
-        end
-    end
+    #         start_int += 30
+    #         if start_int.to_s[2..3] == "60"
+    #             start_int += 40
+    #         end
+    #     end
+    # end
 
-    def open_slots(date)
-        existing_res = self.reservations.map do |reservation|
-            reservation.time if reservation.date == date
-        end
+    # def open_slots(date)
+    #     existing_res = self.reservations.map do |reservation|
+    #         reservation.time if reservation.date == date
+    #     end
 
-        @openings = @time_slots.reject do |slot|
-            existing_res.include?(slot)
-        end
-    end
+    #     @openings = @time_slots.reject do |slot|
+    #         existing_res.include?(slot)
+    #     end
+    # end
 
     def overall_rating
         ratings = self.reviews.map do |review|

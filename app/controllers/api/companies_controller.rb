@@ -2,7 +2,7 @@ class Api::CompaniesController < ApplicationController
     def create
         @company = Companies.new(company_params)
 
-        if @companies.save!
+        if @company.save!
             render "api/companies/show"
         else
             render json: @company.errors.full_messages, status: 422
