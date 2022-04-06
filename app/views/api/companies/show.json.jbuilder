@@ -1,11 +1,9 @@
 json.company do
     json.partial! "api/companies/company", company: @company
     json.rating @company.overall_rating
-    json.food_rating @company.food_rating
     json.service_rating @company.service_rating
-    json.ambience_rating @company.ambience_rating
     json.value_rating @company.value_rating
-    json.noise_level @company.noise_level
+    json.efficiency_rating @company.efficiency_rating
 end
 
 @company.reviews.each do |review|

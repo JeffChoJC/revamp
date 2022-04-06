@@ -18,13 +18,13 @@ const ReviewIndexItem = props => {
                 </div>
                 <div className="ratings-show">
                     <p>Overall</p>
-                    <p id="ratings-number">{ review.overall_rating }</p>
-                    <p>•&nbsp; Food</p>
-                    <p id="ratings-number">{ review.food_rating }</p>
+                    <p id="ratings-number">{ Math.round(review.overall_rating * 100) / 100}</p>
                     <p>•&nbsp; Service</p>
                     <p id="ratings-number">{ review.service_rating }</p>
-                    <p>•&nbsp; Ambience</p>
-                    <p id="ratings-number">{ review.ambience_rating }</p>
+                    <p>•&nbsp; Value</p>
+                    <p id="ratings-number">{ review.value_rating }</p>
+                    <p>•&nbsp; Efficiency</p>
+                    <p id="ratings-number">{ review.efficiency_rating }</p>
                 </div>
                 <p>{ review.body }</p>
             </div>

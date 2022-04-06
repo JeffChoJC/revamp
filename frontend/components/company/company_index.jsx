@@ -44,10 +44,12 @@ class CompanyIndex extends React.Component {
             <SearchContainer />
             <div className="table-results"></div>
             <div className="company-index-container">
-                <ul className="companies">
-                    <p className="num-tables">{`${this.props.companies.length} COMPANIES AVAILABLE`}</p>
-                    { companies }
-                </ul>
+                <div className="company-index-wrapper">
+                    <ul className="companies">
+                        <p className="num-tables">{`${this.props.companies.length} COMPANIES AVAILABLE`}</p>
+                        { companies }
+                    </ul>
+                </div>
             </div>
             </>
         )
