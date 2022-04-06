@@ -18,7 +18,7 @@
 #  owner_id     :integer          not null
 
 class Company < ApplicationRecord
-    include PgSearch
+    include PgSearch::Model
 
     validates :name, 
         :address,
@@ -50,7 +50,7 @@ class Company < ApplicationRecord
         :zipcode
     ]
 
-    after_initialize :open_time, :close_time, #:generate_time_slots
+    after_initialize :open_time, :close_time, :generate_time_slots
 
     def open_time
         @open_time ||= "8:00:00"
@@ -60,34 +60,43 @@ class Company < ApplicationRecord
         @close_time ||= "19:00:00"
     end
 
-    # def generate_time_slots
-    #     @time_slots = []
+    def generate_time_slots
+        @time_slots = [
+            "8:00 AM",
+            "8:30 AM",
+            "9:00 AM",
+            "9:30 AM",
+            "10:00 AM",
+            "10:30 AM",
+            "11:00 AM",
+            "11:30 AM",
+            "12:00 PM",
+            "12:30 PM",
+            "1:00 PM",
+            "1:30 PM",
+            "2:00 PM",
+            "2:30 PM",
+            "3:00 PM",
+            "3:30 PM",
+            "4:00 PM",
+            "4:30 PM",
+            "5:00 PM",
+            "5:30 PM",
+            "6:00 PM",
+            "6:30 PM",
+            "7:00 PM",
+        ]
+    end
 
-    #     start_int = @open_time[0..1].concat(@open_time[3..4]).to_i
-    #     finish_int = @close_time[0..1].concat(@close_time[3..4]).to_i
+    def open_slots(date)
+        existing_res = self.reservations.map do |reservation|
+            reservation.time if reservation.date == date
+        end
 
-    #     until start_int == finish_int
-    #         @time_slots.push(
-    #             start_int.to_s[0..1]
-    #             .concat(":#{start_int.to_s[2..3]}")
-    #             .concat(":00"))
-
-    #         start_int += 30
-    #         if start_int.to_s[2..3] == "60"
-    #             start_int += 40
-    #         end
-    #     end
-    # end
-
-    # def open_slots(date)
-    #     existing_res = self.reservations.map do |reservation|
-    #         reservation.time if reservation.date == date
-    #     end
-
-    #     @openings = @time_slots.reject do |slot|
-    #         existing_res.include?(slot)
-    #     end
-    # end
+        @openings = @time_slots.reject do |slot|
+            existing_res.include?(slot)
+        end
+    end
 
     def overall_rating
         ratings = self.reviews.map do |review|

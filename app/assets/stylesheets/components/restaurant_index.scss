@@ -11,8 +11,12 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)), url(asset-path("index_background.jpg"));
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)), url(asset-path("index-background.jpeg"));
     background-position: center;
+}
+
+.company-index-wrapper {
+    margin: 20px 0;
 }
 
 .companies {
@@ -22,6 +26,10 @@
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
+
+    > li:last-child {
+        border-bottom: none;
+    }
 }
 
 .company-index-photo {
@@ -75,8 +83,8 @@
 .timeslots-container {
     display: flex;
     flex-direction: row;
-    width: auto;
     padding: 10px 0px;
+    overflow-x: auto;
 }
 
 .timeslot {

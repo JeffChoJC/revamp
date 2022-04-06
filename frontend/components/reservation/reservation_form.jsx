@@ -12,13 +12,11 @@ class ReservationForm extends React.Component {
             this.state = {
                 date: new Date(reservation.date),
                 time: reservation.time,
-                party_size: reservation.party_size
             }
         } else {
             this.state = {
                 date: new Date(),
-                time: this.props.time,
-                party_size: "2"
+                time: "8:00:00",
             }
         }
 
@@ -39,6 +37,7 @@ class ReservationForm extends React.Component {
         e.preventDefault();
         const reservation = Object.assign({}, this.props.reservation, this.state, {
             date: parseDate(this.state.date),
+            time: this.state.time,
             company_id: this.props.company.id,
             user_id: this.props.userId
         })
@@ -65,12 +64,12 @@ class ReservationForm extends React.Component {
         if (!this.props.reserved) {
             return (
                 <button className="resform-create"
-                    onClick={ this.handleSubmit }>Reserve Table</button>
+                    onClick={ this.handleSubmit }>Make Appointment</button>
             )
         } else {
             return (
                 <button className="resform-edit"
-                    onClick={ this.handleSubmit }>Edit Reservation</button>
+                    onClick={ this.handleSubmit }>Edit Appointment</button>
             )
         }
     }
@@ -79,7 +78,7 @@ class ReservationForm extends React.Component {
         if (this.props.reserved) {
             return (
                 <button className="resform-delete" type="submit"
-                    onClick={ this.handleDelete(this.props.reservation.id) }>Cancel Reservation</button>
+                    onClick={ this.handleDelete(this.props.reservation.id) }>Cancel Appointment</button>
             )
         }
     }
@@ -113,29 +112,9 @@ class ReservationForm extends React.Component {
         return (
             <div className="reservation-form-container">
                 <form className="reservation-form">
-                    <h1 className="header">Make a Reservation</h1>
+                    <h1 className="header">Make an Appointment</h1>
                     { this.renderErrors() }
-                    <div class="confirmation-msg">{ this.renderMessage() }</div>
-                    <div className="resform-party-size-container">
-                        <h1>Party Size</h1>
-                        <div className="select-container">
-                            <select className="resform-select" defaultValue={ this.state.party_size }
-                                onChange={ this.update("party_size") }>
-                                <option value="1">For 1</option>
-                                <option value="2">For 2</option>
-                                <option value="3">For 3</option>
-                                <option value="4">For 4</option>
-                                <option value="5">For 5</option>
-                                <option value="6">For 6</option>
-                                <option value="7">For 7</option>
-                                <option value="8">For 8</option>
-                                <option value="9">For 9</option>
-                                <option value="10">For 10</option>
-                                <option value="11">For 11</option>
-                                <option value="12">For 12</option>
-                            </select>
-                        </div>
-                    </div>
+                    <div className="confirmation-msg">{ this.renderMessage() }</div>
                     <div className="resform-date-time">
                         <div className="resform-date-container">
                             <h1>Date</h1>
@@ -150,16 +129,29 @@ class ReservationForm extends React.Component {
                             <div className="select-container">
                                 <select className="resform-select" defaultValue={ this.state.time }
                                     onChange={ this.update("time") }>
+                                    <option value="8:00:00">8:00 AM</option>
+                                    <option value="8:30:00">8:30 AM</option>
+                                    <option value="9:00:00">9:00 AM</option>
+                                    <option value="9:30:00">9:30 AM</option>
+                                    <option value="10:00:00">10:00 AM</option>
+                                    <option value="10:30:00">10:30 AM</option>
+                                    <option value="11:00:00">11:00 AM</option>
+                                    <option value="11:30:00">11:30 AM</option>
+                                    <option value="12:00:00">12:00 PM</option>
+                                    <option value="12:30:00">12:30 PM</option>
+                                    <option value="13:00:00">1:00 PM</option>
+                                    <option value="13:30:00">1:30 PM</option>
+                                    <option value="14:00:00">2:00 PM</option>
+                                    <option value="14:30:00">2:30 PM</option>
+                                    <option value="15:00:00">3:00 PM</option>
+                                    <option value="15:30:00">3:30 PM</option>
+                                    <option value="16:00:00">4:00 PM</option>
+                                    <option value="16:30:00">4:30 PM</option>
                                     <option value="17:00:00">5:00 PM</option>
                                     <option value="17:30:00">5:30 PM</option>
                                     <option value="18:00:00">6:00 PM</option>
                                     <option value="18:30:00">6:30 PM</option>
-                                    <option value="19:00:00">7:00 PM</option>
-                                    <option value="19:30:00">7:30 PM</option>
-                                    <option value="20:00:00">8:00 PM</option>
-                                    <option value="20:30:00">8:30 PM</option>
-                                    <option value="21:00:00">9:00 PM</option>
-                                    <option value="21:30:00">9:30 PM</option>
+                                    <option value="10:00:00">7:00 PM</option>
                                 </select>
                             </div>
                         </div>

@@ -23,21 +23,17 @@ class CompanyShow extends React.Component {
                     <p id="company-overall">{ Math.round(company.rating * 100) / 100 } &nbsp; based on recent ratings</p>
                 </div>
                 <ul>
-                    <li key="food">
-                        <p id="rating-number">{ company.food_rating }</p>
-                        <p>Food</p>
-                    </li>
                     <li key="service">
                         <p id="rating-number">{ company.service_rating }</p>
                         <p>Service</p>
                     </li>
-                    <li key="ambience">
-                        <p id="rating-number">{ company.ambience_rating }</p>
-                        <p>Ambience</p>
-                    </li>
-                    <li key="value" id="last-rating">
+                    <li key="value">
                         <p id="rating-number">{ company.value_rating }</p>
                         <p>Value</p>
+                    </li>
+                    <li key="efficiency" id="last-rating">
+                        <p id="rating-number">{ company.efficiency_rating }</p>
+                        <p>Efficiency</p>
                     </li>
                 </ul>
             </div>
@@ -100,17 +96,6 @@ class CompanyShow extends React.Component {
                     <div className="overview-details">
                         <div className="company-overview">
                             <h1 className="company-name">{ company.name }</h1>
-                            <ul className="company-overview-list">
-                                <li key="1">
-                                    <i className="far fa-money-bill-alt"></i>
-                                    &nbsp; { company.price_range }
-                                </li>
-                                <li key="2">
-                                    <i className="fas fa-utensils"></i>
-                                    &nbsp; { company.cuisine }
-                                </li>
-                            </ul>
-                            <p className="company-descr">{ company.description }</p>
                             { this.overallReviews() }
                             <div className="review-button-container">
                                 { this.reviewButton() }
@@ -118,7 +103,7 @@ class CompanyShow extends React.Component {
                             { this.reviewDetails() }
                         </div>
                         <div className="company-details">
-                            <ReservationFormContainer time={ this.props.location.hash.slice(1, 9) }/>
+                            <ReservationFormContainer/>
                             <ul className="company-details-list">
                                 <li key="3">
                                     <i id="map-icon" className="far fa-map"></i>
@@ -140,7 +125,7 @@ class CompanyShow extends React.Component {
                                     <i id="clock-icon" className="far fa-clock"></i>
                                     <div className="company-detail-item">
                                         <h3>Hours of Operation</h3>
-                                        Dinner: {`${parseTime(company.open_time)}PM - ${parseTime(company.close_time)}PM`}
+                                        Dinner: {`${company.open_time} - ${company.close_time}`}
                                     </div>
                                 </li>
                             </ul>

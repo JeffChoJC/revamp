@@ -5,11 +5,9 @@ class ReviewForm extends React.Component {
         super(props);
         if (this.props.formType === 'create') {
             this.state = {
-                food_rating: 0,
                 service_rating: 0,
-                ambience_rating: 0,
                 value_rating: 0,
-                noise_level: 0,
+                efficiency_rating: 0,
                 body: "",
 
                 hoverField: null,
@@ -18,11 +16,9 @@ class ReviewForm extends React.Component {
         } else {
             const { review } = this.props;
             this.state = {
-                food_rating: review.food_rating,
                 service_rating: review.service_rating,
-                ambience_rating: review.ambience_rating,
                 value_rating: review.value_rating,
-                noise_level: review.noise_level,
+                efficiency_rating: review.efficiency_rating,
                 body: review.body,
 
                 hoverField: null,
@@ -38,13 +34,7 @@ class ReviewForm extends React.Component {
 
     rating(field) {
         let stars = [];
-        let max;
-
-        if (field === "noise_level") {
-            max = 4;
-        } else {
-            max = 5;
-        }
+        let max = 5;
 
         for (let i = 1; i <= max; i++) {
             let numStars = this.state.hoverField === field ? this.state.hoverStars : this.state[field];
@@ -122,23 +112,9 @@ class ReviewForm extends React.Component {
                     <h3>Rate your dining experience:</h3>
                     <div className="review-stars-container">
                         <div className="title-rating-container">
-                            <p>Food</p>
-                            <div className="review-star-rating">
-                                { this.rating("food_rating") }
-                            </div>
-                        </div>
-
-                        <div className="title-rating-container">
                             <p>Service</p>
                             <div className="review-star-rating">
                                 { this.rating("service_rating") }
-                            </div>
-                        </div>
-
-                        <div className="title-rating-container">
-                            <p>Ambience</p>
-                            <div className="review-star-rating">
-                                { this.rating("ambience_rating") }
                             </div>
                         </div>
 
@@ -150,9 +126,9 @@ class ReviewForm extends React.Component {
                         </div>
 
                         <div className="title-rating-container">
-                            <p>Noise (1 - Quiet)</p>
+                            <p>Efficiency</p>
                             <div className="review-star-rating">
-                                { this.rating("noise_level") }
+                                { this.rating("efficiency_rating") }
                             </div>
                         </div>
                     </div>
