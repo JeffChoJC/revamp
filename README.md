@@ -27,22 +27,14 @@ Live Site: https://git.heroku.com/open-res.git
 ## Company Search:
 Users can search for multiple `keyword`s against multiple company data columns. This feature implements the gem `PgSearch`. 
 
-<img src="./readme_images/search.gif">
-
 ## User-Authorization:
 Revamp features backend auth using BCrypt for password hashing purposes. Logged in user state is persisted via cookies unless deliberately signed out. Email addresses used to sign up are saved to the rails backend with associated passwor digests where uniqueness is ensured by database and model restraints.
 
 ## Reservations:
 Users can select date, time, and party size and Revamp will generate a list of companies with available reservations closest to the selected options.
 
-<img src="./readme_images/reservation.gif">
-
 ## Favorites:
 Accessing a favorite company is made easy. Once the user has saved a company, it is accessible through the drop down menu in the top-right corner via "Saved Companies".
 
-<img src="./readme_images/favorites.gif">
-
 ## Reviews:
-Once logged in, Revamp allows users to leave a single review per company. Reviews require 1-5 star ratings of 4 categories, 1-4 rating for noise level, and a description.
-
-<img src="./readme_images/reviews.gif">
+Once logged in, Revamp allows users to leave a single review per company. Reviews require 1-5 star ratings of 3 categories and a description.
